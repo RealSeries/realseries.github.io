@@ -1,0 +1,1566 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>All Models &mdash; RealSeries 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Utility Functions" href="realseries.utils.html" />
+    <link rel="prev" title="API Reference" href="realseries.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RealSeries
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#isolationforest-example">IsolationForest Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#pytorch-basded-neural-network-example">Pytorch basded Neural Network Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#series-and-label-visualize-example">Series and Label Visualize Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#granger-causality-example">Granger causality Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#industrial-demo">Industrial demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#simulation-demo">Simulation demo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cheetsheet.html">API Cheetsheet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cheetsheet.html#model">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cheetsheet.html#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cheetsheet.html#visualize">Visualize</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="realseries.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">All Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.AR">realseries.models.AR module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#realseries-models-dwgc-module">realseries.models.DWGC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#realseries-models-gc-module">realseries.models.GC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.NAR">realseries.models.NAR module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.base">realseries.models.base module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.iforest">realseries.models.iforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.lstm_dynamic">realseries.models.lstm_dynamic module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.lumino">realseries.models.lumino module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.rcforest">realseries.models.rcforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.rnn">realseries.models.rnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.seqvl">realseries.models.seqvl module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.sr">realseries.models.sr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.srcnn">realseries.models.srcnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.stl">realseries.models.stl module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.vae_ad">realseries.models.vae_ad module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="realseries.utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.data">realseries.utils.data module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.dataset">realseries.utils.dataset module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.errors">realseries.utils.errors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.evaluation">realseries.utils.evaluation module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.preprocess">realseries.utils.preprocess module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.segment">realseries.utils.segment module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.utility">realseries.utils.utility module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.visualize">realseries.utils.visualize module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Time Series Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#anomaly-detection-datasets">Anomaly Detection Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#granger-causality-datasets">Granger causality Datasets</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">RealSeries 101</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anomaly_detection.html">Anomaly Detection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_detection.html#problem-description">Problem Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_detection.html#models">Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Granger_causality.html">Granger causality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Granger_causality.html#problem-description-of-granger-causality">Problem Description of Granger causality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Granger_causality.html#models-of-granger-causality">Models of Granger causality</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="forecast_and_imputation.html">Forecast and Imputation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RealSeries</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="realseries.html">API Reference</a> &raquo;</li>
+        
+      <li>All Models</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/realseries.models.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="all-models">
+<h1>All Models<a class="headerlink" href="#all-models" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-realseries.models.AR">
+<span id="realseries-models-ar-module"></span><h2>realseries.models.AR module<a class="headerlink" href="#module-realseries.models.AR" title="Permalink to this headline">¶</a></h2>
+<p>Created on Sun Apr 19 22:34:04 2020</p>
+<p>&#64;author: zhihengzhang</p>
+<dl class="py class">
+<dt id="realseries.models.AR.AR_new">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.AR.</code><code class="sig-name descname">AR_new</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lag</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.AR.AR_new" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lag</strong> – the time lag in AR model</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="realseries.models.AR.AR_new.X_train">
+<code class="sig-name descname">X_train</code><a class="headerlink" href="#realseries.models.AR.AR_new.X_train" title="Permalink to this definition">¶</a></dt>
+<dd><p>training data in AR model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="realseries.models.AR.AR_new.Y_train">
+<code class="sig-name descname">Y_train</code><a class="headerlink" href="#realseries.models.AR.AR_new.Y_train" title="Permalink to this definition">¶</a></dt>
+<dd><p>training label in AR model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.AR.AR_new.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.AR.AR_new.detect" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – time series(dimension is 1 or 2)</p></li>
+<li><p><strong>y</strong> – The default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the fitting result of training data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>detection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.AR.AR_new.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.AR.AR_new.fit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – time series(dimension is 1 or 2)</p></li>
+<li><p><strong>y</strong> – The default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="realseries-models-dwgc-module">
+<h2>realseries.models.DWGC module<a class="headerlink" href="#realseries-models-dwgc-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="realseries-models-gc-module">
+<h2>realseries.models.GC module<a class="headerlink" href="#realseries-models-gc-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-realseries.models.NAR">
+<span id="realseries-models-nar-module"></span><h2>realseries.models.NAR module<a class="headerlink" href="#module-realseries.models.NAR" title="Permalink to this headline">¶</a></h2>
+<p>Created on Tue Apr 14 16:36:45 2020</p>
+<p>&#64;author: studyzzh</p>
+<dl class="py class">
+<dt id="realseries.models.NAR.NAR_Network">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.NAR.</code><code class="sig-name descname">NAR_Network</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputnodes</span></em>, <em class="sig-param"><span class="n">hiddennodes</span></em>, <em class="sig-param"><span class="n">outputnodes</span></em>, <em class="sig-param"><span class="n">learningrate</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.NAR.NAR_Network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputnodes</strong> (<em>--</em>) – the number of nodes in input layer.</p></li>
+<li><p><strong>hiddennodes</strong> (<em>--</em>) – the number of nodes in hidden layer.</p></li>
+<li><p><strong>outputnodes</strong> (<em>--</em>) – the number of nodes in outout layer.</p></li>
+<li><p><strong>learning rate</strong> (<em>--</em>) – the learning rate of NAR model.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">-- fit_X</code></dt>
+<dd><p>the fitting results on training data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.NAR.NAR_Network.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.NAR.NAR_Network.detect" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – the input time series in shape of (,1) or (,2)</p></li>
+<li><p><strong>y</strong> – The default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the fitting errors on training data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>output_errors</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.NAR.NAR_Network.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.NAR.NAR_Network.fit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – the input time series in shape of (,1) or (,2)</p></li>
+<li><p><strong>y</strong> – The default is None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-realseries.models.base">
+<span id="realseries-models-base-module"></span><h2>realseries.models.base module<a class="headerlink" href="#module-realseries.models.base" title="Permalink to this headline">¶</a></h2>
+<p>Base class for all time series analysis methods. It includes the methods like
+fit, detect and predict etc.</p>
+<dl class="py class">
+<dt id="realseries.models.base.BaseModel">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.base.</code><code class="sig-name descname">BaseModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contamination</span><span class="o">=</span><span class="default_value">0.1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.base.BaseModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>BaseModel class for all RealSeries predict/detect algorithms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>contamination</strong> (<em>float</em><em>, </em><em>optional</em>) – The amount of contamination of the data set,
+i.e. the proportion of outliers in the data set. Used when fitting to
+define the threshold on the decision function.. Defaults to 0.1.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Contamination must be in (0, 0.5].</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="realseries.models.base.BaseModel.detect">
+<em class="property">abstract </em><code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.base.BaseModel.detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict using the trained detector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>array_like</em>) – The input sequence of shape (n_length, n_features) or (n_length,).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Outlier labels of shape (n_length,).For each sample of time series, whether or not it is an outlier. 0 for inliers and 1 for outliers.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.base.BaseModel.fit">
+<em class="property">abstract </em><code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.base.BaseModel.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – The input sequence of shape (n_length, n_features) or (n_length,).</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em>, </em><em>optional</em>) – Ignored. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.base.BaseModel.forecast">
+<code class="sig-name descname">forecast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.base.BaseModel.forecast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forecast the input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – The input sequence of shape (n_length, n_features) or (n_length,).</p></li>
+<li><p><strong>t</strong> (<em>int</em>) – time index of to-be-forecast samples.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Forecast samples of shape (n_length, n_features)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>X_1 (ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.base.BaseModel.impute">
+<code class="sig-name descname">impute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.base.BaseModel.impute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Impute the input data X at time index t.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – The input sequence of shape (n_length, n_features) or (n_length,).</p></li>
+<li><p><strong>t</strong> (<em>int</em>) – time index of to-be-forecast samples.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Impute samples of shape (n_length, n_features)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>X_1 (ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-realseries.models.iforest">
+<span id="realseries-models-iforest-module"></span><h2>realseries.models.iforest module<a class="headerlink" href="#module-realseries.models.iforest" title="Permalink to this headline">¶</a></h2>
+<p>The implementation of isolation forest method based on sklearn.</p>
+<dl class="py class">
+<dt id="realseries.models.iforest.IForest">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.iforest.</code><code class="sig-name descname">IForest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_estimators</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">max_samples</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="n">contamination</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="n">max_features</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">bootstrap</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">n_jobs</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">random_state</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.iforest.IForest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<p>Isolation forest algorithm.</p>
+<p>The IsolationForest ‘isolates’ observations by randomly selecting a feature
+and then randomly selecting a split value between the maximum and minimum
+values of the selected feature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_estimators</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of base estimators in the
+ensemble. Defaults to 100.</p></li>
+<li><p><strong>max_samples</strong> (<em>int</em><em> or </em><em>float</em><em>, </em><em>optional</em>) – <p>The number of samples to draw from
+X to train each base estimator. Defaults to “auto”.</p>
+<blockquote>
+<div><ul>
+<li><p>If int, then draw <cite>max_samples</cite> samples.</p></li>
+<li><p>If float, then draw <cite>max_samples * X.shape[0]</cite> samples.</p></li>
+<li><p>If “auto”, then <cite>max_samples=min(256, n_samples)</cite>.</p></li>
+</ul>
+</div></blockquote>
+<p>If max_samples is larger than the number of samples provided, all
+samples will be used for all trees (no sampling).</p>
+</p></li>
+<li><p><strong>contamination</strong> (<em>'auto'</em><em> or </em><em>float</em><em>, </em><em>optional</em>) – The amount of contamination
+of the data set. Defaults to ‘auto’.</p></li>
+<li><p><strong>max_features</strong> (<em>int</em><em> or </em><em>float</em><em>, </em><em>optional</em>) – The number of features to draw
+from X to train each base estimator. Defaults to 1.</p></li>
+<li><p><strong>bootstrap</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, individual trees are fit on random
+subsets of the training data sampled with replacement. If False,
+sampling without replacement is performed. Defaults to False.</p></li>
+<li><p><strong>n_jobs</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of jobs to run in parallel. Defaults
+to 1.</p></li>
+<li><p><strong>random_state</strong> (<em>int</em><em>, </em><em>optional</em>) – If RandomState instance, random_state is
+the random number generator. If None, the random number generator
+is the RandomState instance used by <cite>np.random</cite>. Defaults to 0.</p></li>
+<li><p><strong>verbose</strong> (<em>int</em><em>, </em><em>optional</em>) – Controls the verbosity of the tree building
+process. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="realseries.models.iforest.IForest.anomaly_score">
+<code class="sig-name descname">anomaly_score</code><a class="headerlink" href="#realseries.models.iforest.IForest.anomaly_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of anomaly score.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="realseries.models.iforest.IForest.IF">
+<code class="sig-name descname">IF</code><a class="headerlink" href="#realseries.models.iforest.IForest.IF" title="Permalink to this definition">¶</a></dt>
+<dd><p>The isolation model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">estimators\_</code></dt>
+<dd><p>List of DecisionTreeClassifier.The collection of fitted sub-estimators.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">estimators_samples\_</code></dt>
+<dd><p>List of arrays.The subset of drawn samples (i.e.,
+the in-bag samples) for each base estimator.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">max_samples\_</code></dt>
+<dd><p>The actual number of samples</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.iforest.IForest.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.iforest.IForest.detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect the test data by trained model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>array_like</em>) – The input sequence with shape (n_sample, n_features).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The predicted anomaly score.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.iforest.IForest.estimators_">
+<em class="property">property </em><code class="sig-name descname">estimators_</code><a class="headerlink" href="#realseries.models.iforest.IForest.estimators_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The collection of fitted sub-estimators.
+Decorator for scikit-learn Isolation Forest attributes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.iforest.IForest.estimators_samples_">
+<em class="property">property </em><code class="sig-name descname">estimators_samples_</code><a class="headerlink" href="#realseries.models.iforest.IForest.estimators_samples_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The subset of drawn samples (i.e., the in-bag samples) for
+each base estimator.
+Decorator for scikit-learn Isolation Forest attributes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.iforest.IForest.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.iforest.IForest.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – The input sequence with shape (n_sample, n_features).</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em>, </em><em>optional</em>) – The label. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.iforest.IForest.max_samples_">
+<em class="property">property </em><code class="sig-name descname">max_samples_</code><a class="headerlink" href="#realseries.models.iforest.IForest.max_samples_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The actual number of samples.
+Decorator for scikit-learn Isolation Forest attributes.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-realseries.models.lstm_dynamic">
+<span id="realseries-models-lstm-dynamic-module"></span><h2>realseries.models.lstm_dynamic module<a class="headerlink" href="#module-realseries.models.lstm_dynamic" title="Permalink to this headline">¶</a></h2>
+<p>The lstm danamic threshold method is the implentation of paper
+‘Detecting Spacecraft Anomalies Using LSTMs andNonparametric Dynamic Thresholding’
+<a class="reference external" href="https://realai.feishu.cn/file/boxcnr8SZeoUlMT9Hchf838qYQc">https://realai.feishu.cn/file/boxcnr8SZeoUlMT9Hchf838qYQc</a></p>
+<dl class="py class">
+<dt id="realseries.models.lstm_dynamic.LSTM_dynamic">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.lstm_dynamic.</code><code class="sig-name descname">LSTM_dynamic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hidden_size</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">model_path</span><span class="o">=</span><span class="default_value">'./model'</span></em>, <em class="sig-param"><span class="n">dropout</span><span class="o">=</span><span class="default_value">0.3</span></em>, <em class="sig-param"><span class="n">lr</span><span class="o">=</span><span class="default_value">0.001</span></em>, <em class="sig-param"><span class="n">lstm_batch_size</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">epochs</span><span class="o">=</span><span class="default_value">50</span></em>, <em class="sig-param"><span class="n">num_layers</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">l_s</span><span class="o">=</span><span class="default_value">120</span></em>, <em class="sig-param"><span class="n">n_predictions</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">32</span></em>, <em class="sig-param"><span class="n">window_size</span><span class="o">=</span><span class="default_value">50</span></em>, <em class="sig-param"><span class="n">smoothing_perc</span><span class="o">=</span><span class="default_value">0.2</span></em>, <em class="sig-param"><span class="n">error_buffer</span><span class="o">=</span><span class="default_value">50</span></em>, <em class="sig-param"><span class="n">p</span><span class="o">=</span><span class="default_value">0.1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.lstm_dynamic.LSTM_dynamic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<p>LSTM Dynamic method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hidden_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Hidden size of LSTM. Defaults to 128.</p></li>
+<li><p><strong>model_path</strong> (<em>str</em><em>, </em><em>optional</em>) – Path for saving and loading model. Defaults
+to ‘./model’.</p></li>
+<li><p><strong>dropout</strong> (<em>float</em><em>, </em><em>optional</em>) – Dropout rate. Defaults to 0.3.</p></li>
+<li><p><strong>lr</strong> (<em>float</em><em>, </em><em>optional</em>) – Learning rate. Defaults to 1e-3.</p></li>
+<li><p><strong>lstm_batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Batch size of training LSTM. Defaults
+to 100.</p></li>
+<li><p><strong>epochs</strong> (<em>int</em><em>, </em><em>optional</em>) – Epochs of training. Defaults to 50.</p></li>
+<li><p><strong>num_layers</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of LSTM layer. Defaults to 2.</p></li>
+<li><p><strong>l_s</strong> (<em>int</em><em>, </em><em>optional</em>) – Length of the input sequence for LSTM. Defaults to
+120.</p></li>
+<li><p><strong>n_predictions</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of values to predict by input
+sequence. Defaults to 10.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of values to evaluate in each batch
+in the prediction stage. Defaults to 32.</p></li>
+<li><p><strong>window_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Window_size to use in error calculation.
+Defaults to 50.</p></li>
+<li><p><strong>smoothing_perc</strong> (<em>float</em><em>, </em><em>optional</em>) – Percentage of total values used in
+EWMA smoothing. Defaults to 0.2.</p></li>
+<li><p><strong>error_buffer</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of values surrounding an error that
+are brought into the sequence. Defaults to 50.</p></li>
+<li><p><strong>p</strong> (<em>float</em><em>, </em><em>optional</em>) – Minimum percent decrease between max errors in
+anomalous sequences (used for pruning). Defaults to 0.1.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="realseries.models.lstm_dynamic.LSTM_dynamic.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#realseries.models.lstm_dynamic.LSTM_dynamic.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>The LSTM model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="realseries.models.lstm_dynamic.LSTM_dynamic.y_test">
+<code class="sig-name descname">y_test</code><a class="headerlink" href="#realseries.models.lstm_dynamic.LSTM_dynamic.y_test" title="Permalink to this definition">¶</a></dt>
+<dd><p>The origin data for calculate error.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="realseries.models.lstm_dynamic.LSTM_dynamic.y_hat">
+<code class="sig-name descname">y_hat</code><a class="headerlink" href="#realseries.models.lstm_dynamic.LSTM_dynamic.y_hat" title="Permalink to this definition">¶</a></dt>
+<dd><p>The predicted data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.lstm_dynamic.LSTM_dynamic.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">smoothed</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.lstm_dynamic.LSTM_dynamic.detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get anomaly score of input sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – Input sequence.</p></li>
+<li><p><strong>smoothed</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to smooth the errors by EWMA.
+Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(error_seq, error_seq_scores).The error_seq is list that
+stand the anomaly duration. The error_seq_scores is the corresponding
+anomaly score.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.lstm_dynamic.LSTM_dynamic.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">split</span><span class="o">=</span><span class="default_value">0.25</span></em>, <em class="sig-param"><span class="n">monitor</span><span class="o">=</span><span class="default_value">'val_loss'</span></em>, <em class="sig-param"><span class="n">patience</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">delta</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.lstm_dynamic.LSTM_dynamic.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the LSTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>arrar_like</em>) – The 2-D input sequence with shape (n_samples,
+n_features)</p></li>
+<li><p><strong>split</strong> (<em>float</em><em>, </em><em>optional</em>) – Fration to split for validation set.
+Defaults to 0.25.</p></li>
+<li><p><strong>monitor</strong> (<em>str</em><em>, </em><em>optional</em>) – Monitor the validation loss by setting the
+monitor argument to ‘val_loss’. Defaults to ‘val_loss’.</p></li>
+<li><p><strong>patience</strong> (<em>int</em><em>, </em><em>optional</em>) – Patience argument represents the number of
+epochs before stopping once your loss starts to increase (stops
+improving). Defaults to 10.</p></li>
+<li><p><strong>delta</strong> (<em>int</em><em>, </em><em>optional</em>) – A threshold to whether quantify a loss at
+some epoch as improvement or not. If the difference of loss is
+below delta, it is quantified as no improvement. Better to leave
+it as 0 since we’re interested in when loss becomes worse.
+Defaults to 0.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Verbose decides what to print. Defaults to
+True.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.lstm_dynamic.LSTM_dynamic.obtain_anomaly">
+<em class="property">static </em><code class="sig-name descname">obtain_anomaly</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">y_test</span></em>, <em class="sig-param"><span class="n">y_hat</span></em>, <em class="sig-param"><span class="n">batch_size</span></em>, <em class="sig-param"><span class="n">window_size</span></em>, <em class="sig-param"><span class="n">smoothing_perc</span></em>, <em class="sig-param"><span class="n">p</span></em>, <em class="sig-param"><span class="n">l_s</span></em>, <em class="sig-param"><span class="n">error_buffer</span></em>, <em class="sig-param"><span class="n">smoothed</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.lstm_dynamic.LSTM_dynamic.obtain_anomaly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain anomaly from the origin sequence and reconstructed sequence y_hat.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_test</strong> (<em>ndarray</em>) – The origin 1-D signals array of test targets
+corresponding to true values to be predicted at end of each window.</p></li>
+<li><p><strong>y_hat</strong> (<em>ndarray</em>) – The predicted 1-D sequence y_hat for each timestep in y_test</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of values to evaluate in each
+batch in the prediction stage. Defaults to 32.</p></li>
+<li><p><strong>window_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Window_size to use in error calculation.
+Defaults to 50.</p></li>
+<li><p><strong>smoothing_perc</strong> (<em>float</em><em>, </em><em>optional</em>) – Percentage of total values used in
+EWMA smoothing. Defaults to 0.2.</p></li>
+<li><p><strong>error_buffer</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of values surrounding an error
+that are brought into the sequence. Defaults to 50.</p></li>
+<li><p><strong>p</strong> (<em>float</em><em>, </em><em>optional</em>) – Minimum percent decrease between max errors in
+anomalous sequences (used for pruning). Defaults to 0.1.</p></li>
+<li><p><strong>l_s</strong> (<em>int</em><em>, </em><em>optional</em>) – Length of the input sequence for LSTM. Defaults
+to 120.</p></li>
+<li><p><strong>smoothed</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to smooth the errors by EWMA.
+Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(error_seq, error_seq_scores)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.lstm_dynamic.LSTM_dynamic.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.lstm_dynamic.LSTM_dynamic.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the reconstructed output array y_hat.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>array_like</em>) – The input 2-D array.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Num_batches less than 0.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The predicted array of lstm_encoder_decoder.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-realseries.models.lumino">
+<span id="realseries-models-lumino-module"></span><h2>realseries.models.lumino module<a class="headerlink" href="#module-realseries.models.lumino" title="Permalink to this headline">¶</a></h2>
+<p>The implementation of luminol method.
+Reference: <a class="reference external" href="https://github.com/linkedin/luminol">https://github.com/linkedin/luminol</a></p>
+<dl class="py class">
+<dt id="realseries.models.lumino.Lumino">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.lumino.</code><code class="sig-name descname">Lumino</code><a class="headerlink" href="#realseries.models.lumino.Lumino" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<dl class="py method">
+<dt id="realseries.models.lumino.Lumino.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">algorithm_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">algorithm_params</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.lumino.Lumino.detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect the input sequence and return anomaly socre.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – 1-D time series with shape (n_samples,)</p></li>
+<li><p><strong>algorithm_name</strong> (<em>str</em><em>, </em><em>optional</em>) – Algorithm_name. Defaults to None.</p></li>
+<li><p><strong>algorithm_params</strong> (<em>dict</em><em>, </em><em>optional</em>) – <p>Algorithm_params. Defaults to None.
+The algorithm_name and the corresponding algorithm_params are:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="mf">1.</span>  <span class="s1">&#39;bitmap_detector&#39;</span><span class="p">:</span> <span class="c1"># behaves well for huge data sets, and it is the default detector.</span>
+    <span class="p">{</span>
+    <span class="s1">&#39;precision&#39;</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span> <span class="c1"># how many sections to categorize values,</span>
+    <span class="s1">&#39;lag_window_size&#39;</span><span class="p">(</span><span class="mi">2</span><span class="o">%</span> <span class="n">of</span> <span class="n">the</span> <span class="n">series</span> <span class="n">length</span><span class="p">):</span> <span class="c1"># lagging window size,</span>
+    <span class="s1">&#39;future_window_size&#39;</span><span class="p">(</span><span class="mi">2</span><span class="o">%</span> <span class="n">of</span> <span class="n">the</span> <span class="n">series</span> <span class="n">length</span><span class="p">):</span> <span class="c1"># future window size,</span>
+    <span class="s1">&#39;chunk_size&#39;</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span> <span class="c1"># chunk size.</span>
+    <span class="p">}</span>
+<span class="mf">2.</span>  <span class="s1">&#39;default_detector&#39;</span><span class="p">:</span> <span class="c1"># used when other algorithms fails, not meant to be explicitly used.</span>
+<span class="mf">3.</span>  <span class="s1">&#39;derivative_detector&#39;</span><span class="p">:</span> <span class="c1"># meant to be used when abrupt changes of value are of main interest.</span>
+    <span class="p">{</span>
+    <span class="s1">&#39;smoothing factor&#39;</span><span class="p">(</span><span class="mf">0.2</span><span class="p">):</span> <span class="c1"># smoothing factor used to compute exponential moving averages</span>
+                                <span class="c1"># of derivatives.</span>
+    <span class="p">}</span>
+<span class="mf">4.</span>  <span class="s1">&#39;exp_avg_detector&#39;</span><span class="p">:</span> <span class="c1"># meant to be used when values are in a roughly stationary range.</span>
+                        <span class="c1"># and it is the default refine algorithm.</span>
+    <span class="p">{</span>
+    <span class="s1">&#39;smoothing factor&#39;</span><span class="p">(</span><span class="mf">0.2</span><span class="p">):</span> <span class="c1"># smoothing factor used to compute exponential moving averages.</span>
+    <span class="s1">&#39;lag_window_size&#39;</span><span class="p">(</span><span class="mi">20</span><span class="o">%</span> <span class="n">of</span> <span class="n">the</span> <span class="n">series</span> <span class="n">length</span><span class="p">):</span> <span class="c1"># lagging window size.</span>
+    <span class="s1">&#39;use_lag_window&#39;</span><span class="p">(</span><span class="kc">False</span><span class="p">):</span> <span class="c1"># if asserted, a lagging window of size lag_window_size will be used.</span>
+    <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Normalized anomaly score in [0,1].</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.lumino.Lumino.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.lumino.Lumino.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – The input sequence of shape (n_length, n_features) or (n_length,).</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em>, </em><em>optional</em>) – Ignored. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-realseries.models.rcforest">
+<span id="realseries-models-rcforest-module"></span><h2>realseries.models.rcforest module<a class="headerlink" href="#module-realseries.models.rcforest" title="Permalink to this headline">¶</a></h2>
+<p>The implementation of random cur forest method. Reference: S. Guha, N. Mishra,
+G. Roy, &amp; O. Schrijvers, Robust random cut forest based anomaly detection on
+streams, in Proceedings of the 33rd International conference on machine learning,
+New York, NY, 2016 (pp. 2712-2721). <a class="reference external" href="https://github.com/kLabUM/rrcf">https://github.com/kLabUM/rrcf</a></p>
+<dl class="py class">
+<dt id="realseries.models.rcforest.RCForest">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.rcforest.</code><code class="sig-name descname">RCForest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shingle_size</span><span class="o">=</span><span class="default_value">32</span></em>, <em class="sig-param"><span class="n">num_trees</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">tree_size</span><span class="o">=</span><span class="default_value">50</span></em>, <em class="sig-param"><span class="n">random_state</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.rcforest.RCForest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<p>Random cut forest.The Robust Random Cut Forest (RRCF) algorithm is an
+ensemble method for detecting outliers in streaming data. RRCF offers a
+number of features that many competing anomaly detection algorithms lack.
+Specifically, RRCF:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Is designed to handle streaming data.</p></li>
+<li><p>Performs well on high-dimensional data.</p></li>
+<li><p>Reduces the influence of irrelevant dimensions.</p></li>
+<li><p>Gracefully handles duplicates and near-duplicates that could otherwise
+mask the presence of outliers.</p></li>
+<li><p>Features an anomaly-scoring algorithm with a clear underlying
+statistical meaning.</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shingle_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Window size. Defaults to 32.</p></li>
+<li><p><strong>num_trees</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of estimators. Defaults to 100.</p></li>
+<li><p><strong>tree_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of leaf. Defaults to 50.</p></li>
+<li><p><strong>random_state</strong> (<em>int</em><em>, </em><em>optional</em>) – Random state seed. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="realseries.models.rcforest.RCForest.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.rcforest.RCForest.detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect the input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>array_like</em>) – Input sequence.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Anomaly score.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.rcforest.RCForest.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.rcforest.RCForest.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – The input sequence of shape (n_length, n_features) or (n_length,).</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em>, </em><em>optional</em>) – Ignored. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-realseries.models.rnn">
+<span id="realseries-models-rnn-module"></span><h2>realseries.models.rnn module<a class="headerlink" href="#module-realseries.models.rnn" title="Permalink to this headline">¶</a></h2>
+<p>RNN encoder decoder model.
+Reference ‘LSTM-based Encoder-Decoder for Multi-sensor Anomaly Detection’
+<a class="reference external" href="https://realai.feishu.cn/file/boxcnq8xDSTrFi4ha5vodTaF66u">https://realai.feishu.cn/file/boxcnq8xDSTrFi4ha5vodTaF66u</a></p>
+<dl class="py class">
+<dt id="realseries.models.rnn.LSTMED">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.rnn.</code><code class="sig-name descname">LSTMED</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rnn_type</span><span class="o">=</span><span class="default_value">'LSTM'</span></em>, <em class="sig-param"><span class="n">emsize</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">nhid</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">epochs</span><span class="o">=</span><span class="default_value">200</span></em>, <em class="sig-param"><span class="n">nlayers</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">64</span></em>, <em class="sig-param"><span class="n">window_size</span><span class="o">=</span><span class="default_value">50</span></em>, <em class="sig-param"><span class="n">dropout</span><span class="o">=</span><span class="default_value">0.2</span></em>, <em class="sig-param"><span class="n">lr</span><span class="o">=</span><span class="default_value">0.0002</span></em>, <em class="sig-param"><span class="n">weight_decay</span><span class="o">=</span><span class="default_value">0.0001</span></em>, <em class="sig-param"><span class="n">clip</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">res_connection</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">prediction_window_size</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">model_path</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">1111</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.rnn.LSTMED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<p>RNN(LSTM) encoder decoder model for anomaly detection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rnn_type</strong> (<em>str</em><em>, </em><em>optional</em>) – Type of recurrent net (RNN_TANH, RNN_RELU,
+LSTM, GRU, SRU). Defaults to ‘LSTM’.</p></li>
+<li><p><strong>emsize</strong> (<em>int</em><em>, </em><em>optional</em>) – Size of rnn input features. Defaults to 128.</p></li>
+<li><p><strong>nhid</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of hidden units per layer. Defaults to 128.</p></li>
+<li><p><strong>epochs</strong> (<em>int</em><em>, </em><em>optional</em>) – Upper epoch limit. Defaults to 200.</p></li>
+<li><p><strong>nlayers</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of LSTM layers. Defaults to 2.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Batch size. Defaults to 64.</p></li>
+<li><p><strong>window_size</strong> (<em>int</em><em>, </em><em>optional</em>) – LSTM input sequence length. Defaults to 50.</p></li>
+<li><p><strong>dropout</strong> (<em>float</em><em>, </em><em>optional</em>) – Defaults to 0.2.</p></li>
+<li><p><strong>lr</strong> (<em>float</em><em>, </em><em>optional</em>) – Learning rate. Defaults to 0.0002.</p></li>
+<li><p><strong>weight_decay</strong> (<em>float</em><em>, </em><em>optional</em>) – Weight decay. Defaults to 1e-4.</p></li>
+<li><p><strong>clip</strong> (<em>int</em><em>, </em><em>optional</em>) – Gradient clipping. Defaults to 10.</p></li>
+<li><p><strong>res_connection</strong> (<em>bool</em><em>, </em><em>optional</em>) – Residual connection. This parameters
+has not been tested when setting <cite>True</cite>. Defaults to False.</p></li>
+<li><p><strong>prediction_window_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Prediction window size.
+Defaults to 10.</p></li>
+<li><p><strong>model_path</strong> (<em>str</em><em>, </em><em>optional</em>) – The path to save or load model.
+Defaults to None.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – Seed. Defaults to 1111.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="realseries.models.rnn.LSTMED.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#realseries.models.rnn.LSTMED.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>LSTM model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.rnn.LSTMED.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">channel_idx</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.rnn.LSTMED.detect" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>If X is an array of shape (n_samples, n_features), it need to be</dt><dd><p>detected one by one channel.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – Input sequence.</p></li>
+<li><p><strong>channel_idx</strong> (<em>int</em><em>, </em><em>optional</em>) – The index of feature cahnnel to detect.</p></li>
+<li><p><strong>to 0.</strong> (<em>Defaults</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Anomaly score</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.rnn.LSTMED.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">augment_length</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">split</span><span class="o">=</span><span class="default_value">0.25</span></em>, <em class="sig-param"><span class="n">monitor</span><span class="o">=</span><span class="default_value">'val_loss'</span></em>, <em class="sig-param"><span class="n">patience</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">delta</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.rnn.LSTMED.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the detector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – The input sequence of shape (n_length,).</p></li>
+<li><p><strong>y</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Ignored. Defaults to None.</p></li>
+<li><p><strong>augment_length</strong> (<em>int</em><em>, </em><em>optional</em>) – The total number of samples after
+augmented. Defaults to None.</p></li>
+<li><p><strong>split</strong> (<em>float</em><em>, </em><em>optional</em>) – Fration to split for validation set.
+Defaults to 0.25.</p></li>
+<li><p><strong>monitor</strong> (<em>str</em><em>, </em><em>optional</em>) – Monitor the validation loss by setting the
+monitor argument to ‘val_loss’. Defaults to ‘val_loss’.</p></li>
+<li><p><strong>patience</strong> (<em>int</em><em>, </em><em>optional</em>) – Patience argument represents the number of
+epochs before stopping once your loss starts to increase
+(stops improving). Defaults to 10.</p></li>
+<li><p><strong>delta</strong> (<em>int</em><em>, </em><em>optional</em>) – A threshold to whether quantify a loss at
+some epoch as improvement or not. If the difference of loss is
+below delta, it is quantified as no improvement. Better to leave
+it as 0 since we’re interested in when loss becomes worse.
+Defaults to 0.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Verbose decides what to print.
+Defaults to True.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-realseries.models.seqvl">
+<span id="realseries-models-seqvl-module"></span><h2>realseries.models.seqvl module<a class="headerlink" href="#module-realseries.models.seqvl" title="Permalink to this headline">¶</a></h2>
+<p>Introduction of seqvl.</p>
+<dl class="py class">
+<dt id="realseries.models.seqvl.SeqVL">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.seqvl.</code><code class="sig-name descname">SeqVL</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contamination</span><span class="o">=</span><span class="default_value">0.1</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">'SeqVL'</span></em>, <em class="sig-param"><span class="n">num_epochs</span><span class="o">=</span><span class="default_value">250</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">lr</span><span class="o">=</span><span class="default_value">0.001</span></em>, <em class="sig-param"><span class="n">lr_decay</span><span class="o">=</span><span class="default_value">0.8</span></em>, <em class="sig-param"><span class="n">lamb</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">clip_norm_value</span><span class="o">=</span><span class="default_value">12.0</span></em>, <em class="sig-param"><span class="n">data_split_rate</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">window_size</span><span class="o">=</span><span class="default_value">30</span></em>, <em class="sig-param"><span class="n">window_count</span><span class="o">=</span><span class="default_value">300</span></em>, <em class="sig-param"><span class="n">h_dim</span><span class="o">=</span><span class="default_value">24</span></em>, <em class="sig-param"><span class="n">z_dim</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">l_h_dim</span><span class="o">=</span><span class="default_value">24</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.seqvl.SeqVL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<dl class="py method">
+<dt id="realseries.models.seqvl.SeqVL.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">thres</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.seqvl.SeqVL.detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect the data by trained model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – 1-D time series with length L.</p></li>
+<li><p><strong>thres</strong> (<em>float</em>) – Threshold.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Dict containing results. 0-1 sequence indicates whether the last point  of a window is</dt><dd><p>an anomaly. length: L - window_size + 1</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.seqvl.SeqVL.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.seqvl.SeqVL.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>array_like</em>) – Input sequence.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.seqvl.SeqVL.reshape_for_test">
+<code class="sig-name descname">reshape_for_test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.seqvl.SeqVL.reshape_for_test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reshape the data gor test.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>array_like</em>) – Input data.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Reshaped data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.seqvl.SeqVL.reshape_for_training">
+<code class="sig-name descname">reshape_for_training</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.seqvl.SeqVL.reshape_for_training" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reshape the data for training.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>ndarray</em>) – 1-D time series</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>input with shape [-1, window_count, window_size],</dt><dd><p>label with shape [-1, window_count]</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-realseries.models.sr">
+<span id="realseries-models-sr-module"></span><h2>realseries.models.sr module<a class="headerlink" href="#module-realseries.models.sr" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="realseries.models.sr.SpectralResidual">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.sr.</code><code class="sig-name descname">SpectralResidual</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">series</span></em>, <em class="sig-param"><span class="n">threshold</span></em>, <em class="sig-param"><span class="n">mag_window</span></em>, <em class="sig-param"><span class="n">score_window</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.sr.SpectralResidual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<p>SpectralResidual calss.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>series</strong> – input time series with shape (n_sample,)</p></li>
+<li><p><strong>threshold</strong> – the threshold that apply anomaly score</p></li>
+<li><p><strong>mag_window</strong> – the window of avarage filter when calculating spectral mag</p></li>
+<li><p><strong>score_window</strong> – the window of average filter when calculating  score</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="realseries.models.sr.SpectralResidual.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.sr.SpectralResidual.detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict using the trained detector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>array_like</em>) – The input sequence of shape (n_length, n_features) or (n_length,).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Outlier labels of shape (n_length,).For each sample of time series, whether or not it is an outlier. 0 for inliers and 1 for outliers.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.sr.SpectralResidual.extend_series">
+<em class="property">static </em><code class="sig-name descname">extend_series</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em>, <em class="sig-param"><span class="n">extend_num</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">look_ahead</span><span class="o">=</span><span class="default_value">5</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.sr.SpectralResidual.extend_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>extend the array data by the predicted next value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>values</strong> (<em>ndarray</em>) – array of float numbers.</p></li>
+<li><p><strong>extend_num</strong> (<em>int</em><em>, </em><em>optional</em>) – number of values added to the back of
+data. Defaults to 5.</p></li>
+<li><p><strong>look_ahead</strong> (<em>int</em><em>, </em><em>optional</em>) – number of previous values used in
+prediction. Defaults to 5.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – the parameter ‘look_ahead’ must be at least 1</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The result array.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.sr.SpectralResidual.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.sr.SpectralResidual.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – The input sequence of shape (n_length, n_features) or (n_length,).</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em>, </em><em>optional</em>) – Ignored. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.sr.SpectralResidual.generate_spectral_score">
+<code class="sig-name descname">generate_spectral_score</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">series</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.sr.SpectralResidual.generate_spectral_score" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.sr.SpectralResidual.predict_next">
+<em class="property">static </em><code class="sig-name descname">predict_next</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.sr.SpectralResidual.predict_next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicts the next value by sum up the slope of the last value with
+previous values.</p>
+<p>Mathematically, <span class="math notranslate nohighlight">\(g = 1/m * \sum_{i=1}^{m} g(x_n, x_{n-i})\)</span>,
+<span class="math notranslate nohighlight">\(x_{n+1} = x_{n-m+1} + g * m\)</span>,
+where <span class="math notranslate nohighlight">\(g(x_i,x_j) = (x_i - x_j) / (i - j)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>values</strong> (<em>list</em>) – a list of float numbers.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Length lsit should at least 2.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The predicted next value.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.sr.SpectralResidual.spectral_residual_transform">
+<code class="sig-name descname">spectral_residual_transform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.sr.SpectralResidual.spectral_residual_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform a time series into spectral residual series by FFT.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>values</strong> (<em>ndarray</em>) – Array of values.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Spectral residual values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-realseries.models.srcnn">
+<span id="realseries-models-srcnn-module"></span><h2>realseries.models.srcnn module<a class="headerlink" href="#module-realseries.models.srcnn" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="realseries.models.srcnn.SR_CNN">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.srcnn.</code><code class="sig-name descname">SR_CNN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_path</span></em>, <em class="sig-param"><span class="n">window</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">lr</span><span class="o">=</span><span class="default_value">1e-06</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">epochs</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">64</span></em>, <em class="sig-param"><span class="n">dropout</span><span class="o">=</span><span class="default_value">0.2</span></em>, <em class="sig-param"><span class="n">num_worker</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.srcnn.SR_CNN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<p>The sali_map method for anomaly detection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_path</strong> (<em>str</em><em>, </em><em>optional</em>) – Path for saving and loading model.</p></li>
+<li><p><strong>window</strong> (<em>int</em><em>, </em><em>optional</em>) – Length of each sample for input. Defaults to 128.</p></li>
+<li><p><strong>lr</strong> (<em>float</em><em>, </em><em>optional</em>) – Learning rate. Defaults to 1e-6.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – Random seed. Defaults to 0.</p></li>
+<li><p><strong>epochs</strong> (<em>int</em><em>, </em><em>optional</em>) – Defaults to 20.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Defaults to 64.</p></li>
+<li><p><strong>dropout</strong> (<em>float</em><em>, </em><em>optional</em>) – Defaults to 0.2.</p></li>
+<li><p><strong>num_worker</strong> (<em>int</em><em>, </em><em>optional</em>) – Defaults to 0.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="realseries.models.srcnn.SR_CNN.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#realseries.models.srcnn.SR_CNN.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>CNN model built by torch.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.srcnn.SR_CNN.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">back_k</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">backaddnum</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">step</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.srcnn.SR_CNN.detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get anomaly score of input sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – Input sequence.</p></li>
+<li><p><strong>y</strong> – Ignored.</p></li>
+<li><p><strong>back_k</strong> (<em>int</em><em>, </em><em>optional</em>) – Not test. Defaults to 0.</p></li>
+<li><p><strong>backaddnum</strong> (<em>int</em><em>, </em><em>optional</em>) – Not test. Defaults to 5.</p></li>
+<li><p><strong>step</strong> (<em>int</em><em>, </em><em>optional</em>) – Stride of sliding window in detecing stage.
+Defaults to 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Anomaly score.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.srcnn.SR_CNN.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">step</span><span class="o">=</span><span class="default_value">64</span></em>, <em class="sig-param"><span class="n">num</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">back_k</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.srcnn.SR_CNN.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – The input 1-D array.</p></li>
+<li><p><strong>step</strong> (<em>int</em><em>, </em><em>optional</em>) – Stride of sliding window. Defaults to 64.</p></li>
+<li><p><strong>num</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of added anomaly points to each window.
+Defaults to 10.</p></li>
+<li><p><strong>back_k</strong> (<em>int</em><em>, </em><em>optional</em>) – Defaults to 0.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-realseries.models.stl">
+<span id="realseries-models-stl-module"></span><h2>realseries.models.stl module<a class="headerlink" href="#module-realseries.models.stl" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="realseries.models.stl.STL">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.stl.</code><code class="sig-name descname">STL</code><a class="headerlink" href="#realseries.models.stl.STL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<dl class="py method">
+<dt id="realseries.models.stl.STL.calc_seasonal">
+<em class="property">static </em><code class="sig-name descname">calc_seasonal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detrended</span></em>, <em class="sig-param"><span class="n">period</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.stl.STL.calc_seasonal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate seasonal from detrended data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>detrended</strong> (<em>ndarray</em>) – Input detrended data.</p></li>
+<li><p><strong>period</strong> (<em>float</em><em> or </em><em>int</em>) – The period of data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The seasonal and the period_averages.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(ndarray, ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.stl.STL.calc_trend">
+<em class="property">static </em><code class="sig-name descname">calc_trend</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">observed</span></em>, <em class="sig-param"><span class="n">lo_frac</span><span class="o">=</span><span class="default_value">0.6</span></em>, <em class="sig-param"><span class="n">lo_delta</span><span class="o">=</span><span class="default_value">0.01</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.stl.STL.calc_trend" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate trend from observed data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>observed</strong> (<em>ndarray</em>) – Input array.</p></li>
+<li><p><strong>lo_frac</strong> (<em>float</em><em>, </em><em>optional</em>) – Defaults to 0.6.</p></li>
+<li><p><strong>lo_delta</strong> (<em>float</em><em>, </em><em>optional</em>) – Defaults to 0.01.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The trend.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.stl.STL.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.stl.STL.detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict using the trained detector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>array_like</em>) – The input sequence of shape (n_length, n_features) or (n_length,).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Outlier labels of shape (n_length,).For each sample of time series, whether or not it is an outlier. 0 for inliers and 1 for outliers.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.stl.STL.drift">
+<em class="property">static </em><code class="sig-name descname">drift</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">3</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.stl.STL.drift" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>The drift forecast for the next point is a linear extrapolation from</dt><dd><p>the previous n points in the series.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>ndrray</em>) – Observed data, presumed to be ordered in time.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – period over which to calculate linear model for
+extrapolation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a single-valued forecast for the next value in the series.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.stl.STL.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">period</span><span class="o">=</span><span class="default_value">365</span></em>, <em class="sig-param"><span class="n">lo_frac</span><span class="o">=</span><span class="default_value">0.6</span></em>, <em class="sig-param"><span class="n">lo_delta</span><span class="o">=</span><span class="default_value">0.01</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.stl.STL.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the STL decompose model.Y[t] = T[t] + S[t] + e[t]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>DataFrame</em>) – Input data.</p></li>
+<li><p><strong>period</strong> (<em>int</em><em>, </em><em>optional</em>) – Defaults to 365.</p></li>
+<li><p><strong>lo_frac</strong> (<em>float</em><em>, </em><em>optional</em>) – Defaults to 0.6.</p></li>
+<li><p><strong>lo_delta</strong> (<em>float</em><em>, </em><em>optional</em>) – Defaults to 0.01.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dict results.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.stl.STL.forecast">
+<code class="sig-name descname">forecast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stl</span></em>, <em class="sig-param"><span class="n">forecast_func</span><span class="o">=</span><span class="default_value">'drift'</span></em>, <em class="sig-param"><span class="n">steps</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">seasonal</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.stl.STL.forecast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forecast the given decomposition <code class="docutils literal notranslate"><span class="pre">stl</span></code> forward by <code class="docutils literal notranslate"><span class="pre">steps</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stl</strong> (<em>object</em>) – STL object.</p></li>
+<li><p><strong>forecast_func</strong> (<em>str</em><em>, </em><em>optional</em>) – Defaults to ‘drift’.</p></li>
+<li><p><strong>steps</strong> (<em>int</em><em>, </em><em>optional</em>) – Defaults to 10.</p></li>
+<li><p><strong>seasonal</strong> (<em>bool</em><em>, </em><em>optional</em>) – Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>forecast dataframe</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.stl.STL.mean">
+<em class="property">static </em><code class="sig-name descname">mean</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">3</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.stl.STL.mean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.stl.STL.naive">
+<em class="property">static </em><code class="sig-name descname">naive</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">7</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.stl.STL.naive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-realseries.models.vae_ad">
+<span id="realseries-models-vae-ad-module"></span><h2>realseries.models.vae_ad module<a class="headerlink" href="#module-realseries.models.vae_ad" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="realseries.models.vae_ad.VAE_AD">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.vae_ad.</code><code class="sig-name descname">VAE_AD</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">'VAE_AD'</span></em>, <em class="sig-param"><span class="n">num_epochs</span><span class="o">=</span><span class="default_value">256</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">256</span></em>, <em class="sig-param"><span class="n">lr</span><span class="o">=</span><span class="default_value">0.001</span></em>, <em class="sig-param"><span class="n">lr_decay</span><span class="o">=</span><span class="default_value">0.8</span></em>, <em class="sig-param"><span class="n">clip_norm_value</span><span class="o">=</span><span class="default_value">12.0</span></em>, <em class="sig-param"><span class="n">weight_decay</span><span class="o">=</span><span class="default_value">0.001</span></em>, <em class="sig-param"><span class="n">data_split_rate</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">window_size</span><span class="o">=</span><span class="default_value">120</span></em>, <em class="sig-param"><span class="n">window_step</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">h_dim</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">z_dim</span><span class="o">=</span><span class="default_value">5</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.vae_ad.VAE_AD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<p>The Donut-VAE version for anomaly detection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Model name. Defaults to ‘VAE_AD’.</p></li>
+<li><p><strong>num_epochs</strong> (<em>int</em><em>, </em><em>optional</em>) – Epochs for model training. Defaults to 256.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Batch size for model training. Defaults to 256.</p></li>
+<li><p><strong>lr</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – Learning rate. Defaults to 1e-3.</p></li>
+<li><p><strong>lr_decay</strong> (<em>float</em><em>, </em><em>optional</em>) – Learning rate decay. Defaults to 0.8.</p></li>
+<li><p><strong>clip_norm_value</strong> (<em>float</em><em>, </em><em>optional</em>) – Gradient clip value. Defaults to 12.0.</p></li>
+<li><p><strong>weight_decay</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – L2 regularization. Defaults to 1e-3.</p></li>
+<li><p><strong>data_split_rate</strong> (<em>float</em><em>, </em><em>optional</em>) – Defaults to 0.5.</p></li>
+<li><p><strong>window_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Defaults to 120.</p></li>
+<li><p><strong>window_step</strong> (<em>int</em><em>, </em><em>optional</em>) – Defaults to 1.</p></li>
+<li><p><strong>h_dim</strong> (<em>int</em><em>, </em><em>optional</em>) – Hidden dim between x and z for VAE’s encoder and decoder Defaults to 100.</p></li>
+<li><p><strong>z_dim</strong> (<em>int</em><em>, </em><em>optional</em>) – Defaults to 5.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="realseries.models.vae_ad.VAE_AD.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#realseries.models.vae_ad.VAE_AD.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>VAE model built by torch.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.vae_ad.VAE_AD.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.vae_ad.VAE_AD.detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get anomaly score of input sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>array_like</em>) – Input sequence.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>origin_series: ndarray, Origin time series
+score: ndarray, Corresponding anomaly score.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>A dict with attributes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.vae_ad.VAE_AD.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.vae_ad.VAE_AD.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>array_like</em>) – The input 1-D array.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.vae_ad.VAE_AD.forecast">
+<code class="sig-name descname">forecast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.vae_ad.VAE_AD.forecast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forecast the input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – The input sequence of shape (n_length, n_features) or (n_length,).</p></li>
+<li><p><strong>t</strong> (<em>int</em>) – time index of to-be-forecast samples.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Forecast samples of shape (n_length, n_features)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>X_1 (ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.vae_ad.VAE_AD.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.vae_ad.VAE_AD.predict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="realseries.utils.html" class="btn btn-neutral float-right" title="Utility Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="realseries.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, RealAI
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

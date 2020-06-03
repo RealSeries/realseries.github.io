@@ -1,0 +1,866 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Index &mdash; RealSeries 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RealSeries
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pages/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pages/examples.html#isolationforest-example">IsolationForest Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages/examples.html#pytorch-basded-neural-network-example">Pytorch basded Neural Network Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages/examples.html#series-and-label-visualize-example">Series and Label Visualize Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages/examples.html#granger-causality-example">Granger causality Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pages/examples.html#industrial-demo">Industrial demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/examples.html#simulation-demo">Simulation demo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pages/cheetsheet.html">API Cheetsheet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pages/cheetsheet.html#model">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages/cheetsheet.html#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages/cheetsheet.html#visualize">Visualize</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pages/realseries.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pages/realseries.models.html">All Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.AR">realseries.models.AR module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#realseries-models-dwgc-module">realseries.models.DWGC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#realseries-models-gc-module">realseries.models.GC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.NAR">realseries.models.NAR module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.base">realseries.models.base module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.iforest">realseries.models.iforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.lstm_dynamic">realseries.models.lstm_dynamic module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.lumino">realseries.models.lumino module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.rcforest">realseries.models.rcforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.rnn">realseries.models.rnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.seqvl">realseries.models.seqvl module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.sr">realseries.models.sr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.srcnn">realseries.models.srcnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.stl">realseries.models.stl module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.vae_ad">realseries.models.vae_ad module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pages/realseries.utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.utils.html#module-realseries.utils.data">realseries.utils.data module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.utils.html#module-realseries.utils.dataset">realseries.utils.dataset module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.utils.html#module-realseries.utils.errors">realseries.utils.errors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.utils.html#module-realseries.utils.evaluation">realseries.utils.evaluation module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.utils.html#module-realseries.utils.preprocess">realseries.utils.preprocess module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.utils.html#module-realseries.utils.segment">realseries.utils.segment module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.utils.html#module-realseries.utils.utility">realseries.utils.utility module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.utils.html#module-realseries.utils.visualize">realseries.utils.visualize module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pages/datasets.html">Time Series Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pages/datasets.html#anomaly-detection-datasets">Anomaly Detection Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages/datasets.html#granger-causality-datasets">Granger causality Datasets</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">RealSeries 101</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pages/anomaly_detection.html">Anomaly Detection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pages/anomaly_detection.html#problem-description">Problem Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages/anomaly_detection.html#models">Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pages/Granger_causality.html">Granger causality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pages/Granger_causality.html#problem-description-of-granger-causality">Problem Description of Granger causality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages/Granger_causality.html#models-of-granger-causality">Models of Granger causality</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pages/forecast_and_imputation.html">Forecast and Imputation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pages/contribution.html">Contribution</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RealSeries</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Index</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#X"><strong>X</strong></a>
+ | <a href="#Y"><strong>Y</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.evaluation.adjust_metrics">adjust_metrics() (in module realseries.utils.evaluation)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.evaluation.adjust_predicts">adjust_predicts() (in module realseries.utils.evaluation)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.anomaly_score">anomaly_score (realseries.models.iforest.IForest attribute)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.AR.AR_new">AR_new (class in realseries.models.AR)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.preprocess.augmentation">augmentation() (in module realseries.utils.preprocess)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.preprocess.bandpass_cnt">bandpass_cnt() (in module realseries.utils.preprocess)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.evaluation.baseline_oneday">baseline_oneday() (in module realseries.utils.evaluation)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.evaluation.baseline_threeday">baseline_threeday() (in module realseries.utils.evaluation)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.base.BaseModel">BaseModel (class in realseries.models.base)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.segment.BatchSegment">BatchSegment (class in realseries.utils.segment)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.stl.STL.calc_seasonal">calc_seasonal() (realseries.models.stl.STL static method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.stl.STL.calc_trend">calc_trend() (realseries.models.stl.STL static method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.dataset.Data">Data (class in realseries.utils.dataset)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.dataset.Data.data2supervised">data2supervised() (realseries.utils.dataset.Data method)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.dataset.Data.data_iterator">data_iterator() (realseries.utils.dataset.Data method)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.dataset.Data.data_to_seqvl_format">data_to_seqvl_format() (realseries.utils.dataset.Data method)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.AR.AR_new.detect">detect() (realseries.models.AR.AR_new method)</a>
+
+      <ul>
+        <li><a href="pages/realseries.models.html#realseries.models.base.BaseModel.detect">(realseries.models.base.BaseModel method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.detect">(realseries.models.iforest.IForest method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic.detect">(realseries.models.lstm_dynamic.LSTM_dynamic method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.lumino.Lumino.detect">(realseries.models.lumino.Lumino method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.NAR.NAR_Network.detect">(realseries.models.NAR.NAR_Network method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.rcforest.RCForest.detect">(realseries.models.rcforest.RCForest method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.rnn.LSTMED.detect">(realseries.models.rnn.LSTMED method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.seqvl.SeqVL.detect">(realseries.models.seqvl.SeqVL method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.sr.SpectralResidual.detect">(realseries.models.sr.SpectralResidual method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.srcnn.SR_CNN.detect">(realseries.models.srcnn.SR_CNN method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.stl.STL.detect">(realseries.models.stl.STL method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD.detect">(realseries.models.vae_ad.VAE_AD method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.stl.STL.drift">drift() (realseries.models.stl.STL static method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.utility.EarlyStopping">EarlyStopping (class in realseries.utils.utility)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.estimators_">estimators_() (realseries.models.iforest.IForest property)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.estimators_samples_">estimators_samples_() (realseries.models.iforest.IForest property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.evaluation.evaluate">evaluate() (in module realseries.utils.evaluation)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.preprocess.exponential_running_demean">exponential_running_demean() (in module realseries.utils.preprocess)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.preprocess.exponential_running_standardize">exponential_running_standardize() (in module realseries.utils.preprocess)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.sr.SpectralResidual.extend_series">extend_series() (realseries.models.sr.SpectralResidual static method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.preprocess.filter_is_stable">filter_is_stable() (in module realseries.utils.preprocess)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.AR.AR_new.fit">fit() (realseries.models.AR.AR_new method)</a>
+
+      <ul>
+        <li><a href="pages/realseries.models.html#realseries.models.base.BaseModel.fit">(realseries.models.base.BaseModel method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.fit">(realseries.models.iforest.IForest method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic.fit">(realseries.models.lstm_dynamic.LSTM_dynamic method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.lumino.Lumino.fit">(realseries.models.lumino.Lumino method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.NAR.NAR_Network.fit">(realseries.models.NAR.NAR_Network method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.rcforest.RCForest.fit">(realseries.models.rcforest.RCForest method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.rnn.LSTMED.fit">(realseries.models.rnn.LSTMED method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.seqvl.SeqVL.fit">(realseries.models.seqvl.SeqVL method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.sr.SpectralResidual.fit">(realseries.models.sr.SpectralResidual method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.srcnn.SR_CNN.fit">(realseries.models.srcnn.SR_CNN method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.stl.STL.fit">(realseries.models.stl.STL method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD.fit">(realseries.models.vae_ad.VAE_AD method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.base.BaseModel.forecast">forecast() (realseries.models.base.BaseModel method)</a>
+
+      <ul>
+        <li><a href="pages/realseries.models.html#realseries.models.stl.STL.forecast">(realseries.models.stl.STL method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD.forecast">(realseries.models.vae_ad.VAE_AD method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.data.generate_arma_data">generate_arma_data() (in module realseries.utils.data)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.sr.SpectralResidual.generate_spectral_score">generate_spectral_score() (realseries.models.sr.SpectralResidual method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.errors.get_errors">get_errors() (in module realseries.utils.errors)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.segment.BatchSegment.get_iterator">get_iterator() (realseries.utils.segment.BatchSegment method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.preprocess.highpass_cnt">highpass_cnt() (in module realseries.utils.preprocess)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.IF">IF (realseries.models.iforest.IForest attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest">IForest (class in realseries.models.iforest)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.base.BaseModel.impute">impute() (realseries.models.base.BaseModel method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.dataset.Data.load_data">load_data() (realseries.utils.dataset.Data method)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.utility.load_model">load_model() (in module realseries.utils.utility)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.data.load_NAB">load_NAB() (in module realseries.utils.data)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.data.load_SMD">load_SMD() (in module realseries.utils.data)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.data.load_split_NASA">load_split_NASA() (in module realseries.utils.data)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.data.load_splitted_RNN">load_splitted_RNN() (in module realseries.utils.data)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.data.load_Yahoo">load_Yahoo() (in module realseries.utils.data)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.dataset.Data.load_yahoo">load_yahoo() (realseries.utils.dataset.Data method)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.preprocess.lowpass_cnt">lowpass_cnt() (in module realseries.utils.preprocess)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic">LSTM_dynamic (class in realseries.models.lstm_dynamic)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.rnn.LSTMED">LSTMED (class in realseries.models.rnn)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.lumino.Lumino">Lumino (class in realseries.models.lumino)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.visualize.mat_plot">mat_plot() (in module realseries.utils.visualize)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.max_samples_">max_samples_() (realseries.models.iforest.IForest property)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.stl.STL.mean">mean() (realseries.models.stl.STL static method)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic.model">model (realseries.models.lstm_dynamic.LSTM_dynamic attribute)</a>
+
+      <ul>
+        <li><a href="pages/realseries.models.html#realseries.models.rnn.LSTMED.model">(realseries.models.rnn.LSTMED attribute)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.srcnn.SR_CNN.model">(realseries.models.srcnn.SR_CNN attribute)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD.model">(realseries.models.vae_ad.VAE_AD attribute)</a>
+</li>
+      </ul></li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.AR">realseries.models.AR</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.base">realseries.models.base</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.iforest">realseries.models.iforest</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.lstm_dynamic">realseries.models.lstm_dynamic</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.lumino">realseries.models.lumino</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.NAR">realseries.models.NAR</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.rcforest">realseries.models.rcforest</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.rnn">realseries.models.rnn</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.seqvl">realseries.models.seqvl</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.sr">realseries.models.sr</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.srcnn">realseries.models.srcnn</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.stl">realseries.models.stl</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.vae_ad">realseries.models.vae_ad</a>
+</li>
+        <li><a href="pages/realseries.utils.html#module-realseries.utils.data">realseries.utils.data</a>
+</li>
+        <li><a href="pages/realseries.utils.html#module-realseries.utils.dataset">realseries.utils.dataset</a>
+</li>
+        <li><a href="pages/realseries.utils.html#module-realseries.utils.errors">realseries.utils.errors</a>
+</li>
+        <li><a href="pages/realseries.utils.html#module-realseries.utils.evaluation">realseries.utils.evaluation</a>
+</li>
+        <li><a href="pages/realseries.utils.html#module-realseries.utils.preprocess">realseries.utils.preprocess</a>
+</li>
+        <li><a href="pages/realseries.utils.html#module-realseries.utils.segment">realseries.utils.segment</a>
+</li>
+        <li><a href="pages/realseries.utils.html#module-realseries.utils.utility">realseries.utils.utility</a>
+</li>
+        <li><a href="pages/realseries.utils.html#module-realseries.utils.visualize">realseries.utils.visualize</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.stl.STL.naive">naive() (realseries.models.stl.STL static method)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.NAR.NAR_Network">NAR_Network (class in realseries.models.NAR)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.preprocess.normalization">normalization() (in module realseries.utils.preprocess)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.dataset.Data.normalize">normalize() (realseries.utils.dataset.Data method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic.obtain_anomaly">obtain_anomaly() (realseries.models.lstm_dynamic.LSTM_dynamic static method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.visualize.pd_plot">pd_plot() (in module realseries.utils.visualize)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.visualize.plot_anom">plot_anom() (in module realseries.utils.visualize)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.visualize.plot_mne">plot_mne() (in module realseries.utils.visualize)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.evaluation.point_metrics">point_metrics() (in module realseries.utils.evaluation)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic.predict">predict() (realseries.models.lstm_dynamic.LSTM_dynamic method)</a>
+
+      <ul>
+        <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD.predict">(realseries.models.vae_ad.VAE_AD method)</a>
+</li>
+      </ul></li>
+      <li><a href="pages/realseries.models.html#realseries.models.sr.SpectralResidual.predict_next">predict_next() (realseries.models.sr.SpectralResidual static method)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.errors.process_errors">process_errors() (in module realseries.utils.errors)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.rcforest.RCForest">RCForest (class in realseries.models.rcforest)</a>
+</li>
+      <li>
+    realseries.models.AR
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.AR">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.models.base
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.base">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.models.iforest
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.iforest">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.models.lstm_dynamic
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.lstm_dynamic">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.models.lumino
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.lumino">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.models.NAR
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.NAR">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.models.rcforest
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.rcforest">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.models.rnn
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.rnn">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.models.seqvl
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.seqvl">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.models.sr
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.sr">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.models.srcnn
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.srcnn">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    realseries.models.stl
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.stl">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.models.vae_ad
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.vae_ad">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.utils.data
+
+      <ul>
+        <li><a href="pages/realseries.utils.html#module-realseries.utils.data">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.utils.dataset
+
+      <ul>
+        <li><a href="pages/realseries.utils.html#module-realseries.utils.dataset">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.utils.errors
+
+      <ul>
+        <li><a href="pages/realseries.utils.html#module-realseries.utils.errors">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.utils.evaluation
+
+      <ul>
+        <li><a href="pages/realseries.utils.html#module-realseries.utils.evaluation">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.utils.preprocess
+
+      <ul>
+        <li><a href="pages/realseries.utils.html#module-realseries.utils.preprocess">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.utils.segment
+
+      <ul>
+        <li><a href="pages/realseries.utils.html#module-realseries.utils.segment">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.utils.utility
+
+      <ul>
+        <li><a href="pages/realseries.utils.html#module-realseries.utils.utility">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.utils.visualize
+
+      <ul>
+        <li><a href="pages/realseries.utils.html#module-realseries.utils.visualize">module</a>
+</li>
+      </ul></li>
+      <li><a href="pages/realseries.models.html#realseries.models.seqvl.SeqVL.reshape_for_test">reshape_for_test() (realseries.models.seqvl.SeqVL method)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.seqvl.SeqVL.reshape_for_training">reshape_for_training() (realseries.models.seqvl.SeqVL method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.utility.EarlyStopping.save_checkpoint">save_checkpoint() (realseries.utils.utility.EarlyStopping method)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.utility.save_model">save_model() (in module realseries.utils.utility)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.seqvl.SeqVL">SeqVL (class in realseries.models.seqvl)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.segment.slice_generator">slice_generator() (in module realseries.utils.segment)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.sr.SpectralResidual.spectral_residual_transform">spectral_residual_transform() (realseries.models.sr.SpectralResidual method)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.sr.SpectralResidual">SpectralResidual (class in realseries.models.sr)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.srcnn.SR_CNN">SR_CNN (class in realseries.models.srcnn)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.preprocess.standardization">standardization() (in module realseries.utils.preprocess)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.stl.STL">STL (class in realseries.models.stl)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.evaluation.thres_search">thres_search() (in module realseries.utils.evaluation)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD">VAE_AD (class in realseries.models.vae_ad)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="X">X</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.AR.AR_new.X_train">X_train (realseries.models.AR.AR_new attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Y">Y</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic.y_hat">y_hat (realseries.models.lstm_dynamic.LSTM_dynamic attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic.y_test">y_test (realseries.models.lstm_dynamic.LSTM_dynamic attribute)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.AR.AR_new.Y_train">Y_train (realseries.models.AR.AR_new attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, RealAI
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

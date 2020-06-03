@@ -1,0 +1,7 @@
+realseries
+==========
+
+.. toctree::
+   :maxdepth: 4
+
+   realseries

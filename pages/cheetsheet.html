@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API Cheetsheet &mdash; RealSeries 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API Reference" href="realseries.html" />
+    <link rel="prev" title="Examples" href="examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RealSeries
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#isolationforest-example">IsolationForest Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#pytorch-basded-neural-network-example">Pytorch basded Neural Network Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#series-and-label-visualize-example">Series and Label Visualize Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#granger-causality-example">Granger causality Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#industrial-demo">Industrial demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#simulation-demo">Simulation demo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Cheetsheet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#model">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visualize">Visualize</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="realseries.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="realseries.models.html">All Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.AR">realseries.models.AR module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-dwgc-module">realseries.models.DWGC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-gc-module">realseries.models.GC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.NAR">realseries.models.NAR module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.base">realseries.models.base module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.iforest">realseries.models.iforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.lstm_dynamic">realseries.models.lstm_dynamic module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.lumino">realseries.models.lumino module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.rcforest">realseries.models.rcforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.rnn">realseries.models.rnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.seqvl">realseries.models.seqvl module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.sr">realseries.models.sr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.srcnn">realseries.models.srcnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.stl">realseries.models.stl module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.vae_ad">realseries.models.vae_ad module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="realseries.utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.data">realseries.utils.data module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.dataset">realseries.utils.dataset module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.errors">realseries.utils.errors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.evaluation">realseries.utils.evaluation module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.preprocess">realseries.utils.preprocess module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.segment">realseries.utils.segment module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.utility">realseries.utils.utility module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.visualize">realseries.utils.visualize module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Time Series Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#anomaly-detection-datasets">Anomaly Detection Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#granger-causality-datasets">Granger causality Datasets</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">RealSeries 101</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anomaly_detection.html">Anomaly Detection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_detection.html#problem-description">Problem Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_detection.html#models">Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Granger_causality.html">Granger causality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Granger_causality.html#problem-description-of-granger-causality">Problem Description of Granger causality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Granger_causality.html#models-of-granger-causality">Models of Granger causality</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="forecast_and_imputation.html">Forecast and Imputation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RealSeries</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>API Cheetsheet</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/cheetsheet.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-cheetsheet">
+<h1>API Cheetsheet<a class="headerlink" href="#api-cheetsheet" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="model">
+<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>IsolationForest</strong></p>
+<ul>
+<li><p><a class="reference internal" href="realseries.models.html#realseries.models.iforest.IForest.fit" title="realseries.models.iforest.IForest.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.models.iforest.IForest.fit()</span></code></a>: Fit Isolation Forest. y is
+ignored.</p></li>
+<li><p><a class="reference internal" href="realseries.models.html#realseries.models.iforest.IForest.detect" title="realseries.models.iforest.IForest.detect"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.models.iforest.IForest.detect()</span></code></a>: Predict the score of a
+sample being anomaly by the detector. The anomaly score is returned.</p></li>
+</ul>
+</li>
+<li><p><strong>LSTM_dynamic</strong></p>
+<ul>
+<li><p><a class="reference internal" href="realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic.fit" title="realseries.models.lstm_dynamic.LSTM_dynamic.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.models.lstm_dynamic.LSTM_dynamic.fit()</span></code></a>: Fit LSTM model. y
+is ignored.</p></li>
+<li><p><a class="reference internal" href="realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic.detect" title="realseries.models.lstm_dynamic.LSTM_dynamic.detect"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.models.lstm_dynamic.LSTM_dynamic.detect()</span></code></a>: Predict the
+score of a sample being anomaly by the dynamic method. The anomaly sequence
+and score is returned.</p></li>
+</ul>
+</li>
+<li><p><strong>Luminol</strong></p>
+<ul>
+<li><p><a class="reference internal" href="realseries.models.html#realseries.models.lumino.Lumino.detect" title="realseries.models.lumino.Lumino.detect"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.models.lumino.Lumino.detect()</span></code></a>: Predict the score of a
+sample being anomaly by the detector. The anomaly score is returned.</p></li>
+</ul>
+</li>
+<li><p><strong>Random cut forest</strong></p>
+<ul>
+<li><p><a class="reference internal" href="realseries.models.html#realseries.models.rcforest.RCForest.detect" title="realseries.models.rcforest.RCForest.detect"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.models.rcforest.RCForest.detect()</span></code></a>: Predict the score of a
+sample being anomaly by the detector. The anomaly score is returned.</p></li>
+</ul>
+</li>
+<li><p><strong>LSTM encoder decoder</strong></p>
+<ul>
+<li><p><a class="reference internal" href="realseries.models.html#realseries.models.rnn.LSTMED.fit" title="realseries.models.rnn.LSTMED.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.models.rnn.LSTMED.fit()</span></code></a>: Fit LSTM. y is ignored.</p></li>
+<li><p><a class="reference internal" href="realseries.models.html#realseries.models.rnn.LSTMED.detect" title="realseries.models.rnn.LSTMED.detect"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.models.rnn.LSTMED.detect()</span></code></a>: Predict the score of a
+sample being anomaly by the LSTM. The anomaly score is returned.</p></li>
+</ul>
+</li>
+<li><p><strong>SeqVL</strong></p>
+<ul>
+<li><p><a class="reference internal" href="realseries.models.html#realseries.models.seqvl.SeqVL.fit" title="realseries.models.seqvl.SeqVL.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.models.seqvl.SeqVL.fit()</span></code></a>: Fit detector. y is ignored
+in unsupervised methods.</p></li>
+<li><p><a class="reference internal" href="realseries.models.html#realseries.models.seqvl.SeqVL.detect" title="realseries.models.seqvl.SeqVL.detect"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.models.seqvl.SeqVL.detect()</span></code></a>: Predict the score of a
+sample being anomaly by the detector. The anomaly score is returned.</p></li>
+</ul>
+</li>
+<li><p><strong>SR_CNN</strong></p>
+<ul>
+<li><p><a class="reference internal" href="realseries.models.html#realseries.models.srcnn.SR_CNN.fit" title="realseries.models.srcnn.SR_CNN.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.models.srcnn.SR_CNN.fit()</span></code></a>: Fit CNN model.</p></li>
+<li><p><a class="reference internal" href="realseries.models.html#realseries.models.srcnn.SR_CNN.detect" title="realseries.models.srcnn.SR_CNN.detect"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.models.srcnn.SR_CNN.detect()</span></code></a>: Predict the score of a
+sample being anomaly by the CNN. The anomaly score is returned.</p></li>
+</ul>
+</li>
+<li><p><strong>VAE_AD</strong></p>
+<ul>
+<li><p><a class="reference internal" href="realseries.models.html#realseries.models.vae_ad.VAE_AD.fit" title="realseries.models.vae_ad.VAE_AD.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.models.vae_ad.VAE_AD.fit()</span></code></a>: Fit detector. y is ignored
+in unsupervised methods.</p></li>
+<li><p><a class="reference internal" href="realseries.models.html#realseries.models.vae_ad.VAE_AD.detect" title="realseries.models.vae_ad.VAE_AD.detect"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.models.vae_ad.VAE_AD.detect()</span></code></a>: Predict the score of a
+sample being anomaly by the detector. The anomaly score is returned.</p></li>
+</ul>
+</li>
+<li><p><strong>STL</strong></p>
+<ul>
+<li><p><a class="reference internal" href="realseries.models.html#realseries.models.stl.STL.fit" title="realseries.models.stl.STL.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.models.stl.STL.fit()</span></code></a>: Fit STL model. y is ignored
+in unsupervised methods.</p></li>
+<li><p><a class="reference internal" href="realseries.models.html#realseries.models.stl.STL.forecast" title="realseries.models.stl.STL.forecast"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.models.stl.STL.forecast()</span></code></a>: Forecast the later value of a
+sequence. The array is returned.</p></li>
+</ul>
+</li>
+</ul>
+<p>See base class definition in <a class="reference internal" href="realseries.models.html#module-realseries.models.base" title="realseries.models.base"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base</span></code></a>.</p>
+</div>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p>The following functions are used for raw data loading easily.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="realseries.utils.html#realseries.utils.data.load_NAB" title="realseries.utils.data.load_NAB"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.utils.data.load_NAB()</span></code></a>: Load data in the <cite>NAB_data</cite> diary.
+Train DataFrame and Test DataFrame with labels are returned.</p></li>
+<li><p><a class="reference internal" href="realseries.utils.html#realseries.utils.data.load_Yahoo" title="realseries.utils.data.load_Yahoo"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.utils.data.load_Yahoo()</span></code></a>: Load data in the <cite>Yahoo_data</cite>
+diary. Train DataFrame and Test DataFrame with labels are returned.</p></li>
+<li><p><a class="reference internal" href="realseries.utils.html#realseries.utils.data.load_split_NASA" title="realseries.utils.data.load_split_NASA"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.utils.data.load_split_NASA()</span></code></a>: Load data in the <cite>NASA</cite>
+diary. Train DataFrame and Test DataFrame with labels are returned.</p></li>
+</ul>
+</div>
+<div class="section" id="visualize">
+<h2>Visualize<a class="headerlink" href="#visualize" title="Permalink to this headline">¶</a></h2>
+<p>The following functions are used plotting raw data and predicted result.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="realseries.utils.html#realseries.utils.visualize.plot_anom" title="realseries.utils.visualize.plot_anom"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.utils.visualize.plot_anom()</span></code></a>: The parameters mainly include
+<code class="docutils literal notranslate"><span class="pre">pd_data_label</span></code>, <code class="docutils literal notranslate"><span class="pre">pred_anom</span></code> and <code class="docutils literal notranslate"><span class="pre">pred_score</span></code>. <code class="docutils literal notranslate"><span class="pre">pd_data_label</span></code> is the
+<code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.DataFrame()</span></code> with data and label, <code class="docutils literal notranslate"><span class="pre">pred_anom</span></code> is the array with
+predicted label, and <code class="docutils literal notranslate"><span class="pre">pred_score</span></code> is the corresponding anomaly score.</p></li>
+<li><p><a class="reference internal" href="realseries.utils.html#realseries.utils.visualize.plot_mne" title="realseries.utils.visualize.plot_mne"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.utils.visualize.plot_mne()</span></code></a>: The parameters mainly include
+<code class="docutils literal notranslate"><span class="pre">X,</span> <span class="pre">scalings,</span> <span class="pre">ch_types,</span> <span class="pre">color</span></code>. If <code class="docutils literal notranslate"><span class="pre">X</span></code> is the array and last column as label.
+We set label column to different <code class="docutils literal notranslate"><span class="pre">ch_type</span></code>, so it will show different color in
+the figure.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="realseries.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, RealAI
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

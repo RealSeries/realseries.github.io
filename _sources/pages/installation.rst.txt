@@ -1,0 +1,71 @@
+Installation
+============
+
+Realseries is still under development. Before the first stable release (1.0),
+please clone the `Gitlab repository <http://git.real-ai.cn/realseries/realseries>`_
+and run (Contact Wenbo Hu for the Gitlab permission)
+
+.. code-block:: bash
+
+   git clone http://git.real-ai.cn/realseries/realseries
+   git checkout build_lib
+   cd RealSeries # change current work directory to ./RealSeries
+   python
+   >>> import sys,os
+   >>> sys.path.append(os.getcwd()) # add ./RealSeries to sys.path
+   >>> import realseries
+   >>> from realseries.models.iforest import IForest
+
+.. role:: raw-html(raw)
+   :format: html
+.. default-role:: raw-html
+
+`<S>` Alternatively, you could use **pip** for installation and make sure
+**the latest version** is installed. `</S>` 
+
+(**It will be supported later**)
+
+.. code-block:: bash
+
+   pip install realseries            # install
+   pip install --upgrade realseries  # update if needed
+
+
+**Required Dependencies**\ :
+
+* Python 3.6, or 3.7
+* numpy>=1.13
+* pandas>=0.25.3
+* scikit-learn>=0.22
+* scipy >=1.4.0
+* pathlib >=1.0.1
+* six >=1.13.0
+* tqdm >=4.41.1
+
+
+**Optional Dependencies (see details below)**:
+
+* pytorch (optional, required for LSTM_AutoEncoder)
+* rrcf>=0.3.2 (optional, required for Random cut forest)
+* luminol>=0.4 (optional, required for luminol)
+* statsmodels=0.10.2 (optional, required for STL)
+* more_itertools (optional, required for LSTM_dynamic)
+* mne (optional, required for running examples)
+* matplotlib (optional, required for running examples)
+
+.. warning::
+
+   Realseries has several deep learning models like sr_cnn, lstm_encoder_decoder,
+   which are implemented by pytorch. However, we do **NOT** install **pytorch**
+   automatically for you. If you want to use neural-net based models, see
+   `Installing Pytorch <https://pytorch.org/>`_ for installation
+   Similarly, models depending on **rrcf** and **luminol** would **NOT**
+   installed by default.
+
+
+After installation, open your python console and type
+::
+
+   >>> import realseries
+
+If no error occurs, you've successfully installed realseries.

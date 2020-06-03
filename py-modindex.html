@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to RealSeries’s documentation! &mdash; RealSeries 0.1 documentation</title>
+  <title>Python Module Index &mdash; RealSeries 0.1 documentation</title>
   
 
   
@@ -36,7 +36,9 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation" href="pages/installation.html" /> 
+ 
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -50,7 +52,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> RealSeries
+            <a href="index.html" class="icon icon-home"> RealSeries
           
 
           
@@ -172,7 +174,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">RealSeries</a>
+          <a href="index.html">RealSeries</a>
         
       </nav>
 
@@ -201,16 +203,12 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Welcome to RealSeries’s documentation!</li>
+      <li>Python Module Index</li>
     
     
       <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -222,111 +220,135 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-realseries-s-documentation">
-<h1>Welcome to RealSeries’s documentation!<a class="headerlink" href="#welcome-to-realseries-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>RealSeries is a comprehensive <strong>out-of-the-box Python toolkit</strong> for various tasks, including <a class="reference internal" href="pages/anomaly_detection.html#anomaly-detection"><span class="std std-ref">Anomaly Detection</span></a>, <a class="reference internal" href="pages/Granger_causality.html#granger-causality"><span class="std std-ref">Granger causality</span></a> and <span class="raw-html"><S></span> <a class="reference internal" href="pages/forecast_and_imputation.html#forecast-and-imputation"><span class="std std-ref">Forecast and Imputation</span></a> <span class="raw-html"></S></span>, of dealing with <a class="reference internal" href="pages/datasets.html#time-series-datasets"><span class="std std-ref">Time Series Datasets</span></a>.</p>
-<p>RealSeries has the following features:</p>
-<ul class="simple">
-<li><p>Unified APIs, detailed documentation, easy-to-follow examples and straightforward visualizations.</p></li>
-<li><p>All-levels of models, including simple thresholds, classification-based models, and deep (Bayesian) models.</p></li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>RealSeries supports <strong>Python 3 ONLY</strong>. See <a class="reference external" href="https://wiki.python.org/moin/Python2orPython3">here</a> to check why.</p>
-</div>
-<hr class="docutils" />
-<p><strong>API Demo</strong>:</p>
-<p>RealSeries uses the <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html">sklearn-style API</a> and is as easy as</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># train the SR-CNN detector</span>
-<span class="kn">from</span> <span class="nn">realseries.models.sr_2</span> <span class="kn">import</span> <span class="n">SR_CNN</span>
-<span class="n">sr_cnn</span> <span class="o">=</span> <span class="n">SR_CNN</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
-<span class="n">sr_cnn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
-<span class="n">score</span> <span class="o">=</span> <span class="n">sr_cnn</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_label</span><span class="p">)</span>
-</pre></div>
-</td></tr></table></div>
-<hr class="docutils" />
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="pages/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pages/examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pages/examples.html#isolationforest-example">IsolationForest Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages/examples.html#pytorch-basded-neural-network-example">Pytorch basded Neural Network Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages/examples.html#series-and-label-visualize-example">Series and Label Visualize Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages/examples.html#granger-causality-example">Granger causality Example</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Documentation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="pages/cheetsheet.html">API Cheetsheet</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pages/cheetsheet.html#model">Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages/cheetsheet.html#data">Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages/cheetsheet.html#visualize">Visualize</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pages/realseries.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pages/realseries.models.html">All Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages/realseries.utils.html">Utility Functions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pages/datasets.html">Time Series Datasets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pages/datasets.html#anomaly-detection-datasets">Anomaly Detection Datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages/datasets.html#granger-causality-datasets">Granger causality Datasets</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">RealSeries 101</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="pages/anomaly_detection.html">Anomaly Detection</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pages/anomaly_detection.html#problem-description">Problem Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages/anomaly_detection.html#models">Models</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pages/Granger_causality.html">Granger causality</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pages/Granger_causality.html#problem-description-of-granger-causality">Problem Description of Granger causality</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages/Granger_causality.html#models-of-granger-causality">Models of Granger causality</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pages/forecast_and_imputation.html">Forecast and Imputation</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contribution</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="pages/contribution.html">Contribution</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
-</div>
+
+   <h1>Python Module Index</h1>
+
+   <div class="modindex-jumpbox">
+   <a href="#cap-r"><strong>r</strong></a>
+   </div>
+
+   <table class="indextable modindextable">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-r"><td></td><td>
+       <strong>r</strong></td><td></td></tr>
+     <tr>
+       <td><img src="_static/minus.png" class="toggler"
+              id="toggle-1" style="display: none" alt="-" /></td>
+       <td>
+       <code class="xref">realseries</code></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.models.html#module-realseries.models.AR"><code class="xref">realseries.models.AR</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.models.html#module-realseries.models.base"><code class="xref">realseries.models.base</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.models.html#module-realseries.models.iforest"><code class="xref">realseries.models.iforest</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.models.html#module-realseries.models.lstm_dynamic"><code class="xref">realseries.models.lstm_dynamic</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.models.html#module-realseries.models.lumino"><code class="xref">realseries.models.lumino</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.models.html#module-realseries.models.NAR"><code class="xref">realseries.models.NAR</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.models.html#module-realseries.models.rcforest"><code class="xref">realseries.models.rcforest</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.models.html#module-realseries.models.rnn"><code class="xref">realseries.models.rnn</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.models.html#module-realseries.models.seqvl"><code class="xref">realseries.models.seqvl</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.models.html#module-realseries.models.sr"><code class="xref">realseries.models.sr</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.models.html#module-realseries.models.srcnn"><code class="xref">realseries.models.srcnn</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.models.html#module-realseries.models.stl"><code class="xref">realseries.models.stl</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.models.html#module-realseries.models.vae_ad"><code class="xref">realseries.models.vae_ad</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.utils.html#module-realseries.utils.data"><code class="xref">realseries.utils.data</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.utils.html#module-realseries.utils.dataset"><code class="xref">realseries.utils.dataset</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.utils.html#module-realseries.utils.errors"><code class="xref">realseries.utils.errors</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.utils.html#module-realseries.utils.evaluation"><code class="xref">realseries.utils.evaluation</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.utils.html#module-realseries.utils.preprocess"><code class="xref">realseries.utils.preprocess</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.utils.html#module-realseries.utils.segment"><code class="xref">realseries.utils.segment</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.utils.html#module-realseries.utils.utility"><code class="xref">realseries.utils.utility</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="pages/realseries.utils.html#module-realseries.utils.visualize"><code class="xref">realseries.utils.visualize</code></a></td><td>
+       <em></em></td></tr>
+   </table>
 
 
            </div>
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="pages/installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-    </div>
   
 
   <hr/>

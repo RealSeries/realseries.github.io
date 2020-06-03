@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Anomaly Detection &mdash; RealSeries 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Granger causality" href="Granger_causality.html" />
+    <link rel="prev" title="Time Series Datasets" href="datasets.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RealSeries
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#isolationforest-example">IsolationForest Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#pytorch-basded-neural-network-example">Pytorch basded Neural Network Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#series-and-label-visualize-example">Series and Label Visualize Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#granger-causality-example">Granger causality Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#industrial-demo">Industrial demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#simulation-demo">Simulation demo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cheetsheet.html">API Cheetsheet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cheetsheet.html#model">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cheetsheet.html#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cheetsheet.html#visualize">Visualize</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="realseries.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="realseries.models.html">All Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.AR">realseries.models.AR module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-dwgc-module">realseries.models.DWGC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-gc-module">realseries.models.GC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.NAR">realseries.models.NAR module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.base">realseries.models.base module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.iforest">realseries.models.iforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.lstm_dynamic">realseries.models.lstm_dynamic module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.lumino">realseries.models.lumino module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.rcforest">realseries.models.rcforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.rnn">realseries.models.rnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.seqvl">realseries.models.seqvl module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.sr">realseries.models.sr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.srcnn">realseries.models.srcnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.stl">realseries.models.stl module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.vae_ad">realseries.models.vae_ad module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="realseries.utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.data">realseries.utils.data module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.dataset">realseries.utils.dataset module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.errors">realseries.utils.errors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.evaluation">realseries.utils.evaluation module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.preprocess">realseries.utils.preprocess module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.segment">realseries.utils.segment module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.utility">realseries.utils.utility module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.visualize">realseries.utils.visualize module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Time Series Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#anomaly-detection-datasets">Anomaly Detection Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#granger-causality-datasets">Granger causality Datasets</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">RealSeries 101</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Anomaly Detection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#problem-description">Problem Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#models">Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Granger_causality.html">Granger causality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Granger_causality.html#problem-description-of-granger-causality">Problem Description of Granger causality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Granger_causality.html#models-of-granger-causality">Models of Granger causality</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="forecast_and_imputation.html">Forecast and Imputation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RealSeries</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Anomaly Detection</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/anomaly_detection.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="anomaly-detection">
+<h1>Anomaly Detection<a class="headerlink" href="#anomaly-detection" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="problem-description">
+<h2>Problem Description<a class="headerlink" href="#problem-description" title="Permalink to this headline">¶</a></h2>
+<p>Time Series Anomaly Detection’s task is to find out the possible anomalies lies
+in time series, like this:</p>
+<div class="figure align-default">
+<img alt="../_images/srcnn_nyc_taxi.png" src="../_images/srcnn_nyc_taxi.png" />
+</div>
+<p>To formalize, give a time series with either single channel or multi channels:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\textbf{X}=\{x_{ij}\}=
+  \begin{Bmatrix}
+  x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1d} \\
+  x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2d}\\
+  \cdots \\
+  x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{nd}
+  \end{Bmatrix}, i\text{: channel id}, j\text{: index id}.\end{split}\]</div>
+<p>We aim to find the possible anomalies lies in X:</p>
+<div class="math notranslate nohighlight">
+\[\{x_{pq}\}.\]</div>
+</div>
+<div class="section" id="models">
+<h2>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 31%" />
+<col style="width: 11%" />
+<col style="width: 8%" />
+<col style="width: 3%" />
+<col style="width: 30%" />
+<col style="width: 9%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Abbr</p></td>
+<td><p>Algorithm</p></td>
+<td><p>type</p></td>
+<td><p>supervise</p></td>
+<td><p>Year</p></td>
+<td><p>Class</p></td>
+<td><p>Ref</p></td>
+</tr>
+<tr class="row-even"><td><p>IForest</p></td>
+<td><p>Isolation forest.</p></td>
+<td><p>outlier ensembles</p></td>
+<td><p>unsupervised</p></td>
+<td><p>2008</p></td>
+<td><p><a class="reference internal" href="realseries.models.html#realseries.models.iforest.IForest" title="realseries.models.iforest.IForest"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.iforest.IForest</span></code></a></p></td>
+<td><p><a class="reference internal" href="#iforest" id="id1"><span>[IForest]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>LSTM_dynamic</p></td>
+<td><p>LSTM based nonparametricanomaly thresholding.</p></td>
+<td><p>neural networks</p></td>
+<td><p>unsupervised</p></td>
+<td><p>2018</p></td>
+<td><p><a class="reference internal" href="realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic" title="realseries.models.lstm_dynamic.LSTM_dynamic"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.lstm_dynamic.LSTM_dynamic</span></code></a></p></td>
+<td><p><a class="reference internal" href="#lstm-dynamic" id="id2"><span>[LSTM_dynamic]</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Lumino</p></td>
+<td><p>A light weight library luminol.</p></td>
+<td><p>distance based</p></td>
+<td><p>unsupervised</p></td>
+<td><p>2017</p></td>
+<td><p><a class="reference internal" href="realseries.models.html#realseries.models.lumino.Lumino" title="realseries.models.lumino.Lumino"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.lumino.Lumino</span></code></a></p></td>
+<td><p><a class="reference internal" href="#lumino" id="id3"><span>[Lumino]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>RCForest</p></td>
+<td><p>Robust random cut forest.</p></td>
+<td><p>outlier ensembles</p></td>
+<td><p>unsupervised</p></td>
+<td><p>2016</p></td>
+<td><p><a class="reference internal" href="realseries.models.html#realseries.models.rcforest.RCForest" title="realseries.models.rcforest.RCForest"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.rcforest.RCForest</span></code></a></p></td>
+<td><p><a class="reference internal" href="#rcforest" id="id4"><span>[RCForest]</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>LSTMED</p></td>
+<td><p>RNN based time-series prediction.</p></td>
+<td><p>neural networks</p></td>
+<td><p>unsupervised</p></td>
+<td><p>2016</p></td>
+<td><p><a class="reference internal" href="realseries.models.html#realseries.models.rnn.LSTMED" title="realseries.models.rnn.LSTMED"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.rnn.LSTMED</span></code></a></p></td>
+<td><p><a class="reference internal" href="#lstmed" id="id5"><span>[LSTMED]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>SR_CNN</p></td>
+<td><p>Spectral Residual and ConvNet based anomaly detection.</p></td>
+<td><p>neural networks</p></td>
+<td><p>supervised</p></td>
+<td><p>2019</p></td>
+<td><p><a class="reference internal" href="realseries.models.html#realseries.models.srcnn.SR_CNN" title="realseries.models.srcnn.SR_CNN"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.srcnn.SR_CNN</span></code></a></p></td>
+<td><p><a class="reference internal" href="#sr-cnn" id="id6"><span>[SR_CNN]</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>STL</p></td>
+<td><p>Seasonal and Trend decomposition using Loess.</p></td>
+<td><p>weighted regression</p></td>
+<td><p>unsupervised</p></td>
+<td><p>1990</p></td>
+<td><p><a class="reference internal" href="realseries.models.html#realseries.models.stl.STL" title="realseries.models.stl.STL"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.stl.STL</span></code></a></p></td>
+<td><p><a class="reference internal" href="#stl" id="id7"><span>[STL]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>VAE</p></td>
+<td><p>Variational Auto-Encoder anomaly detection.</p></td>
+<td><p>probabilistic</p></td>
+<td><p>unsupervised</p></td>
+<td><p>2018</p></td>
+<td><p><a class="reference internal" href="realseries.models.html#realseries.models.vae_ad.VAE_AD" title="realseries.models.vae_ad.VAE_AD"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.vae_ad.VAE_AD</span></code></a></p></td>
+<td><p><a class="reference internal" href="#vae" id="id8"><span>[VAE]</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<dl class="citation">
+<dt class="label" id="iforest"><span class="brackets"><a class="fn-backref" href="#id1">IForest</a></span></dt>
+<dd><p>Liu F T, Ting K M, Zhou Z H. Isolation forest[C]//2008 Eighth IEEE International Conference on Data Mining. IEEE, 2008: 413-422.</p>
+</dd>
+<dt class="label" id="lstm-dynamic"><span class="brackets"><a class="fn-backref" href="#id2">LSTM_dynamic</a></span></dt>
+<dd><p>Hundman K, Constantinou V, Laporte C, et al. Detecting spacecraft anomalies using lstms and nonparametric dynamic thresholding[C]//Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery &amp; Data Mining. 2018: 387-395.</p>
+</dd>
+<dt class="label" id="lumino"><span class="brackets"><a class="fn-backref" href="#id3">Lumino</a></span></dt>
+<dd><p>Luminol. Github, <a class="reference external" href="https://github.com/linkedin/luminol">https://github.com/linkedin/luminol</a></p>
+</dd>
+<dt class="label" id="rcforest"><span class="brackets"><a class="fn-backref" href="#id4">RCForest</a></span></dt>
+<dd><p>Hundman K, Constantinou V, Laporte C, et al. Detecting spacecraft anomalies using lstms and nonparametric dynamic thresholding[C]//Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery &amp; Data Mining. 2018: 387-395.</p>
+</dd>
+<dt class="label" id="lstmed"><span class="brackets"><a class="fn-backref" href="#id5">LSTMED</a></span></dt>
+<dd><p>Malhotra P, Ramakrishnan A, Anand G, et al. LSTM-based encoder-decoder for multi-sensor anomaly detection[J]. arXiv preprint arXiv:1607.00148, 2016.</p>
+</dd>
+<dt class="label" id="sr-cnn"><span class="brackets"><a class="fn-backref" href="#id6">SR_CNN</a></span></dt>
+<dd><p>Ren H, Xu B, Wang Y, et al. Time-Series Anomaly Detection Service at Microsoft[C]//Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery &amp; Data Mining. 2019: 3009-3017.</p>
+</dd>
+<dt class="label" id="stl"><span class="brackets"><a class="fn-backref" href="#id7">STL</a></span></dt>
+<dd><p>Cleveland R B. STL: A seasonal-trend decomposition procedure based on loess. 1990[J]. DOI: citeulike-article-id, 1435502.</p>
+</dd>
+<dt class="label" id="vae"><span class="brackets"><a class="fn-backref" href="#id8">VAE</a></span></dt>
+<dd><p>Xu H, Chen W, Zhao N, et al. Unsupervised anomaly detection via variational auto-encoder for seasonal kpis in web applications[C]//Proceedings of the 2018 World Wide Web Conference. 2018: 187-196.</p>
+</dd>
+<dt class="label" id="robust"><span class="brackets">Robust</span></dt>
+<dd><p>Su Y, Zhao Y, Niu C, et al. Robust Anomaly Detection for Multivariate Time Series through Stochastic Recurrent Neural Network[C]//Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery &amp; Data Mining. 2019: 2828-2837.</p>
+</dd>
+<dt class="label" id="nab"><span class="brackets">NAB</span></dt>
+<dd><p>Ahmad S, Lavin A, Purdy S, et al. Unsupervised real-time anomaly detection for streaming data[J]. Neurocomputing, 2017, 262: 134-147.</p>
+</dd>
+<dt class="label" id="nab2"><span class="brackets">NAB2</span></dt>
+<dd><p>Lavin A, Ahmad S. Evaluating Real-Time Anomaly Detection Algorithms–The Numenta Anomaly Benchmark[C]//2015 IEEE 14th International Conference on Machine Learning and Applications (ICMLA). IEEE, 2015: 38-44.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Granger_causality.html" class="btn btn-neutral float-right" title="Granger causality" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="datasets.html" class="btn btn-neutral float-left" title="Time Series Datasets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, RealAI
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,773 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Time Series Datasets &mdash; RealSeries 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Anomaly Detection" href="anomaly_detection.html" />
+    <link rel="prev" title="Utility Functions" href="realseries.utils.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RealSeries
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#isolationforest-example">IsolationForest Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#pytorch-basded-neural-network-example">Pytorch basded Neural Network Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#series-and-label-visualize-example">Series and Label Visualize Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#granger-causality-example">Granger causality Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#industrial-demo">Industrial demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#simulation-demo">Simulation demo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cheetsheet.html">API Cheetsheet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cheetsheet.html#model">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cheetsheet.html#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cheetsheet.html#visualize">Visualize</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="realseries.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="realseries.models.html">All Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.AR">realseries.models.AR module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-dwgc-module">realseries.models.DWGC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-gc-module">realseries.models.GC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.NAR">realseries.models.NAR module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.base">realseries.models.base module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.iforest">realseries.models.iforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.lstm_dynamic">realseries.models.lstm_dynamic module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.lumino">realseries.models.lumino module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.rcforest">realseries.models.rcforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.rnn">realseries.models.rnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.seqvl">realseries.models.seqvl module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.sr">realseries.models.sr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.srcnn">realseries.models.srcnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.stl">realseries.models.stl module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.vae_ad">realseries.models.vae_ad module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="realseries.utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.data">realseries.utils.data module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.dataset">realseries.utils.dataset module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.errors">realseries.utils.errors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.evaluation">realseries.utils.evaluation module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.preprocess">realseries.utils.preprocess module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.segment">realseries.utils.segment module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.utility">realseries.utils.utility module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.visualize">realseries.utils.visualize module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Time Series Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#anomaly-detection-datasets">Anomaly Detection Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#granger-causality-datasets">Granger causality Datasets</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">RealSeries 101</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anomaly_detection.html">Anomaly Detection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_detection.html#problem-description">Problem Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_detection.html#models">Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Granger_causality.html">Granger causality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Granger_causality.html#problem-description-of-granger-causality">Problem Description of Granger causality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Granger_causality.html#models-of-granger-causality">Models of Granger causality</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="forecast_and_imputation.html">Forecast and Imputation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RealSeries</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Time Series Datasets</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/datasets.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="time-series-datasets">
+<h1>Time Series Datasets<a class="headerlink" href="#time-series-datasets" title="Permalink to this headline">¶</a></h1>
+<p>RealSeries provides several example datasets that can be used for <span class="raw-html"><S></span> <a class="reference internal" href="forecast_and_imputation.html#forecast-and-imputation"><span class="std std-ref">Forecast and Imputation</span></a> <span class="raw-html"></S></span>, <span class="raw-html"><S></span> <a class="reference internal" href="classification.html#classification"><span class="std std-ref">Classification</span></a> <span class="raw-html"></S></span>,and <a class="reference internal" href="anomaly_detection.html#anomaly-detection"><span class="std std-ref">Anomaly Detection</span></a>, <a class="reference internal" href="Granger_causality.html#granger-causality"><span class="std std-ref">Granger causality</span></a>.</p>
+<div class="section" id="anomaly-detection-datasets">
+<h2>Anomaly Detection Datasets<a class="headerlink" href="#anomaly-detection-datasets" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 3%" />
+<col style="width: 38%" />
+<col style="width: 19%" />
+<col style="width: 7%" />
+<col style="width: 2%" />
+<col style="width: 2%" />
+<col style="width: 1%" />
+<col style="width: 1%" />
+<col style="width: 1%" />
+<col style="width: 1%" />
+<col style="width: 1%" />
+<col style="width: 1%" />
+<col style="width: 1%" />
+<col style="width: 1%" />
+<col style="width: 2%" />
+<col style="width: 2%" />
+<col style="width: 2%" />
+<col style="width: 1%" />
+<col style="width: 1%" />
+<col style="width: 1%" />
+<col style="width: 1%" />
+<col style="width: 1%" />
+<col style="width: 1%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Dir</p></td>
+<td><p>Name</p></td>
+<td><p>External</p></td>
+<td><p>Internal</p></td>
+<td><p>paper</p></td>
+<td><p>channel</p></td>
+<td colspan="3"><p>Lumino</p></td>
+<td colspan="3"><p>SR_CNN</p></td>
+<td colspan="3"><p>IForest</p></td>
+<td colspan="3"><p>LSTM_dym</p></td>
+<td colspan="3"><p>Rrcf</p></td>
+<td colspan="3"><p>VAE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>pre</p></td>
+<td><p>rec</p></td>
+<td><p>f1</p></td>
+<td><p>pre</p></td>
+<td><p>rec</p></td>
+<td><p>f1</p></td>
+<td><p>pre</p></td>
+<td><p>rec</p></td>
+<td><p>f1</p></td>
+<td><p>pre</p></td>
+<td><p>rec</p></td>
+<td><p>f1</p></td>
+<td><p>pre</p></td>
+<td><p>rec</p></td>
+<td><p>f1</p></td>
+<td><p>pre</p></td>
+<td><p>rec</p></td>
+<td><p>f1</p></td>
+</tr>
+<tr class="row-odd"><td><p>realKnownCause</p></td>
+<td><p>nyc_taxi</p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realKnownCause">github</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/file/boxcnl50bjbZ5VkH6uMKphe4Zpf">lark</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#rcforest" id="id1"><span>[RCForest]</span></a> <a class="reference internal" href="anomaly_detection.html#nab" id="id2"><span>[NAB]</span></a></p></td>
+<td><p>single</p></td>
+<td><p>0.99</p></td>
+<td><p>0.19</p></td>
+<td><p>0.33</p></td>
+<td><p>0.99</p></td>
+<td><p>0.59</p></td>
+<td><p>0.75</p></td>
+<td><p>0.99</p></td>
+<td><p>0.39</p></td>
+<td><p>0.57</p></td>
+<td><p>0.99</p></td>
+<td><p>0.39</p></td>
+<td><p>0.57</p></td>
+<td><p>0.99</p></td>
+<td><p>0.19</p></td>
+<td><p>0.33</p></td>
+<td><p>0.99</p></td>
+<td><p>0.79</p></td>
+<td><p>0.88</p></td>
+</tr>
+<tr class="row-even"><td rowspan="10"><p>realTweets</p></td>
+<td><p>UPS</p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id5"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id6"><span>[NAB2]</span></a></p></td>
+<td><p>single</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.98</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.73</p></td>
+<td><p>0.99</p></td>
+<td><p>0.95</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.85</p></td>
+<td><p>0.99</p></td>
+<td><p>0.92</p></td>
+</tr>
+<tr class="row-odd"><td><p>FE</p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id9"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id10"><span>[NAB2]</span></a></p></td>
+<td><p>single</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.37</p></td>
+<td><p>0</p></td>
+<td><p>0.01</p></td>
+<td><p>0.98</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0.87</p></td>
+<td><p>0.99</p></td>
+<td><p>0.93</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0.96</p></td>
+<td><p>0.99</p></td>
+<td><p>0.98</p></td>
+</tr>
+<tr class="row-even"><td><p>KO</p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id13"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id14"><span>[NAB2]</span></a></p></td>
+<td><p>single</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.99</p></td>
+<td><p>0.49</p></td>
+<td><p>0.66</p></td>
+<td><p>0.99</p></td>
+<td><p>0.49</p></td>
+<td><p>0.66</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.99</p></td>
+<td><p>0.01</p></td>
+<td><p>0.01</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>IBM</p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id17"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id18"><span>[NAB2]</span></a></p></td>
+<td><p>single</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.99</p></td>
+<td><p>0.61</p></td>
+<td><p>0.76</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>GOOG</p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id21"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id22"><span>[NAB2]</span></a></p></td>
+<td><p>single</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+</tr>
+<tr class="row-odd"><td><p>FB</p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id25"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id26"><span>[NAB2]</span></a></p></td>
+<td><p>single</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.85</p></td>
+<td><p>0.99</p></td>
+<td><p>0.92</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>CVS</p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id29"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id30"><span>[NAB2]</span></a></p></td>
+<td><p>single</p></td>
+<td><p>0.996</p></td>
+<td><p>0.08</p></td>
+<td><p>0.14</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.99</p></td>
+<td><p>0.75</p></td>
+<td><p>0.86</p></td>
+</tr>
+<tr class="row-odd"><td><p>CRM</p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id33"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id34"><span>[NAB2]</span></a></p></td>
+<td><p>single</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0.91</p></td>
+<td><p>0.99</p></td>
+<td><p>0.95</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.89</p></td>
+<td><p>0.99</p></td>
+<td><p>0.94</p></td>
+</tr>
+<tr class="row-even"><td><p>AMZN</p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id37"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id38"><span>[NAB2]</span></a></p></td>
+<td><p>single</p></td>
+<td><p>0.99</p></td>
+<td><p>0.49</p></td>
+<td><p>0.66</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.98</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+</tr>
+<tr class="row-odd"><td><p>AAPL</p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id41"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id42"><span>[NAB2]</span></a></p></td>
+<td><p>single</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.98</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0.98</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0.99</p></td>
+<td><p>0.97</p></td>
+<td><p>0.99</p></td>
+<td><p>0.98</p></td>
+</tr>
+<tr class="row-even"><td><p>Yahoo</p></td>
+<td><p>A1</p></td>
+<td><p><a class="reference external" href="https://yahooresearch.tumblr.com/post/114590420346/a-benchmark-dataset-for-time-series-anomaly">download</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnIbGiqD3MzPH1GjFwcaF00f">lark</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#vae" id="id44"><span>[VAE]</span></a> <a class="reference internal" href="anomaly_detection.html#sr-cnn" id="id45"><span>[SR_CNN]</span></a></p></td>
+<td><p>single</p></td>
+<td><p>0.86</p></td>
+<td><p>0.57</p></td>
+<td><p>0.69</p></td>
+<td><p>0.83</p></td>
+<td><p>0.17</p></td>
+<td><p>0.29</p></td>
+<td><p>0.54</p></td>
+<td><p>0.01</p></td>
+<td><p>0.02</p></td>
+<td><p>0.003</p></td>
+<td><p>0.008</p></td>
+<td><p>0.005</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>0.77</p></td>
+<td><p>0.64</p></td>
+<td><p>0.70</p></td>
+</tr>
+<tr class="row-odd"><td><p>NASA</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p><a class="reference external" href="https://s3-us-west-2.amazonaws.com/telemanom/data.zip">download</a> <a class="reference external" href="https://github.com/khundman/telemanom/blob/master/labeled_anomalies.csv">label</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnLQo89gv4EuzTmmN5uJJsje">lark</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#lstm-dynamic" id="id48"><span>[LSTM_dynamic]</span></a> <a class="reference internal" href="anomaly_detection.html#robust" id="id49"><span>[Robust]</span></a></p></td>
+<td><p>multi</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>0.96</p></td>
+<td><p>0.15</p></td>
+<td><p>0.26</p></td>
+<td><p>0.83</p></td>
+<td><p>0.50</p></td>
+<td><p>0.62</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="granger-causality-datasets">
+<h2>Granger causality Datasets<a class="headerlink" href="#granger-causality-datasets" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 8%" />
+<col style="width: 30%" />
+<col style="width: 4%" />
+<col style="width: 3%" />
+<col style="width: 4%" />
+<col style="width: 44%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2" rowspan="2"><p>datasets</p></td>
+<td rowspan="2"><p>External</p></td>
+<td colspan="2"><p>GC</p></td>
+<td colspan="2"><p>DWGC</p></td>
+</tr>
+<tr class="row-even"><td><p>accuracy</p></td>
+<td><p>recall</p></td>
+<td><p>accuracy</p></td>
+<td><p>recall</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><p>NAR simulation</p></td>
+<td><p>window length=10</p></td>
+<td rowspan="6"><p><a class="reference external" href="https://github.com/ZHzhang01/DWGC/tree/master/data">github</a></p></td>
+<td><p>0.42</p></td>
+<td><p>0.58</p></td>
+<td><p>0.44</p></td>
+<td><p>0.73</p></td>
+</tr>
+<tr class="row-even"><td><p>window length=20</p></td>
+<td><p>0.76</p></td>
+<td><p>0.65</p></td>
+<td><p>0.80</p></td>
+<td><p>0.65</p></td>
+</tr>
+<tr class="row-odd"><td><p>window length=30</p></td>
+<td><p>0.93</p></td>
+<td><p>0.66</p></td>
+<td><p>0.94</p></td>
+<td><p>0.67</p></td>
+</tr>
+<tr class="row-even"><td><p>window length=100</p></td>
+<td><p>1</p></td>
+<td><p>0.86</p></td>
+<td><p>1</p></td>
+<td><p>0.88</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>ENSO data(DWGC)</p></td>
+<td colspan="4"><p><a class="reference external" href="http://git.real-ai.cn/realseries/realseries/blob/causality_branch/notebooks/DWGC.ipynb">notebook</a></p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>ENSO data(GC)</p></td>
+<td colspan="4"><p><a class="reference external" href="http://git.real-ai.cn/realseries/realseries/blob/causality_branch/notebooks/GC.ipynb">notebook</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="anomaly_detection.html" class="btn btn-neutral float-right" title="Anomaly Detection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="realseries.utils.html" class="btn btn-neutral float-left" title="Utility Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, RealAI
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

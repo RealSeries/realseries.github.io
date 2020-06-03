@@ -1,0 +1,966 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examples &mdash; RealSeries 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API Cheetsheet" href="cheetsheet.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RealSeries
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#isolationforest-example">IsolationForest Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pytorch-basded-neural-network-example">Pytorch basded Neural Network Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#series-and-label-visualize-example">Series and Label Visualize Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#granger-causality-example">Granger causality Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#industrial-demo">Industrial demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-demo">Simulation demo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cheetsheet.html">API Cheetsheet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cheetsheet.html#model">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cheetsheet.html#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cheetsheet.html#visualize">Visualize</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="realseries.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="realseries.models.html">All Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.AR">realseries.models.AR module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-dwgc-module">realseries.models.DWGC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-gc-module">realseries.models.GC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.NAR">realseries.models.NAR module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.base">realseries.models.base module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.iforest">realseries.models.iforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.lstm_dynamic">realseries.models.lstm_dynamic module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.lumino">realseries.models.lumino module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.rcforest">realseries.models.rcforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.rnn">realseries.models.rnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.seqvl">realseries.models.seqvl module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.sr">realseries.models.sr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.srcnn">realseries.models.srcnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.stl">realseries.models.stl module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.vae_ad">realseries.models.vae_ad module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="realseries.utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.data">realseries.utils.data module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.dataset">realseries.utils.dataset module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.errors">realseries.utils.errors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.evaluation">realseries.utils.evaluation module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.preprocess">realseries.utils.preprocess module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.segment">realseries.utils.segment module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.utility">realseries.utils.utility module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.visualize">realseries.utils.visualize module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Time Series Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#anomaly-detection-datasets">Anomaly Detection Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#granger-causality-datasets">Granger causality Datasets</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">RealSeries 101</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anomaly_detection.html">Anomaly Detection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_detection.html#problem-description">Problem Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_detection.html#models">Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Granger_causality.html">Granger causality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Granger_causality.html#problem-description-of-granger-causality">Problem Description of Granger causality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Granger_causality.html#models-of-granger-causality">Models of Granger causality</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="forecast_and_imputation.html">Forecast and Imputation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RealSeries</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Examples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/examples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="isolationforest-example">
+<h2>IsolationForest Example<a class="headerlink" href="#isolationforest-example" title="Permalink to this headline">¶</a></h2>
+<p>Full example: <cite>notebooks/lumino_rrcf.ipynb</cite></p>
+<ol class="arabic">
+<li><p>Import models</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">realseries.models.iforest</span> <span class="kn">import</span> <span class="n">IForest</span>  <span class="c1"># IsolationForest detector</span>
+<span class="kn">from</span> <span class="nn">realseries.utils.evaluation</span> <span class="kn">import</span> <span class="n">point_metrics</span><span class="p">,</span> <span class="n">adjust_predicts</span>
+<span class="kn">from</span> <span class="nn">realseries.utils.data</span> <span class="kn">import</span> <span class="n">load_NAB</span>
+<span class="kn">from</span> <span class="nn">realseries.utils.visualize</span> <span class="kn">import</span> <span class="n">plot_anom</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Generate sample data with <a class="reference internal" href="realseries.utils.html#realseries.utils.data.load_NAB" title="realseries.utils.data.load_NAB"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.utils.data.load_NAB()</span></code></a>:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dirname</span> <span class="o">=</span> <span class="s1">&#39;realKnownCause&#39;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;nyc_taxi.csv&#39;</span>
+
+<span class="c1"># the fraction of used for test</span>
+<span class="n">fraction</span><span class="o">=</span><span class="mf">0.5</span>
+
+<span class="n">train_set</span><span class="p">,</span> <span class="n">test_set</span> <span class="o">=</span> <span class="n">load_NAB</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="n">fraction</span><span class="p">)</span>
+
+<span class="c1"># the last column is label; other columns are values</span>
+<span class="n">train_data</span><span class="p">,</span><span class="n">train_label</span> <span class="o">=</span> <span class="n">train_set</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">train_set</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">test_data</span><span class="p">,</span><span class="n">test_label</span> <span class="o">=</span> <span class="n">test_set</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">test_set</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># visualize</span>
+<span class="n">test_data</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Initialize a <a class="reference internal" href="realseries.models.html#realseries.models.iforest.IForest" title="realseries.models.iforest.IForest"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.iforest.IForest</span></code></a> detector,
+fit the model, and make the prediction.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># train the isolation  forest model</span>
+<span class="c1"># number of trees</span>
+<span class="n">n_estimators</span><span class="o">=</span><span class="mi">1000</span>
+
+<span class="c1"># number of samples from the input array X for one estimator</span>
+<span class="n">max_samples</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span>
+
+<span class="c1"># the fraction of anomaly point in the total input sequence</span>
+<span class="n">contamination</span><span class="o">=</span><span class="mf">0.01</span>
+
+<span class="c1">#random seed</span>
+<span class="n">random_state</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="c1">#build model</span>
+<span class="n">IF</span> <span class="o">=</span> <span class="n">IForest</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="n">n_estimators</span><span class="p">,</span>
+            <span class="n">max_samples</span><span class="o">=</span><span class="n">max_samples</span><span class="p">,</span>
+            <span class="n">contamination</span><span class="o">=</span><span class="n">contamination</span><span class="p">,</span>
+            <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+
+<span class="c1">#train model</span>
+<span class="n">IF</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
+
+<span class="c1"># detect</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">IF</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Get anomaly label by setting threshold.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">thres_percent</span><span class="o">=</span><span class="mf">99.9</span>
+<span class="n">thres</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">score</span><span class="p">,</span><span class="n">thres_percent</span><span class="p">)</span>
+<span class="n">pred_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">score</span><span class="o">&gt;</span><span class="n">thres</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Visualize and Evaluate the prediction result point to point.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># visualize</span>
+<span class="n">plot_anom</span><span class="p">(</span>
+    <span class="n">test_set</span><span class="p">,</span>
+    <span class="n">pred_label</span><span class="p">,</span>
+    <span class="n">score</span><span class="p">)</span>
+
+<span class="c1"># evaluate and print the results</span>
+<span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span> <span class="o">=</span> <span class="n">point_metrics</span><span class="p">(</span><span class="n">pred_label</span><span class="p">,</span>
+                                                    <span class="n">test_label</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;precision:</span><span class="si">{}</span><span class="s1">, recall:</span><span class="si">{}</span><span class="s1">, f1:</span><span class="si">{}</span><span class="s1">, tp:</span><span class="si">{}</span><span class="s1">, tn:</span><span class="si">{}</span><span class="s1">, fp:</span><span class="si">{}</span><span class="s1">, fn:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                                <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/iforest1.png" src="../_images/iforest1.png" />
+</div>
+</div></blockquote>
+</li>
+<li><p>Visualize the prediction that is adjusted. Evaluate the adjusted results.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># evaluate and print the results</span>
+<span class="n">delay</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># delay is the max number of delay points that allowed</span>
+             <span class="c1"># when anomaly point occur.</span>
+
+<span class="n">adjust_pred_label</span> <span class="o">=</span> <span class="n">adjust_predicts</span><span class="p">(</span><span class="n">pred_label</span><span class="p">,</span><span class="n">test_label</span><span class="p">,</span><span class="n">delay</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plot_anom</span><span class="p">(</span>
+    <span class="n">test_set</span><span class="p">,</span>
+    <span class="n">adjust_pred_label</span><span class="p">,</span>
+    <span class="n">score</span><span class="p">)</span>
+
+<span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span> <span class="o">=</span> <span class="n">point_metrics</span><span class="p">(</span><span class="n">adjust_pred_label</span><span class="p">,</span>
+                                                    <span class="n">test_label</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;precision:</span><span class="si">{}</span><span class="s1">, recall:</span><span class="si">{}</span><span class="s1">, f1:</span><span class="si">{}</span><span class="s1">, tp:</span><span class="si">{}</span><span class="s1">, tn:</span><span class="si">{}</span><span class="s1">, fp:</span><span class="si">{}</span><span class="s1">, fn:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                                <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/iforest2.png" src="../_images/iforest2.png" />
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="pytorch-basded-neural-network-example">
+<h2>Pytorch basded Neural Network Example<a class="headerlink" href="#pytorch-basded-neural-network-example" title="Permalink to this headline">¶</a></h2>
+<p>Full example: <cite>notebooks/lstm_dym.ipynb</cite></p>
+<ol class="arabic">
+<li><p>Import models</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">realseries.models.lstm_dynamic</span> <span class="kn">import</span> <span class="n">LSTM_dynamic</span>
+<span class="kn">from</span> <span class="nn">realseries.utils.evaluation</span> <span class="kn">import</span> <span class="n">point_metrics</span><span class="p">,</span> <span class="n">adjust_predicts</span>
+<span class="kn">from</span> <span class="nn">realseries.utils.data</span> <span class="kn">import</span> <span class="n">load_NAB</span>
+<span class="kn">from</span> <span class="nn">realseries.utils.visualize</span> <span class="kn">import</span> <span class="n">plot_anom</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CUDA_VISIBLE_DEVICES&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>  <span class="c1"># set visible gpu</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Generate sample data with <a class="reference internal" href="realseries.utils.html#realseries.utils.data.load_NAB" title="realseries.utils.data.load_NAB"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.utils.data.load_NAB()</span></code></a>:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dirname</span> <span class="o">=</span> <span class="s1">&#39;realKnownCause&#39;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;nyc_taxi.csv&#39;</span>
+
+<span class="c1"># the fraction of used for test</span>
+<span class="n">fraction</span><span class="o">=</span><span class="mf">0.5</span>
+
+<span class="n">train_set</span><span class="p">,</span> <span class="n">test_set</span> <span class="o">=</span> <span class="n">load_NAB</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="n">fraction</span><span class="p">)</span>
+
+<span class="c1"># the last column is label; other columns are values</span>
+<span class="n">train_data</span><span class="p">,</span><span class="n">train_label</span> <span class="o">=</span> <span class="n">train_set</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">train_set</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">test_data</span><span class="p">,</span><span class="n">test_label</span> <span class="o">=</span> <span class="n">test_set</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">test_set</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># visualize</span>
+<span class="n">test_data</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">realseries.utils.preprocess</span> <span class="kn">import</span> <span class="n">normalization</span>
+<span class="n">train_data</span><span class="p">,</span><span class="n">test_data</span> <span class="o">=</span> <span class="n">normalization</span><span class="p">(</span><span class="n">train_data</span><span class="p">),</span><span class="n">normalization</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Initialize parameters.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># LSTM parameters</span>
+<span class="c1"># --------------------------</span>
+<span class="n">dropout</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">lstm_batch_size</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">hidden_size</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">num_layers</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="mf">1e-3</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">40</span>
+
+<span class="c1"># data parameters</span>
+<span class="c1"># --------------------------</span>
+<span class="c1"># time_window length of input data</span>
+<span class="n">l_s</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># number of values to predict by input data</span>
+<span class="n">n_predictions</span> <span class="o">=</span>  <span class="mi">5</span>
+
+<span class="c1"># error parameters</span>
+<span class="c1"># --------------------------</span>
+<span class="c1"># number of values to evaluate in each batch in the prediction stage</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># window_size to use in error calculation</span>
+<span class="n">window_size</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="c1"># determines window size used in EWMA smoothing (percentage of total values for channel)</span>
+<span class="n">smoothing_perc</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="c1"># number of values surrounding an error that are brought into the sequence (promotes grouping on nearby sequences</span>
+<span class="n">error_buffer</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="c1"># minimum percent decrease between max errors in anomalous sequences (used for pruning)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.13</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Initialize a <a class="reference internal" href="realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic" title="realseries.models.lstm_dynamic.LSTM_dynamic"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.lstm_dynamic.LSTM_dynamic</span></code></a> detector,
+fit the model, and make the prediction.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the model</span>
+<span class="c1"># --------------------------</span>
+<span class="c1"># path to save model in Realseries/snapshot/.....</span>
+<span class="n">model_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;../snapshot/lstm_dym/</span><span class="si">{</span><span class="n">filename</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># init the model class</span>
+<span class="n">lstm_dym</span> <span class="o">=</span> <span class="n">LSTM_dynamic</span><span class="p">(</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+    <span class="n">window_size</span><span class="o">=</span><span class="n">window_size</span><span class="p">,</span>
+    <span class="n">smoothing_perc</span><span class="o">=</span><span class="n">smoothing_perc</span><span class="p">,</span>
+    <span class="n">error_buffer</span><span class="o">=</span><span class="n">error_buffer</span><span class="p">,</span>
+    <span class="n">dropout</span><span class="o">=</span><span class="n">dropout</span><span class="p">,</span>
+    <span class="n">lstm_batch_size</span><span class="o">=</span><span class="n">lstm_batch_size</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span>
+    <span class="n">num_layers</span><span class="o">=</span><span class="n">num_layers</span><span class="p">,</span>
+    <span class="n">l_s</span><span class="o">=</span><span class="n">l_s</span><span class="p">,</span>
+    <span class="n">n_predictions</span><span class="o">=</span><span class="n">n_predictions</span><span class="p">,</span>
+    <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span>
+    <span class="n">model_path</span><span class="o">=</span><span class="n">model_path</span><span class="p">,</span>
+    <span class="n">hidden_size</span><span class="o">=</span><span class="n">hidden_size</span><span class="p">,</span>
+    <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
+
+<span class="n">lstm_dym</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
+
+<span class="c1"># detect</span>
+<span class="n">anomaly_list</span><span class="p">,</span> <span class="n">score_list</span> <span class="o">=</span> <span class="n">lstm_dym</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+
+<span class="c1"># create anomaly score array for ploting and evaluation</span>
+<span class="n">pred_label</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_label</span><span class="p">))</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_label</span><span class="p">))</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">),</span> <span class="n">score_</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">anomaly_list</span><span class="p">,</span> <span class="n">score_list</span><span class="p">):</span>
+    <span class="n">pred_label</span><span class="p">[</span><span class="n">l</span><span class="p">:</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">score</span><span class="p">[</span><span class="n">l</span><span class="p">:</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="n">score_</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Visualize and Evaluate the prediction result point to point.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># visualize</span>
+<span class="n">plot_anom</span><span class="p">(</span>
+    <span class="n">test_set</span><span class="p">,</span>
+    <span class="n">pred_label</span><span class="p">,</span>
+    <span class="n">score</span><span class="p">)</span>
+
+<span class="c1"># evaluate and print the results</span>
+<span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span> <span class="o">=</span> <span class="n">point_metrics</span><span class="p">(</span><span class="n">pred_label</span><span class="p">,</span>
+                                                    <span class="n">test_label</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;precision:</span><span class="si">{}</span><span class="s1">, recall:</span><span class="si">{}</span><span class="s1">, f1:</span><span class="si">{}</span><span class="s1">, tp:</span><span class="si">{}</span><span class="s1">, tn:</span><span class="si">{}</span><span class="s1">, fp:</span><span class="si">{}</span><span class="s1">, fn:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                                <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/lstm1.png" src="../_images/lstm1.png" />
+</div>
+</div></blockquote>
+</li>
+<li><p>Visualize the prediction that is adjusted. Evaluate the adjusted results.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># evaluate and print the results</span>
+<span class="n">delay</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># delay is the max number of delay points that allowed</span>
+             <span class="c1"># when anomaly point occur.</span>
+
+<span class="n">adjust_pred_label</span> <span class="o">=</span> <span class="n">adjust_predicts</span><span class="p">(</span><span class="n">pred_label</span><span class="p">,</span><span class="n">test_label</span><span class="p">,</span><span class="n">delay</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plot_anom</span><span class="p">(</span>
+    <span class="n">test_set</span><span class="p">,</span>
+    <span class="n">adjust_pred_label</span><span class="p">,</span>
+    <span class="n">score</span><span class="p">)</span>
+
+<span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span> <span class="o">=</span> <span class="n">point_metrics</span><span class="p">(</span><span class="n">adjust_pred_label</span><span class="p">,</span>
+                                                    <span class="n">test_label</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;precision:</span><span class="si">{}</span><span class="s1">, recall:</span><span class="si">{}</span><span class="s1">, f1:</span><span class="si">{}</span><span class="s1">, tp:</span><span class="si">{}</span><span class="s1">, tn:</span><span class="si">{}</span><span class="s1">, fp:</span><span class="si">{}</span><span class="s1">, fn:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                                <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/lstm3.png" src="../_images/lstm3.png" />
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="series-and-label-visualize-example">
+<h2>Series and Label Visualize Example<a class="headerlink" href="#series-and-label-visualize-example" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Import models</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">realseries.utils.data</span> <span class="kn">import</span> <span class="n">load_NAB</span>
+<span class="kn">from</span> <span class="nn">realseries.utils.visualize</span> <span class="kn">import</span> <span class="n">plot_anom</span><span class="p">,</span><span class="n">plot_mne</span>
+</pre></div>
+</div>
+</li>
+<li><p>Generate sample data with <a class="reference internal" href="realseries.utils.html#realseries.utils.data.load_NAB" title="realseries.utils.data.load_NAB"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.utils.data.load_NAB()</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dirname</span> <span class="o">=</span> <span class="s1">&#39;realKnownCause&#39;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;nyc_taxi.csv&#39;</span>
+
+<span class="c1"># the fraction of used for test</span>
+<span class="n">fraction</span><span class="o">=</span><span class="mf">0.5</span>
+
+<span class="n">train_set</span><span class="p">,</span> <span class="n">test_set</span> <span class="o">=</span> <span class="n">load_NAB</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="n">fraction</span><span class="p">)</span>
+
+<span class="c1"># the last column is label; other columns are values</span>
+<span class="n">train_data</span><span class="p">,</span><span class="n">train_label</span> <span class="o">=</span> <span class="n">train_set</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">train_set</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">test_data</span><span class="p">,</span><span class="n">test_label</span> <span class="o">=</span> <span class="n">test_set</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">test_set</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Mne based visualize. The dataset <code class="docutils literal notranslate"><span class="pre">test_set</span></code> contains signals channel and
+label channel. The label is in the last channel. In order to make data and
+label channel shown in different colors, we set two kinds channle type by
+<code class="docutils literal notranslate"><span class="pre">ch_types=['eeg']*(num_chans-1)</span> <span class="pre">+</span> <span class="pre">['ecg']</span></code>.The last channel <code class="docutils literal notranslate"><span class="pre">ecg</span></code> is
+different with others <code class="docutils literal notranslate"><span class="pre">eeg</span></code>. We also assign different colors as <code class="docutils literal notranslate"><span class="pre">eeg='k',</span>
+<span class="pre">ecg='r'</span></code>. e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the last column of test_set is label</span>
+<span class="n">num_chans</span> <span class="o">=</span> <span class="n">test_set</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># modify scales according the shown figure, it can also</span>
+<span class="c1"># be set to scalings=&#39;auto&#39;</span>
+<span class="n">scalings</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;eeg&#39;</span><span class="p">:</span> <span class="mf">1e4</span><span class="p">,</span> <span class="s1">&#39;ecg&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+
+<span class="c1"># assign colors for different channel types.</span>
+<span class="n">color</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">eeg</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ecg</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="c1"># the last channle is ecg and others are eeg channle</span>
+<span class="n">ch_types</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;eeg&#39;</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">num_chans</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;ecg&#39;</span><span class="p">]</span>
+
+<span class="n">plot_mne</span><span class="p">(</span><span class="n">test_set</span><span class="p">,</span>
+    <span class="n">scalings</span><span class="o">=</span><span class="n">scalings</span><span class="p">,</span>
+    <span class="n">ch_types</span><span class="o">=</span><span class="n">ch_types</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/mne.png" src="../_images/mne.png" />
+</div>
+<p>More details in <a class="reference internal" href="realseries.utils.html#realseries.utils.visualize.plot_mne" title="realseries.utils.visualize.plot_mne"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.utils.visualize.plot_mne()</span></code></a>.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="granger-causality-example">
+<h2>Granger causality Example<a class="headerlink" href="#granger-causality-example" title="Permalink to this headline">¶</a></h2>
+<p>Full example: <cite>notebooks/DWGC.ipynb</cite>, <cite>notebooks/GC.ipynb</cite></p>
+<div class="section" id="industrial-demo">
+<h3>Industrial demo<a class="headerlink" href="#industrial-demo" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Import models</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span><span class="nn">os</span>
+
+
+<span class="kn">import</span> <span class="nn">realseries</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">realseries</span><span class="o">.</span><span class="vm">__file__</span>
+
+
+<span class="kn">from</span> <span class="nn">realseries.models.base</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+<span class="kn">from</span> <span class="nn">realseries.models.NAR</span> <span class="kn">import</span> <span class="n">NAR_Network</span>
+<span class="kn">from</span> <span class="nn">realseries.models.AR_new</span> <span class="kn">import</span> <span class="n">AR_new</span>
+<span class="kn">from</span> <span class="nn">realseries.models.DWGC</span> <span class="kn">import</span> <span class="n">DWGC</span>
+<span class="kn">from</span> <span class="nn">realseries.models.GC</span> <span class="kn">import</span> <span class="n">GC</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.ar_model</span> <span class="kn">import</span> <span class="n">AR</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="kn">import</span> <span class="nn">scipy.special</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
+
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Import data and DWGC algorithm, the F_test result shows the window level causality.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">NAR_Network</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">tempt1</span> <span class="o">=</span> <span class="n">DWGC</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">model</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="s1">&#39;NAR&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">tempt2</span> <span class="o">=</span> <span class="n">GC</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">model</span><span class="p">,</span><span class="s1">&#39;NAR&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ensodata.csv&quot;</span><span class="p">,</span><span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Visualize the window-level causality. We find that DWGC method is more consistent with two prior conclusions than traditional GC method: 1. The causal relationship of ENSO to MKE/OLR is more obvious in autumn/winter than in spring/summer; 2 the causal relationship of MKE/OLR to ENSO exists in spring/summer.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">411</span><span class="p">)</span>
+<span class="n">tempt1</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">F_test_win1</span> <span class="o">=</span> <span class="n">tempt1</span><span class="o">.</span><span class="n">detect</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">F_test_win2</span> <span class="o">=</span> <span class="n">tempt2</span><span class="o">.</span><span class="n">detect</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">l1</span><span class="p">,</span><span class="o">=</span><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">F_test_win1</span><span class="p">)</span>
+<span class="n">l2</span><span class="p">,</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">F_test_win2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">l1</span><span class="p">,</span><span class="n">l2</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="sa">r</span><span class="s1">&#39;DWGC &#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;GC&#39;</span><span class="p">],</span>  <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;causality ENSO to OLR&#39;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$F_</span><span class="si">{statistic}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">set_powerlimits</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">412</span><span class="p">)</span>
+<span class="n">F_test_win1</span> <span class="o">=</span> <span class="n">tempt1</span><span class="o">.</span><span class="n">detect</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">F_test_win2</span> <span class="o">=</span> <span class="n">tempt2</span><span class="o">.</span><span class="n">detect</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">l1</span><span class="p">,</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">F_test_win1</span><span class="p">)</span>
+<span class="n">l2</span><span class="p">,</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">F_test_win2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">l1</span><span class="p">,</span><span class="n">l2</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="sa">r</span><span class="s1">&#39;DWGC &#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;GC&#39;</span><span class="p">],</span>  <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$F_</span><span class="si">{statistic}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">set_powerlimits</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;causality ENSO to MKE&#39;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+
+
+
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">413</span><span class="p">)</span>
+<span class="n">F_test_win1</span> <span class="o">=</span> <span class="n">tempt1</span><span class="o">.</span><span class="n">detect</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">F_test_win2</span> <span class="o">=</span> <span class="n">tempt2</span><span class="o">.</span><span class="n">detect</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">l1</span><span class="p">,</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">F_test_win1</span><span class="p">)</span>
+<span class="n">l2</span><span class="p">,</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">F_test_win2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">l1</span><span class="p">,</span><span class="n">l2</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="sa">r</span><span class="s1">&#39;DWGC &#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;GC&#39;</span><span class="p">],</span>  <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$F_</span><span class="si">{statistic}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">set_powerlimits</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;causality OLR to ENSO&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span> <span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">hspace</span> <span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+
+<span class="n">ax4</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">414</span><span class="p">)</span>
+<span class="n">F_test_win1</span> <span class="o">=</span> <span class="n">tempt1</span><span class="o">.</span><span class="n">detect</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">F_test_win2</span> <span class="o">=</span> <span class="n">tempt2</span><span class="o">.</span><span class="n">detect</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">l1</span><span class="p">,</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">F_test_win1</span><span class="p">)</span>
+<span class="n">l2</span><span class="p">,</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">F_test_win2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">l1</span><span class="p">,</span><span class="n">l2</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="sa">r</span><span class="s1">&#39;DWGC &#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;GC&#39;</span><span class="p">],</span>  <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$F_</span><span class="si">{statistic}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">set_powerlimits</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;causality MKE to ENSO&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="c1"># Compared with the traditional GC method, DWGC method can better fit two prior conclusions:</span>
+<span class="c1"># 1 The causality from ENSO to MKE/OLR is more obvious in autumn/winter than in spring/summer;</span>
+<span class="c1"># 2 The causality from MKE/OLR to ENSO exists in spring/suummer.</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;DWGC(GC)_ENSO.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/ENSO.png" src="../_images/ENSO.png" />
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="simulation-demo">
+<h3>Simulation demo<a class="headerlink" href="#simulation-demo" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Preprocessing, import the data and models.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span><span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">realseries</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">realseries</span><span class="o">.</span><span class="vm">__file__</span>
+<span class="kn">from</span> <span class="nn">realseries.models</span> <span class="kn">import</span> <span class="n">iforest</span>
+<span class="kn">from</span> <span class="nn">realseries.models.base</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">realseries.models.DWGC</span> <span class="kn">import</span> <span class="n">DWGC</span>
+<span class="kn">from</span> <span class="nn">realseries.models.GC</span> <span class="kn">import</span> <span class="n">GC</span>
+
+<span class="kn">import</span> <span class="nn">scipy.special</span>
+
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;AR_causal_point.csv&quot;</span><span class="p">,</span><span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">490</span><span class="p">,:]</span>
+
+
+<span class="n">delay_input</span> <span class="o">=</span> <span class="mi">30</span>
+
+
+<span class="n">data2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;AR_series.csv&quot;</span><span class="p">,</span><span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+<span class="n">data2</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="n">values</span>
+<span class="n">data2</span> <span class="o">=</span> <span class="n">data2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">500</span><span class="p">,:]</span>
+
+<span class="n">data_0</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">expit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">data2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">data_1</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">expit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">data2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Create a class to detect the window-level causality on NAR simulation series.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="n">win_length</span><span class="p">):</span>
+    <span class="n">stat_count_detect_DWGC</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">stat_count_detect_GC</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1">#repeat the experiment</span>
+    <span class="k">for</span> <span class="n">repeat</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="n">NAR_Network</span><span class="p">(</span><span class="n">delay_input</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.95</span><span class="p">)</span>
+        <span class="n">tempt</span> <span class="o">=</span> <span class="n">DWGC</span><span class="p">(</span><span class="n">win_length</span><span class="p">,</span><span class="n">model</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="s1">&#39;NAR&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">Ftest_win_DWGC</span> <span class="o">=</span> <span class="n">tempt</span><span class="o">.</span><span class="n">detect</span><span class="p">([</span><span class="n">data_0</span><span class="p">,</span><span class="n">data_1</span><span class="p">])</span>
+
+        <span class="n">tempt</span> <span class="o">=</span> <span class="n">DWGC</span><span class="p">(</span><span class="n">win_length</span><span class="p">,</span><span class="n">model</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;NAR&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1">#GC is the special case of lr=1 in DWGC;</span>
+
+
+        <span class="n">Ftest_win_GC</span> <span class="o">=</span> <span class="n">tempt</span><span class="o">.</span><span class="n">detect</span><span class="p">([</span><span class="n">data_0</span><span class="p">,</span><span class="n">data_1</span><span class="p">])</span>
+
+
+
+        <span class="n">count_real</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">count_detect_DWGC</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">count_whole_DWGC</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">count_detect_GC</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">count_whole_GC</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+        <span class="n">data_use</span> <span class="o">=</span>  <span class="nb">int</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">data_0</span><span class="p">)</span><span class="o">-</span><span class="n">delay_input</span><span class="p">)</span><span class="o">/</span><span class="n">win_length</span><span class="p">)</span> <span class="o">*</span> <span class="n">win_length</span>
+
+
+
+        <span class="n">win_num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">data_0</span><span class="p">)</span><span class="o">-</span><span class="n">delay_input</span><span class="p">)</span><span class="o">/</span><span class="n">win_length</span><span class="p">)</span>
+        <span class="n">label_real</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span><span class="n">win_num</span>
+        <span class="n">label_detect_DWGC</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span><span class="n">win_num</span>
+        <span class="n">label_whole_DWGC</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span><span class="n">win_num</span>
+
+        <span class="n">label_detect_GC</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span><span class="n">win_num</span>
+        <span class="n">label_whole_GC</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span><span class="n">win_num</span>
+
+
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data_use</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">win_number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="n">win_length</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mf">0.45</span><span class="p">:</span>
+
+
+                <span class="n">label_real</span><span class="p">[</span><span class="n">win_number</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">Ftest_win_DWGC</span><span class="p">[</span><span class="n">win_number</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">Ftest_win_DWGC</span><span class="p">[</span><span class="n">win_number</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">:</span>
+                    <span class="n">label_detect_DWGC</span><span class="p">[</span><span class="n">win_number</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">Ftest_win_DWGC</span><span class="p">[</span><span class="n">win_number</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">1</span> <span class="ow">or</span> <span class="n">Ftest_win_DWGC</span><span class="p">[</span><span class="n">win_number</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+
+                <span class="n">label_whole_DWGC</span><span class="p">[</span><span class="n">win_number</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Ftest_win_DWGC</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">Ftest_win_DWGC</span><span class="p">))))</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">:</span>
+
+            <span class="n">stat_count_detect_DWGC</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">label_detect_DWGC</span><span class="p">))</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        else:</span>
+
+<span class="sd">            stat_count_detect_DWGC.append(0.5 * np.sum(label_real))</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data_use</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">win_number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="n">win_length</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mf">0.45</span><span class="p">:</span>
+
+                <span class="k">if</span> <span class="n">Ftest_win_GC</span><span class="p">[</span><span class="n">win_number</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">Ftest_win_DWGC</span><span class="p">[</span><span class="n">win_number</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+
+                    <span class="n">label_detect_GC</span><span class="p">[</span><span class="n">win_number</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">Ftest_win_GC</span><span class="p">[</span><span class="n">win_number</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">1</span> <span class="ow">or</span> <span class="n">Ftest_win_DWGC</span><span class="p">[</span><span class="n">win_number</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+
+                <span class="n">label_whole_GC</span><span class="p">[</span><span class="n">win_number</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Ftest_win_GC</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">Ftest_win_GC</span><span class="p">))))</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">:</span>
+
+            <span class="n">stat_count_detect_GC</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">label_detect_GC</span><span class="p">))</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        else:</span>
+
+<span class="sd">            stat_count_detect_GC.append(0.5 * np.sum(label_real))</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="n">repeat</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;repeat:&quot;</span><span class="p">,</span><span class="n">repeat</span><span class="p">)</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            print(&quot;count_real:&quot;, np.sum(label_real))</span>
+<span class="sd">            print(&quot;count_detect_DWGC&quot;,np.sum(label_detect_DWGC))</span>
+<span class="sd">            print(&quot;count_whole_DWGC&quot;,np.sum(label_whole_DWGC))</span>
+
+
+<span class="sd">            print(&quot;count_detect_GC&quot;,np.sum(label_detect_GC))</span>
+<span class="sd">            print(&quot;count_whole_GC&quot;,np.sum(label_whole_GC))</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mean_stat_Ftest_win_DWGC:&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">stat_count_detect_DWGC</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">label_real</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mean_stat_Ftest_win_GC:&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">stat_count_detect_GC</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">label_real</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;var_stat_Ftest_win_DWGC:&quot;</span><span class="p">,(</span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">stat_count_detect_DWGC</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">label_real</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">label_real</span><span class="p">)))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;var_stat_Ftest_win_GC:&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">stat_count_detect_GC</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">label_real</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">label_real</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">stat_count_detect_DWGC</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">label_real</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">stat_count_detect_GC</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">label_real</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Compute the accuracy/recall of DWGC/GC on different window length.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">experiment</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">experiment</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">experiment</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 8%" />
+<col style="width: 30%" />
+<col style="width: 4%" />
+<col style="width: 3%" />
+<col style="width: 4%" />
+<col style="width: 44%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2" rowspan="2"><p>datasets</p></td>
+<td rowspan="2"><p>External</p></td>
+<td colspan="2"><p>GC</p></td>
+<td colspan="2"><p>DWGC</p></td>
+</tr>
+<tr class="row-even"><td><p>accuracy</p></td>
+<td><p>recall</p></td>
+<td><p>accuracy</p></td>
+<td><p>recall</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><p>NAR simulation</p></td>
+<td><p>window length=10</p></td>
+<td rowspan="4"><p><a class="reference external" href="https://github.com/ZHzhang01/DWGC/tree/master/data">github</a></p></td>
+<td><p>0.42</p></td>
+<td><p>0.58</p></td>
+<td><p>0.44</p></td>
+<td><p>0.73</p></td>
+</tr>
+<tr class="row-even"><td><p>window length=20</p></td>
+<td><p>0.76</p></td>
+<td><p>0.65</p></td>
+<td><p>0.80</p></td>
+<td><p>0.65</p></td>
+</tr>
+<tr class="row-odd"><td><p>window length=30</p></td>
+<td><p>0.93</p></td>
+<td><p>0.66</p></td>
+<td><p>0.94</p></td>
+<td><p>0.67</p></td>
+</tr>
+<tr class="row-even"><td><p>window length=100</p></td>
+<td><p>1</p></td>
+<td><p>0.86</p></td>
+<td><p>1</p></td>
+<td><p>0.88</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cheetsheet.html" class="btn btn-neutral float-right" title="API Cheetsheet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, RealAI
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
