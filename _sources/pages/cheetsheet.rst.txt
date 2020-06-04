@@ -64,8 +64,8 @@ Model
 
 - **Granger Causality**
 
-  * :func:`realseries.models.GC.GC.detect`:
-  * :func:`realseries.models.DWGC.DWGC.detect`:
+  * :func:`realseries.models.GC.GC.detect`: Granger Causality detector, which is channel-level.
+  * :func:`realseries.models.DWGC.DWGC.detect`: Dynamic Window-level Granger Causality detector.
 
 See base class definition in :class:`realseries.models.base`.
 
