@@ -62,6 +62,11 @@ Model
   * :func:`realseries.models.stl.STL.forecast`: Forecast the later value of a
     sequence. The array is returned.
 
+- **Granger Causality**
+
+  * :func:`realseries.models.GC.GC.detect`:
+  * :func:`realseries.models.DWGC.DWGC.detect`:
+
 See base class definition in :class:`realseries.models.base`.
 
 Data

@@ -106,8 +106,8 @@
 <li class="toctree-l1"><a class="reference internal" href="pages/realseries.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pages/realseries.models.html">All Models</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.AR">realseries.models.AR module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#realseries-models-dwgc-module">realseries.models.DWGC module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#realseries-models-gc-module">realseries.models.GC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.DWGC">realseries.models.DWGC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.GC">realseries.models.GC module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.NAR">realseries.models.NAR module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.base">realseries.models.base module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.iforest">realseries.models.iforest module</a></li>
@@ -257,7 +257,7 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.anomaly_score">anomaly_score (realseries.models.iforest.IForest attribute)</a>
 </li>
-      <li><a href="pages/realseries.models.html#realseries.models.AR.AR_new">AR_new (class in realseries.models.AR)</a>
+      <li><a href="pages/realseries.models.html#realseries.models.AR.AR">AR (class in realseries.models.AR)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.preprocess.augmentation">augmentation() (in module realseries.utils.preprocess)</a>
 </li>
@@ -305,10 +305,14 @@
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.dataset.Data.data_to_seqvl_format">data_to_seqvl_format() (realseries.utils.dataset.Data method)</a>
 </li>
-      <li><a href="pages/realseries.models.html#realseries.models.AR.AR_new.detect">detect() (realseries.models.AR.AR_new method)</a>
+      <li><a href="pages/realseries.models.html#realseries.models.AR.AR.detect">detect() (realseries.models.AR.AR method)</a>
 
       <ul>
         <li><a href="pages/realseries.models.html#realseries.models.base.BaseModel.detect">(realseries.models.base.BaseModel method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.DWGC.DWGC.detect">(realseries.models.DWGC.DWGC method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.GC.GC.detect">(realseries.models.GC.GC method)</a>
 </li>
         <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.detect">(realseries.models.iforest.IForest method)</a>
 </li>
@@ -336,6 +340,8 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pages/realseries.models.html#realseries.models.stl.STL.drift">drift() (realseries.models.stl.STL static method)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.DWGC.DWGC">DWGC (class in realseries.models.DWGC)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -367,10 +373,14 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pages/realseries.utils.html#realseries.utils.preprocess.filter_is_stable">filter_is_stable() (in module realseries.utils.preprocess)</a>
 </li>
-      <li><a href="pages/realseries.models.html#realseries.models.AR.AR_new.fit">fit() (realseries.models.AR.AR_new method)</a>
+      <li><a href="pages/realseries.models.html#realseries.models.AR.AR.fit">fit() (realseries.models.AR.AR method)</a>
 
       <ul>
         <li><a href="pages/realseries.models.html#realseries.models.base.BaseModel.fit">(realseries.models.base.BaseModel method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.DWGC.DWGC.fit">(realseries.models.DWGC.DWGC method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.GC.GC.fit">(realseries.models.GC.GC method)</a>
 </li>
         <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.fit">(realseries.models.iforest.IForest method)</a>
 </li>
@@ -411,12 +421,14 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="pages/realseries.utils.html#realseries.utils.data.generate_arma_data">generate_arma_data() (in module realseries.utils.data)</a>
+      <li><a href="pages/realseries.models.html#realseries.models.GC.GC">GC (class in realseries.models.GC)</a>
 </li>
-      <li><a href="pages/realseries.models.html#realseries.models.sr.SpectralResidual.generate_spectral_score">generate_spectral_score() (realseries.models.sr.SpectralResidual method)</a>
+      <li><a href="pages/realseries.utils.html#realseries.utils.data.generate_arma_data">generate_arma_data() (in module realseries.utils.data)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.sr.SpectralResidual.generate_spectral_score">generate_spectral_score() (realseries.models.sr.SpectralResidual method)</a>
+</li>
       <li><a href="pages/realseries.utils.html#realseries.utils.errors.get_errors">get_errors() (in module realseries.utils.errors)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.segment.BatchSegment.get_iterator">get_iterator() (realseries.utils.segment.BatchSegment method)</a>
@@ -504,6 +516,10 @@
         <li><a href="pages/realseries.models.html#module-realseries.models.AR">realseries.models.AR</a>
 </li>
         <li><a href="pages/realseries.models.html#module-realseries.models.base">realseries.models.base</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.DWGC">realseries.models.DWGC</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.GC">realseries.models.GC</a>
 </li>
         <li><a href="pages/realseries.models.html#module-realseries.models.iforest">realseries.models.iforest</a>
 </li>
@@ -617,6 +633,20 @@
 </li>
       </ul></li>
       <li>
+    realseries.models.DWGC
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.DWGC">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.models.GC
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.GC">module</a>
+</li>
+      </ul></li>
+      <li>
     realseries.models.iforest
 
       <ul>
@@ -672,6 +702,8 @@
         <li><a href="pages/realseries.models.html#module-realseries.models.sr">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     realseries.models.srcnn
 
@@ -679,8 +711,6 @@
         <li><a href="pages/realseries.models.html#module-realseries.models.srcnn">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     realseries.models.stl
 
@@ -803,7 +833,7 @@
 <h2 id="X">X</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="pages/realseries.models.html#realseries.models.AR.AR_new.X_train">X_train (realseries.models.AR.AR_new attribute)</a>
+      <li><a href="pages/realseries.models.html#realseries.models.AR.AR.X_train">X_train (realseries.models.AR.AR attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -817,7 +847,7 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pages/realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic.y_test">y_test (realseries.models.lstm_dynamic.LSTM_dynamic attribute)</a>
 </li>
-      <li><a href="pages/realseries.models.html#realseries.models.AR.AR_new.Y_train">Y_train (realseries.models.AR.AR_new attribute)</a>
+      <li><a href="pages/realseries.models.html#realseries.models.AR.AR.Y_train">Y_train (realseries.models.AR.AR attribute)</a>
 </li>
   </ul></td>
 </tr></table>

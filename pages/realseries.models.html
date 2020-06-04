@@ -107,8 +107,8 @@
 <li class="toctree-l1 current"><a class="reference internal" href="realseries.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">All Models</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.AR">realseries.models.AR module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#realseries-models-dwgc-module">realseries.models.DWGC module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#realseries-models-gc-module">realseries.models.GC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.DWGC">realseries.models.DWGC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.GC">realseries.models.GC module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.NAR">realseries.models.NAR module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.base">realseries.models.base module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.iforest">realseries.models.iforest module</a></li>
@@ -232,8 +232,8 @@
 <p>Created on Sun Apr 19 22:34:04 2020</p>
 <p>&#64;author: zhihengzhang</p>
 <dl class="py class">
-<dt id="realseries.models.AR.AR_new">
-<em class="property">class </em><code class="sig-prename descclassname">realseries.models.AR.</code><code class="sig-name descname">AR_new</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lag</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.AR.AR_new" title="Permalink to this definition">¶</a></dt>
+<dt id="realseries.models.AR.AR">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.AR.</code><code class="sig-name descname">AR</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lag</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.AR.AR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -241,20 +241,20 @@
 </dd>
 </dl>
 <dl class="py attribute">
-<dt id="realseries.models.AR.AR_new.X_train">
-<code class="sig-name descname">X_train</code><a class="headerlink" href="#realseries.models.AR.AR_new.X_train" title="Permalink to this definition">¶</a></dt>
+<dt id="realseries.models.AR.AR.X_train">
+<code class="sig-name descname">X_train</code><a class="headerlink" href="#realseries.models.AR.AR.X_train" title="Permalink to this definition">¶</a></dt>
 <dd><p>training data in AR model.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="realseries.models.AR.AR_new.Y_train">
-<code class="sig-name descname">Y_train</code><a class="headerlink" href="#realseries.models.AR.AR_new.Y_train" title="Permalink to this definition">¶</a></dt>
+<dt id="realseries.models.AR.AR.Y_train">
+<code class="sig-name descname">Y_train</code><a class="headerlink" href="#realseries.models.AR.AR.Y_train" title="Permalink to this definition">¶</a></dt>
 <dd><p>training label in AR model.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="realseries.models.AR.AR_new.detect">
-<code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.AR.AR_new.detect" title="Permalink to this definition">¶</a></dt>
+<dt id="realseries.models.AR.AR.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.AR.AR.detect" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -272,8 +272,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="realseries.models.AR.AR_new.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.AR.AR_new.fit" title="Permalink to this definition">¶</a></dt>
+<dt id="realseries.models.AR.AR.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.AR.AR.fit" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -290,11 +290,122 @@
 </dd></dl>
 
 </div>
-<div class="section" id="realseries-models-dwgc-module">
-<h2>realseries.models.DWGC module<a class="headerlink" href="#realseries-models-dwgc-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-realseries.models.DWGC">
+<span id="realseries-models-dwgc-module"></span><h2>realseries.models.DWGC module<a class="headerlink" href="#module-realseries.models.DWGC" title="Permalink to this headline">¶</a></h2>
+<p>Created on Fri Apr 17 11:57:41 2020</p>
+<p>&#64;author: zhihengzhang</p>
+<dl class="py class">
+<dt id="realseries.models.DWGC.DWGC">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.DWGC.</code><code class="sig-name descname">DWGC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">win_len</span></em>, <em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">index_lr</span></em>, <em class="sig-param"><span class="n">method</span></em>, <em class="sig-param"><span class="n">count</span></em>, <em class="sig-param"><span class="n">train_rate</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.DWGC.DWGC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<p>Dynamic-window-level Granger Causality method, try to find the window-level causality on each channel pair.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Args:</dt><dd><p>win_len: window length
+model:AR or NAR
+index_lr: leanring rate of causal-indexing coefficients
+method: option of fitting method, ‘NAR’/’AR’</p>
+</dd>
+<dt>Attributes:</dt><dd><p>causal_index : causal-indexing coefficients
+single_error1/single_error2 : the fitting error without other channel’s dimension
+double_error: the fitting error with other channel’s dimension</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py method">
+<dt id="realseries.models.DWGC.DWGC.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.DWGC.DWGC.detect" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> – the pair of time series</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the causality on window-level</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Ftest_win</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.DWGC.DWGC.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.DWGC.DWGC.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – The input sequence of shape (n_length, n_features) or (n_length,).</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em>, </em><em>optional</em>) – Ignored. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="realseries-models-gc-module">
-<h2>realseries.models.GC module<a class="headerlink" href="#realseries-models-gc-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-realseries.models.GC">
+<span id="realseries-models-gc-module"></span><h2>realseries.models.GC module<a class="headerlink" href="#module-realseries.models.GC" title="Permalink to this headline">¶</a></h2>
+<p>Created on Thu Apr 16 11:07:05 2020</p>
+<p>&#64;author: zhihengzhang</p>
+<dl class="py class">
+<dt id="realseries.models.GC.GC">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.GC.</code><code class="sig-name descname">GC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">win_len</span></em>, <em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">method</span></em>, <em class="sig-param"><span class="n">train_rate</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.GC.GC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>win_len</strong> – window length</p></li>
+<li><p><strong>model</strong> – ‘AR’ or ‘NAR-network’</p></li>
+<li><p><strong>method</strong> – option of fitting method, ‘NAR’/’AR’</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">-- single_error</code></dt>
+<dd><p>the fitting error without other channel’s dimension</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">-- double_error</code></dt>
+<dd><p>the fitting error with other channel’s dimension</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.GC.GC.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.GC.GC.detect" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> – time series pair</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>window-level causality</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Ftest_win</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.GC.GC.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.GC.GC.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – The input sequence of shape (n_length, n_features) or (n_length,).</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em>, </em><em>optional</em>) – Ignored. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-realseries.models.NAR">
 <span id="realseries-models-nar-module"></span><h2>realseries.models.NAR module<a class="headerlink" href="#module-realseries.models.NAR" title="Permalink to this headline">¶</a></h2>
@@ -303,7 +414,7 @@
 <dl class="py class">
 <dt id="realseries.models.NAR.NAR_Network">
 <em class="property">class </em><code class="sig-prename descclassname">realseries.models.NAR.</code><code class="sig-name descname">NAR_Network</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputnodes</span></em>, <em class="sig-param"><span class="n">hiddennodes</span></em>, <em class="sig-param"><span class="n">outputnodes</span></em>, <em class="sig-param"><span class="n">learningrate</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.NAR.NAR_Network" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
