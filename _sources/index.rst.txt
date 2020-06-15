@@ -68,6 +68,7 @@ RealSeries uses the `sklearn-style API <https://scikit-learn.org/stable/modules/
    :caption: Contribution
 
    pages/contribution
+   pages/how-to-contribute
 
 
 Indices and tables
