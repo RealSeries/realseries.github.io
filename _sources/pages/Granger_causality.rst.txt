@@ -48,4 +48,4 @@ Models of Granger causality
 .. rubric:: References
 
 .. [GC] Clive WJ Granger. Investigating causal relations by econometric models and cross-spectral methods. Econometrica: journal of the Econometric Society, pages 424–438, 1969.
-.. [DWGC] [Placeholder]
+.. [DWGC] Dynamic Window-level Granger Causality of Multi-channel Time Series. Zhiheng Zhang, Wenbo Hu, Tian Tian, Jun Zhu. arXiv:2006.07788. 2020.
