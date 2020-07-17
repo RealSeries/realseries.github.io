@@ -1,9 +1,7 @@
 
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -13,12 +11,18 @@
   
 
   
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -31,10 +35,6 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -50,7 +50,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> RealSeries
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> RealSeries
           
 
           
@@ -73,6 +73,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -164,6 +165,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -202,7 +204,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Index</li>
     
@@ -352,12 +354,16 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pages/realseries.utils.html#realseries.utils.utility.EarlyStopping">EarlyStopping (class in realseries.utils.utility)</a>
 </li>
-      <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.estimators_">estimators_() (realseries.models.iforest.IForest property)</a>
+      <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.estimators_">estimators_ (realseries.models.iforest.IForest attribute)</a>
 </li>
-      <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.estimators_samples_">estimators_samples_() (realseries.models.iforest.IForest property)</a>
+      <li><a href="pages/realseries.models.html#id0">estimators_() (realseries.models.iforest.IForest property)</a>
+</li>
+      <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.estimators_samples_">estimators_samples_ (realseries.models.iforest.IForest attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#id1">estimators_samples_() (realseries.models.iforest.IForest property)</a>
+</li>
       <li><a href="pages/realseries.utils.html#realseries.utils.evaluation.evaluate">evaluate() (in module realseries.utils.evaluation)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.preprocess.exponential_running_demean">exponential_running_demean() (in module realseries.utils.preprocess)</a>
@@ -462,6 +468,12 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.base.BaseModel.load">load() (realseries.models.base.BaseModel method)</a>
+
+      <ul>
+        <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD.load">(realseries.models.vae_ad.VAE_AD method)</a>
+</li>
+      </ul></li>
       <li><a href="pages/realseries.utils.html#realseries.utils.dataset.Data.load_data">load_data() (realseries.utils.dataset.Data method)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.utility.load_model">load_model() (in module realseries.utils.utility)</a>
@@ -472,10 +484,10 @@
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.data.load_split_NASA">load_split_NASA() (in module realseries.utils.data)</a>
 </li>
-      <li><a href="pages/realseries.utils.html#realseries.utils.data.load_splitted_RNN">load_splitted_RNN() (in module realseries.utils.data)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.data.load_splitted_RNN">load_splitted_RNN() (in module realseries.utils.data)</a>
+</li>
       <li><a href="pages/realseries.utils.html#realseries.utils.data.load_Yahoo">load_Yahoo() (in module realseries.utils.data)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.dataset.Data.load_yahoo">load_yahoo() (realseries.utils.dataset.Data method)</a>
@@ -496,7 +508,9 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pages/realseries.utils.html#realseries.utils.visualize.mat_plot">mat_plot() (in module realseries.utils.visualize)</a>
 </li>
-      <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.max_samples_">max_samples_() (realseries.models.iforest.IForest property)</a>
+      <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.max_samples_">max_samples_ (realseries.models.iforest.IForest attribute)</a>
+</li>
+      <li><a href="pages/realseries.models.html#id2">max_samples_() (realseries.models.iforest.IForest property)</a>
 </li>
       <li><a href="pages/realseries.models.html#realseries.models.stl.STL.mean">mean() (realseries.models.stl.STL static method)</a>
 </li>
@@ -792,16 +806,22 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.base.BaseModel.save">save() (realseries.models.base.BaseModel method)</a>
+
+      <ul>
+        <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD.save">(realseries.models.vae_ad.VAE_AD method)</a>
+</li>
+      </ul></li>
       <li><a href="pages/realseries.utils.html#realseries.utils.utility.EarlyStopping.save_checkpoint">save_checkpoint() (realseries.utils.utility.EarlyStopping method)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.utility.save_model">save_model() (in module realseries.utils.utility)</a>
 </li>
       <li><a href="pages/realseries.models.html#realseries.models.seqvl.SeqVL">SeqVL (class in realseries.models.seqvl)</a>
 </li>
-      <li><a href="pages/realseries.utils.html#realseries.utils.segment.slice_generator">slice_generator() (in module realseries.utils.segment)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.segment.slice_generator">slice_generator() (in module realseries.utils.segment)</a>
+</li>
       <li><a href="pages/realseries.models.html#realseries.models.sr.SpectralResidual.spectral_residual_transform">spectral_residual_transform() (realseries.models.sr.SpectralResidual method)</a>
 </li>
       <li><a href="pages/realseries.models.html#realseries.models.sr.SpectralResidual">SpectralResidual (class in realseries.models.sr)</a>
@@ -865,11 +885,19 @@
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, RealAI
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -880,7 +908,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,12 +11,18 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -30,10 +35,6 @@
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Examples" href="examples.html" />
@@ -51,7 +52,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> RealSeries
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> RealSeries
           
 
           
@@ -74,6 +75,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -112,9 +114,9 @@
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.NAR">realseries.models.NAR module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.base">realseries.models.base module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.iforest">realseries.models.iforest module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.lstm_dynamic">realseries.models.lstm_dynamic module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.lumino">realseries.models.lumino module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.rcforest">realseries.models.rcforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-lstm-dynamic-module">realseries.models.lstm_dynamic module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-lumino-module">realseries.models.lumino module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-rcforest-module">realseries.models.rcforest module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.rnn">realseries.models.rnn module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.seqvl">realseries.models.seqvl module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.sr">realseries.models.sr module</a></li>
@@ -126,7 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="realseries.utils.html">Utility Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.data">realseries.utils.data module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.dataset">realseries.utils.dataset module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.errors">realseries.utils.errors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#realseries-utils-errors-module">realseries.utils.errors module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.evaluation">realseries.utils.evaluation module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.preprocess">realseries.utils.preprocess module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.segment">realseries.utils.segment module</a></li>
@@ -165,6 +167,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -203,7 +206,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Installation</li>
     
@@ -226,61 +229,9 @@
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>Realseries is still under development. Before the first stable release (1.0),
-please clone the <a class="reference external" href="http://git.real-ai.cn/realseries/realseries">Gitlab repository</a>
-and run (Contact Wenbo Hu for the Gitlab permission)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone http://git.real-ai.cn/realseries/realseries
-git checkout build_lib
-<span class="nb">cd</span> RealSeries <span class="c1"># change current work directory to ./RealSeries</span>
-python
-&gt;&gt;&gt; import sys,os
-&gt;&gt;&gt; sys.path.append<span class="o">(</span>os.getcwd<span class="o">())</span> <span class="c1"># add ./RealSeries to sys.path</span>
-&gt;&gt;&gt; import realseries
-&gt;&gt;&gt; from realseries.models.iforest import IForest
-</pre></div>
-</div>
-<p><span class="raw-html"><S></span> Alternatively, you could use <strong>pip</strong> for installation and make sure
-<strong>the latest version</strong> is installed. <span class="raw-html"></S></span></p>
-<p>(<strong>It will be supported later</strong>)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install realseries            <span class="c1"># install</span>
-pip install --upgrade realseries  <span class="c1"># update if needed</span>
-</pre></div>
-</div>
-<p><strong>Required Dependencies</strong>:</p>
-<ul class="simple">
-<li><p>Python 3.6, or 3.7</p></li>
-<li><p>numpy&gt;=1.13</p></li>
-<li><p>pandas&gt;=0.25.3</p></li>
-<li><p>scikit-learn&gt;=0.22</p></li>
-<li><p>scipy &gt;=1.4.0</p></li>
-<li><p>pathlib &gt;=1.0.1</p></li>
-<li><p>six &gt;=1.13.0</p></li>
-<li><p>tqdm &gt;=4.41.1</p></li>
-</ul>
-<p><strong>Optional Dependencies (see details below)</strong>:</p>
-<ul class="simple">
-<li><p>pytorch (optional, required for LSTM_AutoEncoder)</p></li>
-<li><p>rrcf&gt;=0.3.2 (optional, required for Random cut forest)</p></li>
-<li><p>luminol&gt;=0.4 (optional, required for luminol)</p></li>
-<li><p>statsmodels=0.10.2 (optional, required for STL)</p></li>
-<li><p>more_itertools (optional, required for LSTM_dynamic)</p></li>
-<li><p>mne (optional, required for running examples)</p></li>
-<li><p>matplotlib (optional, required for running examples)</p></li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Realseries has several deep learning models like sr_cnn, lstm_encoder_decoder,
-which are implemented by pytorch. However, we do <strong>NOT</strong> install <strong>pytorch</strong>
-automatically for you. If you want to use neural-net based models, see
-<a class="reference external" href="https://pytorch.org/">Installing Pytorch</a> for installation
-Similarly, models depending on <strong>rrcf</strong> and <strong>luminol</strong> would <strong>NOT</strong>
-installed by default.</p>
-</div>
-<p>After installation, open your python console and type</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">realseries</span>
-</pre></div>
-</div>
-<p>If no error occurs, you’ve successfully installed realseries.</p>
+<p>RealSeries is still under development. Unfortunately, RealSeries is currently NOT opensourced. Stay tuned.</p>
+<p>For those RealAIers who have access to the <a class="reference external" href="http://git.real-ai.cn/realseries/realseries">Gitlab repository</a>, please follow <a class="reference external" href="http://git.real-ai.cn/realseries/realseries#installation">here</a> to install.</p>
+<p>Contact Wenbo Hu (wenbo.hu # realai.ai) for the Gitlab permission.</p>
 </div>
 
 
@@ -303,11 +254,19 @@ installed by default.</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, RealAI
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -318,7 +277,6 @@ installed by default.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

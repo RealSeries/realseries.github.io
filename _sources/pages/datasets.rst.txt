@@ -4,7 +4,7 @@ Time Series Datasets
    :format: html
 .. default-role:: raw-html
 
-RealSeries provides several example datasets that can be used for `<S>` :ref:`Forecast and Imputation` `</S>`, `<S>` :ref:`Classification` `</S>`,and :ref:`Anomaly Detection`, :ref:`Granger causality`.
+RealSeries provides several example datasets that can be used for `<S>` :ref:`Forecast and Imputation` `</S>`, and :ref:`Anomaly Detection`, :ref:`Granger causality`.
 
 Anomaly Detection Datasets
 --------------------------
