@@ -114,9 +114,9 @@
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.NAR">realseries.models.NAR module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.base">realseries.models.base module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.iforest">realseries.models.iforest module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-lstm-dynamic-module">realseries.models.lstm_dynamic module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-lumino-module">realseries.models.lumino module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-rcforest-module">realseries.models.rcforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.lstm_dynamic">realseries.models.lstm_dynamic module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.lumino">realseries.models.lumino module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.rcforest">realseries.models.rcforest module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.rnn">realseries.models.rnn module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.seqvl">realseries.models.seqvl module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.sr">realseries.models.sr module</a></li>
@@ -128,7 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="realseries.utils.html">Utility Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.data">realseries.utils.data module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.dataset">realseries.utils.dataset module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#realseries-utils-errors-module">realseries.utils.errors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.errors">realseries.utils.errors module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.evaluation">realseries.utils.evaluation module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.preprocess">realseries.utils.preprocess module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.segment">realseries.utils.segment module</a></li>
@@ -237,17 +237,13 @@ in time series, like this:</p>
 <img alt="../_images/srcnn_nyc_taxi.png" src="../_images/srcnn_nyc_taxi.png" />
 </div>
 <p>To formalize, give a time series with either single channel or multi channels:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\textbf{X}=\{x_{ij}\}=
-  \begin{Bmatrix}
-  x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1d} \\
-  x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2d}\\
-  \cdots \\
-  x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{nd}
-  \end{Bmatrix}, i\text{: channel id}, j\text{: index id}.\end{split}\]</div>
+<div class="figure align-default">
+<img alt="../_images/anomaly-detection-1.png" src="../_images/anomaly-detection-1.png" />
+</div>
 <p>We aim to find the possible anomalies lies in X:</p>
-<div class="math notranslate nohighlight">
-\[\{x_{pq}\}.\]</div>
+<div class="figure align-default">
+<img alt="../_images/anomaly-detection-2.png" src="../_images/anomaly-detection-2.png" />
+</div>
 </div>
 <div class="section" id="models">
 <h2>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h2>
@@ -283,7 +279,7 @@ in time series, like this:</p>
 <td><p>neural networks</p></td>
 <td><p>unsupervised</p></td>
 <td><p>2018</p></td>
-<td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.lstm_dynamic.LSTM_dynamic</span></code></p></td>
+<td><p><a class="reference internal" href="realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic" title="realseries.models.lstm_dynamic.LSTM_dynamic"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.lstm_dynamic.LSTM_dynamic</span></code></a></p></td>
 <td><p><a class="reference internal" href="#lstm-dynamic" id="id2"><span>[LSTM_dynamic]</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p>Lumino</p></td>
@@ -291,7 +287,7 @@ in time series, like this:</p>
 <td><p>distance based</p></td>
 <td><p>unsupervised</p></td>
 <td><p>2017</p></td>
-<td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.lumino.Lumino</span></code></p></td>
+<td><p><a class="reference internal" href="realseries.models.html#realseries.models.lumino.Lumino" title="realseries.models.lumino.Lumino"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.lumino.Lumino</span></code></a></p></td>
 <td><p><a class="reference internal" href="#lumino" id="id3"><span>[Lumino]</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>RCForest</p></td>
@@ -299,7 +295,7 @@ in time series, like this:</p>
 <td><p>outlier ensembles</p></td>
 <td><p>unsupervised</p></td>
 <td><p>2016</p></td>
-<td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.rcforest.RCForest</span></code></p></td>
+<td><p><a class="reference internal" href="realseries.models.html#realseries.models.rcforest.RCForest" title="realseries.models.rcforest.RCForest"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.rcforest.RCForest</span></code></a></p></td>
 <td><p><a class="reference internal" href="#rcforest" id="id4"><span>[RCForest]</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p>LSTMED</p></td>

@@ -13,24 +13,18 @@ in multi-channel time series on window level or channel level, like this:
 
 To formalize, give a time series with multi channels:
 
-.. math::
-    \textbf{X}=\{x_{ij}\}=
-      \begin{Bmatrix}
-      x_{11} & x_{12} & \cdots & x_{1d} \\
-      x_{21} & x_{22} & \cdots & x_{2d}\\
-      \cdots \\
-      x_{n1} & x_{n2} & \cdots & x_{nd}
-      \end{Bmatrix}, i\text{: channel id}, j\text{: index id}.
+.. figure::
+    ../figures/gc-1.png 
 
 We aim to find the Granger causality lies in channel level:
 
-.. math::
-    \{x_{i}\} \Longrightarrow \{x_{j}\}
+.. figure::
+    ../figures/gc-2.png 
 
 We also try to pinpoint causality from the channel level to the point-to-point level:
 
-.. math::
-    \{x_{it_{1}}\} \Longrightarrow \{x_{jt_{2}}\}, 
+.. figure::
+    ../figures/gc-3.png 
     
 where 2 time points are in the same window index.
 

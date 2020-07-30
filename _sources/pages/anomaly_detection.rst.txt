@@ -12,19 +12,14 @@ in time series, like this:
 
 To formalize, give a time series with either single channel or multi channels:
 
-.. math::
-    \textbf{X}=\{x_{ij}\}=
-      \begin{Bmatrix}
-      x_{11} & x_{12} & \cdots & x_{1d} \\
-      x_{21} & x_{22} & \cdots & x_{2d}\\
-      \cdots \\
-      x_{n1} & x_{n2} & \cdots & x_{nd}
-      \end{Bmatrix}, i\text{: channel id}, j\text{: index id}.
+.. figure::
+    ../figures/anomaly-detection-1.png
+
 
 We aim to find the possible anomalies lies in X:
 
-.. math::
-    \{x_{pq}\}.
+.. figure::
+    ../figures/anomaly-detection-2.png
 
 Models
 ------

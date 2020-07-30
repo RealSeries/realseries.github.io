@@ -114,9 +114,9 @@
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.NAR">realseries.models.NAR module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.base">realseries.models.base module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.iforest">realseries.models.iforest module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-lstm-dynamic-module">realseries.models.lstm_dynamic module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-lumino-module">realseries.models.lumino module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#realseries-models-rcforest-module">realseries.models.rcforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.lstm_dynamic">realseries.models.lstm_dynamic module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.lumino">realseries.models.lumino module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.rcforest">realseries.models.rcforest module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.rnn">realseries.models.rnn module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.seqvl">realseries.models.seqvl module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.sr">realseries.models.sr module</a></li>
@@ -128,7 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="realseries.utils.html">Utility Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.data">realseries.utils.data module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.dataset">realseries.utils.dataset module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#realseries-utils-errors-module">realseries.utils.errors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.errors">realseries.utils.errors module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.evaluation">realseries.utils.evaluation module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.preprocess">realseries.utils.preprocess module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.segment">realseries.utils.segment module</a></li>
@@ -240,20 +240,17 @@ in multi-channel time series on window level or channel level, like this:</p>
 <img alt="../_images/GC_show2.png" src="../_images/GC_show2.png" />
 </div>
 <p>To formalize, give a time series with multi channels:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\textbf{X}=\{x_{ij}\}=
-  \begin{Bmatrix}
-  x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1d} \\
-  x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2d}\\
-  \cdots \\
-  x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{nd}
-  \end{Bmatrix}, i\text{: channel id}, j\text{: index id}.\end{split}\]</div>
+<div class="figure align-default">
+<img alt="../_images/gc-1.png" src="../_images/gc-1.png" />
+</div>
 <p>We aim to find the Granger causality lies in channel level:</p>
-<div class="math notranslate nohighlight">
-\[\{x_{i}\} \Longrightarrow \{x_{j}\}\]</div>
+<div class="figure align-default">
+<img alt="../_images/gc-2.png" src="../_images/gc-2.png" />
+</div>
 <p>We also try to pinpoint causality from the channel level to the point-to-point level:</p>
-<div class="math notranslate nohighlight">
-\[\{x_{it_{1}}\} \Longrightarrow \{x_{jt_{2}}\},\]</div>
+<div class="figure align-default">
+<img alt="../_images/gc-3.png" src="../_images/gc-3.png" />
+</div>
 <p>where 2 time points are in the same window index.</p>
 </div>
 <div class="section" id="models-of-granger-causality">
