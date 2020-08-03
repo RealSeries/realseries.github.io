@@ -655,3 +655,129 @@ Simulation demo
 |               |window length=100 |                                                                |1       |0.86  |1       |             0.88                                                                             |
 +---------------+------------------+----------------------------------------------------------------+--------+------+--------+----------------------------------------------------------------------------------------------+
 
+
+VAE for anomaly detection Example
+---------------------------------
+
+Full example: `notebooks/donut_vae.ipynb`
+
+1. Import models
+
+    .. code-block:: python
+
+        import numpy as np
+        from realseries.models.vae_ad import VAE_AD  # VAE anomaly detector
+        from realseries.utils.evaluation import point_metrics, adjust_predicts
+        from realseries.utils.data import load_NAB
+        from realseries.utils.visualize import plot_anom
+
+#. Generate sample data with :func:`realseries.utils.data.load_NAB` and standardize:
+
+    .. code-block:: python
+
+        dirname = 'realKnownCause'
+        filename = 'nyc_taxi.csv'
+
+        # the fraction of used for test
+        fraction=0.5
+
+        train_data, test_data = load_NAB(dirname, filename, fraction=fraction)
+        mean_ = train_data['value'].mean()
+        std_ = train_data['value'].std()
+        train_data['value'] = train_data['value'].apply(lambda x: (x - mean_) / std_)
+        test_data['value'] = test_data['value'].apply(lambda x: (x - mean_) / std_)       
+
+#. Initialize a :class:`realseries.models.vae_ad.VAE_AD` detector,
+   fit the model, and make the prediction.
+
+    .. code-block:: python
+
+        # define the parameters
+        num_epochs=256
+        batch_size=256
+        lr=1e-3
+        lr_decay=0.8
+        clip_norm_value=12.0
+        weight_decay=1e-3
+        data_split_rate=0.5
+        window_size=120
+        window_step=1
+
+        # vae network parameters
+        h_dim=100
+        z_dim=5
+
+        #build model
+        vae = VAE_AD(name='VAE_AD',
+                     num_epochs=num_epochs,
+                     batch_size=batch_size,
+                     lr=lr,
+                     lr_decay=lr_decay,
+                     clip_norm_value=clip_norm_value,
+                     weight_decay=weight_decay,
+                     data_split_rate=data_split_rate,
+                     window_size=window_size,
+                     window_step=window_step,
+                     h_dim=h_dim,
+                     z_dim=z_dim)
+
+        #train model
+        vae.fit(train_data['value'].values)
+
+        # detect
+        res = vae.detect(test_data['value'].values)
+        ori_series = res['origin_series']
+        anomaly_score = res['score']
+
+
+#. Get anomaly label by setting threshold.
+
+    .. code-block:: python
+
+        k = 6
+        pred_label = (anomaly_score > np.std(anomaly_score) * k)
+        test_set = test_data[window_size - 1:]
+        test_label = test_set.iloc[:, -1]
+
+
+#. Visualize and Evaluate the prediction result point to point.
+
+    .. code-block:: python
+
+        # visualize
+        plot_anom(
+            test_set,
+            pred_label,
+            anomaly_score)
+
+        # evaluate and print the results
+        precision, recall, f1, tp, tn, fp, fn = point_metrics(pred_label,
+                                                            test_label)
+        print('precision:{}, recall:{}, f1:{}, tp:{}, tn:{}, fp:{}, fn:{}'.format(
+                                        precision, recall, f1, tp, tn, fp, fn))
+
+    .. figure::
+        ../figures/vae1.png
+
+#. Visualize the prediction that is adjusted. Evaluate the adjusted results.
+
+    .. code-block:: python
+
+        # evaluate and print the results
+        delay = 200  # delay is the max number of delay points that allowed
+                     # when anomaly point occur.
+
+        adjust_pred_label = adjust_predicts(pred_label,test_label,delay=delay)
+        plot_anom(
+            test_set,
+            adjust_pred_label,
+            anomaly_score)  
+
+        precision, recall, f1, tp, tn, fp, fn = point_metrics(adjust_pred_label,
+                                                            test_label)
+        print('precision:{}, recall:{}, f1:{}, tp:{}, tn:{}, fp:{}, fn:{}'.format(
+                                        precision, recall, f1, tp, tn, fp, fn))
+
+    .. figure::
+        ../figures/vae2.png
+

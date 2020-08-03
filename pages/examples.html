@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Examples &mdash; RealSeries 0.1 documentation</title>
+  <title>Examples &mdash; RealSeries 0.0.1 documentation</title>
   
 
   
@@ -95,6 +95,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#simulation-demo">Simulation demo</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#vae-for-anomaly-detection-example">VAE for anomaly detection Example</a></li>
 </ul>
 </li>
 </ul>
@@ -915,6 +916,136 @@ different with others <code class="docutils literal notranslate"><span class="pr
 </tbody>
 </table>
 </div>
+</div>
+<div class="section" id="vae-for-anomaly-detection-example">
+<h2>VAE for anomaly detection Example<a class="headerlink" href="#vae-for-anomaly-detection-example" title="Permalink to this headline">¶</a></h2>
+<p>Full example: <cite>notebooks/donut_vae.ipynb</cite></p>
+<ol class="arabic">
+<li><p>Import models</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">realseries.models.vae_ad</span> <span class="kn">import</span> <span class="n">VAE_AD</span>  <span class="c1"># VAE anomaly detector</span>
+<span class="kn">from</span> <span class="nn">realseries.utils.evaluation</span> <span class="kn">import</span> <span class="n">point_metrics</span><span class="p">,</span> <span class="n">adjust_predicts</span>
+<span class="kn">from</span> <span class="nn">realseries.utils.data</span> <span class="kn">import</span> <span class="n">load_NAB</span>
+<span class="kn">from</span> <span class="nn">realseries.utils.visualize</span> <span class="kn">import</span> <span class="n">plot_anom</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Generate sample data with <a class="reference internal" href="realseries.utils.html#realseries.utils.data.load_NAB" title="realseries.utils.data.load_NAB"><code class="xref py py-func docutils literal notranslate"><span class="pre">realseries.utils.data.load_NAB()</span></code></a> and standardize:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dirname</span> <span class="o">=</span> <span class="s1">&#39;realKnownCause&#39;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;nyc_taxi.csv&#39;</span>
+
+<span class="c1"># the fraction of used for test</span>
+<span class="n">fraction</span><span class="o">=</span><span class="mf">0.5</span>
+
+<span class="n">train_data</span><span class="p">,</span> <span class="n">test_data</span> <span class="o">=</span> <span class="n">load_NAB</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="n">fraction</span><span class="p">)</span>
+<span class="n">mean_</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">std_</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean_</span><span class="p">)</span> <span class="o">/</span> <span class="n">std_</span><span class="p">)</span>
+<span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean_</span><span class="p">)</span> <span class="o">/</span> <span class="n">std_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Initialize a <a class="reference internal" href="realseries.models.html#realseries.models.vae_ad.VAE_AD" title="realseries.models.vae_ad.VAE_AD"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.vae_ad.VAE_AD</span></code></a> detector,
+fit the model, and make the prediction.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the parameters</span>
+<span class="n">num_epochs</span><span class="o">=</span><span class="mi">256</span>
+<span class="n">batch_size</span><span class="o">=</span><span class="mi">256</span>
+<span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span>
+<span class="n">lr_decay</span><span class="o">=</span><span class="mf">0.8</span>
+<span class="n">clip_norm_value</span><span class="o">=</span><span class="mf">12.0</span>
+<span class="n">weight_decay</span><span class="o">=</span><span class="mf">1e-3</span>
+<span class="n">data_split_rate</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="n">window_size</span><span class="o">=</span><span class="mi">120</span>
+<span class="n">window_step</span><span class="o">=</span><span class="mi">1</span>
+
+<span class="c1"># vae network parameters</span>
+<span class="n">h_dim</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">z_dim</span><span class="o">=</span><span class="mi">5</span>
+
+<span class="c1">#build model</span>
+<span class="n">vae</span> <span class="o">=</span> <span class="n">VAE_AD</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;VAE_AD&#39;</span><span class="p">,</span>
+             <span class="n">num_epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span>
+             <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+             <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">,</span>
+             <span class="n">lr_decay</span><span class="o">=</span><span class="n">lr_decay</span><span class="p">,</span>
+             <span class="n">clip_norm_value</span><span class="o">=</span><span class="n">clip_norm_value</span><span class="p">,</span>
+             <span class="n">weight_decay</span><span class="o">=</span><span class="n">weight_decay</span><span class="p">,</span>
+             <span class="n">data_split_rate</span><span class="o">=</span><span class="n">data_split_rate</span><span class="p">,</span>
+             <span class="n">window_size</span><span class="o">=</span><span class="n">window_size</span><span class="p">,</span>
+             <span class="n">window_step</span><span class="o">=</span><span class="n">window_step</span><span class="p">,</span>
+             <span class="n">h_dim</span><span class="o">=</span><span class="n">h_dim</span><span class="p">,</span>
+             <span class="n">z_dim</span><span class="o">=</span><span class="n">z_dim</span><span class="p">)</span>
+
+<span class="c1">#train model</span>
+<span class="n">vae</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="c1"># detect</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">vae</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">ori_series</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;origin_series&#39;</span><span class="p">]</span>
+<span class="n">anomaly_score</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Get anomaly label by setting threshold.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">pred_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">anomaly_score</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">anomaly_score</span><span class="p">)</span> <span class="o">*</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">test_set</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[</span><span class="n">window_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:]</span>
+<span class="n">test_label</span> <span class="o">=</span> <span class="n">test_set</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Visualize and Evaluate the prediction result point to point.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># visualize</span>
+<span class="n">plot_anom</span><span class="p">(</span>
+    <span class="n">test_set</span><span class="p">,</span>
+    <span class="n">pred_label</span><span class="p">,</span>
+    <span class="n">anomaly_score</span><span class="p">)</span>
+
+<span class="c1"># evaluate and print the results</span>
+<span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span> <span class="o">=</span> <span class="n">point_metrics</span><span class="p">(</span><span class="n">pred_label</span><span class="p">,</span>
+                                                    <span class="n">test_label</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;precision:</span><span class="si">{}</span><span class="s1">, recall:</span><span class="si">{}</span><span class="s1">, f1:</span><span class="si">{}</span><span class="s1">, tp:</span><span class="si">{}</span><span class="s1">, tn:</span><span class="si">{}</span><span class="s1">, fp:</span><span class="si">{}</span><span class="s1">, fn:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                                <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/vae1.png" src="../_images/vae1.png" />
+</div>
+</div></blockquote>
+</li>
+<li><p>Visualize the prediction that is adjusted. Evaluate the adjusted results.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># evaluate and print the results</span>
+<span class="n">delay</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># delay is the max number of delay points that allowed</span>
+             <span class="c1"># when anomaly point occur.</span>
+
+<span class="n">adjust_pred_label</span> <span class="o">=</span> <span class="n">adjust_predicts</span><span class="p">(</span><span class="n">pred_label</span><span class="p">,</span><span class="n">test_label</span><span class="p">,</span><span class="n">delay</span><span class="o">=</span><span class="n">delay</span><span class="p">)</span>
+<span class="n">plot_anom</span><span class="p">(</span>
+    <span class="n">test_set</span><span class="p">,</span>
+    <span class="n">adjust_pred_label</span><span class="p">,</span>
+    <span class="n">anomaly_score</span><span class="p">)</span>
+
+<span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span> <span class="o">=</span> <span class="n">point_metrics</span><span class="p">(</span><span class="n">adjust_pred_label</span><span class="p">,</span>
+                                                    <span class="n">test_label</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;precision:</span><span class="si">{}</span><span class="s1">, recall:</span><span class="si">{}</span><span class="s1">, f1:</span><span class="si">{}</span><span class="s1">, tp:</span><span class="si">{}</span><span class="s1">, tn:</span><span class="si">{}</span><span class="s1">, fp:</span><span class="si">{}</span><span class="s1">, fn:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                                <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/vae2.png" src="../_images/vae2.png" />
+</div>
+</div></blockquote>
+</li>
+</ol>
 </div>
 </div>
 
