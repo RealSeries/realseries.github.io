@@ -1,9 +1,10 @@
 Contribution
 ============
-This project is headed by `Wenbo Hu <https://wbhu.net/>`_ (Research Scientist @ RealAI).
+This project is headed by `Wenbo Hu <https://wbhu.net/>`_ (Postdoc @ CS of Tsinghua, Research Scientist @ RealAI).
 
 Other core members include:
 
 * Xianrui Zhang (Ph.D Student @ BUAA, Intern @ RealAI)
-* Wenkai Li (Bacholar Student @ CS at Tsinghua, Intern @ RealAI)
+* Wenkai Li (Bacholar Student @ CS of Tsinghua, Intern @ RealAI)
 * Zhiheng Zhang (Bacholar Student @ BUPT, Intern @ RealAI)
+* Peng Cui (Master @ CS of Tsinghua, Intern @ RealAI)

@@ -1,7 +1,8 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -11,18 +12,12 @@
   
 
   
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
   
   
   
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -35,6 +30,10 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -50,7 +49,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> RealSeries
+            <a href="index.html" class="icon icon-home"> RealSeries
           
 
           
@@ -73,7 +72,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -138,6 +136,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pages/datasets.html">Time Series Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pages/datasets.html#forecast-datasets">Forecast Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pages/datasets.html#anomaly-detection-datasets">Anomaly Detection Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pages/datasets.html#granger-causality-datasets">Granger causality Datasets</a></li>
 </ul>
@@ -155,7 +154,11 @@
 <li class="toctree-l2"><a class="reference internal" href="pages/Granger_causality.html#models-of-granger-causality">Models of Granger causality</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pages/forecast_and_imputation.html">Forecast and Imputation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/forecast_with_uncertainty.html">Forecast with Uncertainty</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pages/forecast_with_uncertainty.html#problem-description">Problem Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages/forecast_with_uncertainty.html#models">Models</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Contribution</span></p>
 <ul>
@@ -166,7 +169,6 @@
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -205,7 +207,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
       <li>Index</li>
     
@@ -256,6 +258,8 @@
       <li><a href="pages/realseries.utils.html#realseries.utils.evaluation.adjust_metrics">adjust_metrics() (in module realseries.utils.evaluation)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.evaluation.adjust_predicts">adjust_predicts() (in module realseries.utils.evaluation)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.utility.aleatoric_loss">aleatoric_loss (class in realseries.utils.utility)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -423,12 +427,20 @@
         <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD.forecast">(realseries.models.vae_ad.VAE_AD method)</a>
 </li>
       </ul></li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.utility.aleatoric_loss.forward">forward() (realseries.utils.utility.aleatoric_loss method)</a>
+
+      <ul>
+        <li><a href="pages/realseries.utils.html#realseries.utils.utility.mmd_loss.forward">(realseries.utils.utility.mmd_loss method)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.utility.mmd_loss.gaussian_kernel_matrix">gaussian_kernel_matrix() (realseries.utils.utility.mmd_loss method)</a>
+</li>
       <li><a href="pages/realseries.models.html#realseries.models.GC.GC">GC (class in realseries.models.GC)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.data.generate_arma_data">generate_arma_data() (in module realseries.utils.data)</a>
@@ -477,6 +489,8 @@
       </ul></li>
       <li><a href="pages/realseries.utils.html#realseries.utils.dataset.Data.load_data">load_data() (realseries.utils.dataset.Data method)</a>
 </li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.data.load_exp_data">load_exp_data() (in module realseries.utils.data)</a>
+</li>
       <li><a href="pages/realseries.utils.html#realseries.utils.utility.load_model">load_model() (in module realseries.utils.utility)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.data.load_NAB">load_NAB() (in module realseries.utils.data)</a>
@@ -492,6 +506,10 @@
       <li><a href="pages/realseries.utils.html#realseries.utils.data.load_Yahoo">load_Yahoo() (in module realseries.utils.data)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.dataset.Data.load_yahoo">load_yahoo() (realseries.utils.dataset.Data method)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.utility.aleatoric_loss.loss">loss (realseries.utils.utility.aleatoric_loss attribute)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.utility.mmd_loss.loss_value">loss_value (realseries.utils.utility.mmd_loss attribute)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.preprocess.lowpass_cnt">lowpass_cnt() (in module realseries.utils.preprocess)</a>
 </li>
@@ -513,7 +531,11 @@
 </li>
       <li><a href="pages/realseries.models.html#id2">max_samples_() (realseries.models.iforest.IForest property)</a>
 </li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.utility.mmd_loss.maximum_mean_discrepancy">maximum_mean_discrepancy() (realseries.utils.utility.mmd_loss method)</a>
+</li>
       <li><a href="pages/realseries.models.html#realseries.models.stl.STL.mean">mean() (realseries.models.stl.STL static method)</a>
+</li>
+      <li><a href="pages/realseries.utils.html#realseries.utils.utility.mmd_loss">mmd_loss (class in realseries.utils.utility)</a>
 </li>
       <li><a href="pages/realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic.model">model (realseries.models.lstm_dynamic.LSTM_dynamic attribute)</a>
 
@@ -606,16 +628,18 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.utility.mmd_loss.pairwise_distance">pairwise_distance() (realseries.utils.utility.mmd_loss method)</a>
+</li>
       <li><a href="pages/realseries.utils.html#realseries.utils.visualize.pd_plot">pd_plot() (in module realseries.utils.visualize)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.visualize.plot_anom">plot_anom() (in module realseries.utils.visualize)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.visualize.plot_mne">plot_mne() (in module realseries.utils.visualize)</a>
 </li>
-      <li><a href="pages/realseries.utils.html#realseries.utils.evaluation.point_metrics">point_metrics() (in module realseries.utils.evaluation)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.evaluation.point_metrics">point_metrics() (in module realseries.utils.evaluation)</a>
+</li>
       <li><a href="pages/realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic.predict">predict() (realseries.models.lstm_dynamic.LSTM_dynamic method)</a>
 
       <ul>
@@ -842,6 +866,14 @@
       <li><a href="pages/realseries.utils.html#realseries.utils.evaluation.thres_search">thres_search() (in module realseries.utils.evaluation)</a>
 </li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.utils.html#realseries.utils.utility.aleatoric_loss.training">training (realseries.utils.utility.aleatoric_loss attribute)</a>
+
+      <ul>
+        <li><a href="pages/realseries.utils.html#realseries.utils.utility.mmd_loss.training">(realseries.utils.utility.mmd_loss attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
 </tr></table>
 
 <h2 id="V">V</h2>
@@ -886,19 +918,11 @@
 
   <div role="contentinfo">
     <p>
-        
         &copy; Copyright 2020, RealAI
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -909,6 +933,7 @@
 
   </div>
   
+
 
   <script type="text/javascript">
       jQuery(function () {

@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Forecast with Uncertainty &mdash; RealSeries 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contribution" href="contribution.html" />
+    <link rel="prev" title="Granger causality" href="Granger_causality.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RealSeries
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#isolationforest-example">IsolationForest Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#pytorch-basded-neural-network-example">Pytorch basded Neural Network Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#series-and-label-visualize-example">Series and Label Visualize Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#granger-causality-example">Granger causality Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#industrial-demo">Industrial demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#simulation-demo">Simulation demo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#vae-for-anomaly-detection-example">VAE for anomaly detection Example</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cheetsheet.html">API Cheetsheet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cheetsheet.html#model">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cheetsheet.html#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cheetsheet.html#visualize">Visualize</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="realseries.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="realseries.models.html">All Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.AR">realseries.models.AR module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.DWGC">realseries.models.DWGC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.GC">realseries.models.GC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.NAR">realseries.models.NAR module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.base">realseries.models.base module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.iforest">realseries.models.iforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.lstm_dynamic">realseries.models.lstm_dynamic module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.lumino">realseries.models.lumino module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.rcforest">realseries.models.rcforest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.rnn">realseries.models.rnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.seqvl">realseries.models.seqvl module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.sr">realseries.models.sr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.srcnn">realseries.models.srcnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.stl">realseries.models.stl module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.vae_ad">realseries.models.vae_ad module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="realseries.utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.data">realseries.utils.data module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.dataset">realseries.utils.dataset module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.errors">realseries.utils.errors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.evaluation">realseries.utils.evaluation module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.preprocess">realseries.utils.preprocess module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.segment">realseries.utils.segment module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.utility">realseries.utils.utility module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.utils.html#module-realseries.utils.visualize">realseries.utils.visualize module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Time Series Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#forecast-datasets">Forecast Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#anomaly-detection-datasets">Anomaly Detection Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#granger-causality-datasets">Granger causality Datasets</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">RealSeries 101</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="anomaly_detection.html">Anomaly Detection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_detection.html#problem-description">Problem Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_detection.html#models">Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Granger_causality.html">Granger causality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Granger_causality.html#problem-description-of-granger-causality">Problem Description of Granger causality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Granger_causality.html#models-of-granger-causality">Models of Granger causality</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Forecast with Uncertainty</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#problem-description">Problem Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#models">Models</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Contribution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-contribute.html">How to Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RealSeries</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Forecast with Uncertainty</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/forecast_with_uncertainty.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="forecast-with-uncertainty">
+<h1>Forecast with Uncertainty<a class="headerlink" href="#forecast-with-uncertainty" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="problem-description">
+<h2>Problem Description<a class="headerlink" href="#problem-description" title="Permalink to this headline">¶</a></h2>
+<p>Time Series Forecast’s task is to  model multiple regression sub-problems in sequence,  and the tendency along the sliding windows can beused to examine the obtained predictive uncertainty. Forecasting involves taking models fit on historical data and using them to predict future observations.</p>
+<div class="figure align-default">
+<img alt="../_images/air_quality_raw.png" src="../_images/air_quality_raw.png" />
+</div>
+<p>To formalize, give a time series with either single channel or multi channels:</p>
+<div class="math notranslate nohighlight">
+\[Y=\left\{\boldsymbol{y_{1}}, \boldsymbol{y_{2}}, \ldots, \boldsymbol{y_{T}}\right\} \text { where } \boldsymbol{y_{t}} \in \mathbb{R}^{n}\]</div>
+<p>where <span class="math notranslate nohighlight">\(n\)</span> is the variable dimension or channels, we aim at predicting a series of future signals in a rolling forecasting fashion. That being said, to predict <span class="math notranslate nohighlight">\(y_{T+h}\)</span>, where <span class="math notranslate nohighlight">\(h\)</span> is the desirable horizon ahead of the current time stamp,  we assume <span class="math notranslate nohighlight">\(\left\{\boldsymbol{y_{1}}, \boldsymbol{y_{2}}, \ldots, \boldsymbol{y_{T}}\right\}\)</span> are available. Likewise, to predict the value of the next time stamp <span class="math notranslate nohighlight">\(y_{T+h+1}\)</span>, we assume <span class="math notranslate nohighlight">\(\left\{\boldsymbol{y_{1}}, \boldsymbol{y_{2}}, \ldots, \boldsymbol{y_{T}}, \boldsymbol{y_{T+1}}\right\}\)</span> are available. We hence formulate the input matrix at time stamp <span class="math notranslate nohighlight">\(T\)</span> as <span class="math notranslate nohighlight">\(X_{T}=\left\{\boldsymbol{y}_{1}, \boldsymbol{y}_{2}, \ldots, \boldsymbol{y}_{T}\right\} \in \mathbb{R}^{n \times T}\)</span>.</p>
+<p>Moreover, we also want to know the uncertainty of predictive distribution, a calibrated forecaster outputs the cumulative distribution function (CDF) <span class="math notranslate nohighlight">\(F_i\)</span> by the predictive distribution for each input <span class="math notranslate nohighlight">\(x_i\)</span>. Generally, we use predictive intervals (PIs) to represent the uncertainty. For example, given the probability 95%, the forecaster should output the 95% prediction interval.</p>
+<div class="figure align-default">
+<img alt="../_images/air_quality_forecast.png" src="../_images/air_quality_forecast.png" />
+</div>
+</div>
+<div class="section" id="models">
+<h2>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 40%" />
+<col style="width: 13%" />
+<col style="width: 6%" />
+<col style="width: 3%" />
+<col style="width: 23%" />
+<col style="width: 7%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Abbr</p></td>
+<td><p>Algorithm</p></td>
+<td><p>type</p></td>
+<td><p>supervise</p></td>
+<td><p>Year</p></td>
+<td><p>Class</p></td>
+<td><p>Ref</p></td>
+</tr>
+<tr class="row-even"><td><p>CRMMD</p></td>
+<td><p>Using maximum mean discrepancy (MMD) to perform distribution matching.</p></td>
+<td><p>kernel distance, two-step</p></td>
+<td><p>supervised</p></td>
+<td><p>2020</p></td>
+<td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.crmmd.CRMMD</span></code></p></td>
+<td><p><a class="reference internal" href="#crmmd" id="id1"><span>[CRMMD]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>HNN</p></td>
+<td><p>Heteroscedastic neural networks output the mean and variance to obtain the uncertainty.</p></td>
+<td><p>neural networks</p></td>
+<td><p>supervised</p></td>
+<td><p>2017</p></td>
+<td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.hnn.HNN</span></code></p></td>
+<td><p><a class="reference internal" href="#hnn" id="id2"><span>[HNN]</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>MC-dropout</p></td>
+<td><p>Approximate Bayesian inference in deep Gaussian process.</p></td>
+<td><p>Bayesian approximation</p></td>
+<td><p>supervised</p></td>
+<td><p>2016</p></td>
+<td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.mc_dropout.MC_dropout</span></code></p></td>
+<td><p><a class="reference internal" href="#mc-dropout" id="id3"><span>[MC-dropout]</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<dl class="citation">
+<dt class="label" id="crmmd"><span class="brackets"><a class="fn-backref" href="#id1">CRMMD</a></span></dt>
+<dd><p>Peng Cui, Wenbo Hu and Jun Zhu. Calibrated Reliable Regression using Maximum Mean Discrepancy. arXiv: 2006.10255.</p>
+</dd>
+<dt class="label" id="hnn"><span class="brackets"><a class="fn-backref" href="#id2">HNN</a></span></dt>
+<dd><p>Alex Kendall and Yarin Gal.  What uncertainties do we need in Bayesian deep learning forcomputer vision?Advances in neural information processing systems, pages 5574–5584, 2017.</p>
+</dd>
+<dt class="label" id="mc-dropout"><span class="brackets"><a class="fn-backref" href="#id3">MC-dropout</a></span></dt>
+<dd><p>Yarin Gal and Zoubin Ghahramani. Dropout as a Bayesian approximation:  Representingmodel uncertainty in deep learning. Ininternational conference on machine learning, pages1050–1059, 2016.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="contribution.html" class="btn btn-neutral float-right" title="Contribution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Granger_causality.html" class="btn btn-neutral float-left" title="Granger causality" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, RealAI
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

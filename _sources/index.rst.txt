@@ -6,11 +6,7 @@
 Welcome to RealSeries's documentation!
 ======================================
 
-.. role:: raw-html(raw)
-   :format: html
-.. default-role:: raw-html
-
-RealSeries is a comprehensive **out-of-the-box Python toolkit** for various tasks, including :ref:`Anomaly Detection`, :ref:`Granger causality` and `<S>` :ref:`Forecast and Imputation` `</S>`, of dealing with :ref:`Time Series Datasets`. 
+RealSeries is a comprehensive **out-of-the-box Python toolkit** for various tasks, including :ref:`Anomaly Detection`, :ref:`Granger causality` and :ref:`Forecast with Uncertainty`, of dealing with :ref:`Time Series Datasets`. 
 
 
 
@@ -61,7 +57,7 @@ RealSeries uses the `sklearn-style API <https://scikit-learn.org/stable/modules/
 
    pages/anomaly_detection
    pages/Granger_causality
-   pages/forecast_and_imputation
+   pages/forecast_with_uncertainty
 
 .. toctree::
    :maxdepth: 2

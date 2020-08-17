@@ -1,7 +1,8 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -11,18 +12,12 @@
   
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-
-  
   
   
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -35,6 +30,10 @@
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Time Series Datasets" href="datasets.html" />
@@ -52,7 +51,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> RealSeries
+            <a href="../index.html" class="icon icon-home"> RealSeries
           
 
           
@@ -75,7 +74,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -140,6 +138,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Time Series Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#forecast-datasets">Forecast Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="datasets.html#anomaly-detection-datasets">Anomaly Detection Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="datasets.html#granger-causality-datasets">Granger causality Datasets</a></li>
 </ul>
@@ -157,7 +156,11 @@
 <li class="toctree-l2"><a class="reference internal" href="Granger_causality.html#models-of-granger-causality">Models of Granger causality</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="forecast_and_imputation.html">Forecast and Imputation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forecast_with_uncertainty.html">Forecast with Uncertainty</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="forecast_with_uncertainty.html#problem-description">Problem Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forecast_with_uncertainty.html#models">Models</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Contribution</span></p>
 <ul>
@@ -168,7 +171,6 @@
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -207,7 +209,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
         
           <li><a href="realseries.html">API Reference</a> &raquo;</li>
         
@@ -323,6 +325,30 @@ Defaults to 0.5.</p></li>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="realseries.utils.data.load_exp_data">
+<code class="sig-prename descclassname">realseries.utils.data.</code><code class="sig-name descname">load_exp_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataname</span><span class="o">=</span><span class="default_value">'pm25'</span></em>, <em class="sig-param"><span class="n">window_szie</span><span class="o">=</span><span class="default_value">15</span></em>, <em class="sig-param"><span class="n">prediction_window_size</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">fractions</span><span class="o">=</span><span class="default_value">[0.6, 0.2, 0.2]</span></em>, <em class="sig-param"><span class="n">isshuffle</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">isscaler</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.utils.data.load_exp_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>reading data and pro-processing, get training data, validation data and test data for model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataname</strong> (<em>str</em><em>, </em><em>optional</em>) – the name of dataset, eg: ‘pm25’, ‘bike_sharing’, ‘air_quality’, ‘metro_traffic’.</p></li>
+<li><p><strong>window_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of lag observations as input. Defaults to 15.</p></li>
+<li><p><strong>prediction_window_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Prediction window size. Defaults to 10.</p></li>
+<li><p><strong>fractions</strong> – (list, optional): the training data, test data and validation data ratio, Defaults to [0.6,0.2,0.2].</p></li>
+<li><p><strong>is_shuffle</strong> (<em>bool</em><em>, </em><em>optional</em>) – whether to shuffle the raw data. Defaults to True.</p></li>
+<li><p><strong>is_scaler</strong> – (bool, optional): whether to scale the raw data. Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>train_data, train_label, test_data, test_label, validation_data, validation_label</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>a splitted dataset(NumPy array)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -985,6 +1011,38 @@ improvement. Default to 0.</p></li>
 
 </dd></dl>
 
+<dl class="py class">
+<dt id="realseries.utils.utility.aleatoric_loss">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.utils.utility.</code><code class="sig-name descname">aleatoric_loss</code><a class="headerlink" href="#realseries.utils.utility.aleatoric_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<p>The negative log likelihood (NLL) loss.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gt</strong> – the ground truth</p></li>
+<li><p><strong>pred_mean</strong> – the predictive mean</p></li>
+<li><p><strong>logvar</strong> – the log variance</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="realseries.utils.utility.aleatoric_loss.loss">
+<code class="sig-name descname">loss</code><a class="headerlink" href="#realseries.utils.utility.aleatoric_loss.loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>the nll loss result for the regression.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.utils.utility.aleatoric_loss.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">gt</span></em>, <em class="sig-param"><span class="n">pred_mean</span></em>, <em class="sig-param"><span class="n">logvar</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.utils.utility.aleatoric_loss.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="realseries.utils.utility.aleatoric_loss.training">
+<code class="sig-name descname">training</code><a class="headerlink" href="#realseries.utils.utility.aleatoric_loss.training" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py function">
 <dt id="realseries.utils.utility.load_model">
 <code class="sig-prename descclassname">realseries.utils.utility.</code><code class="sig-name descname">load_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.utils.utility.load_model" title="Permalink to this definition">¶</a></dt>
@@ -1003,6 +1061,52 @@ improvement. Default to 0.</p></li>
 <dd class="field-odd"><p>model</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="realseries.utils.utility.mmd_loss">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.utils.utility.</code><code class="sig-name descname">mmd_loss</code><a class="headerlink" href="#realseries.utils.utility.mmd_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<p>The mmd loss.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_features</strong> – the ground truth</p></li>
+<li><p><strong>target_features</strong> – the prediction value</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="realseries.utils.utility.mmd_loss.loss_value">
+<code class="sig-name descname">loss_value</code><a class="headerlink" href="#realseries.utils.utility.mmd_loss.loss_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>the nll loss result for the regression.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.utils.utility.mmd_loss.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source_features</span></em>, <em class="sig-param"><span class="n">target_features</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.utils.utility.mmd_loss.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="realseries.utils.utility.mmd_loss.gaussian_kernel_matrix">
+<code class="sig-name descname">gaussian_kernel_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">sigmas</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.utils.utility.mmd_loss.gaussian_kernel_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="realseries.utils.utility.mmd_loss.maximum_mean_discrepancy">
+<code class="sig-name descname">maximum_mean_discrepancy</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">kernel=&lt;function mmd_loss.gaussian_kernel_matrix&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.utils.utility.mmd_loss.maximum_mean_discrepancy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="realseries.utils.utility.mmd_loss.pairwise_distance">
+<code class="sig-name descname">pairwise_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.utils.utility.mmd_loss.pairwise_distance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="realseries.utils.utility.mmd_loss.training">
+<code class="sig-name descname">training</code><a class="headerlink" href="#realseries.utils.utility.mmd_loss.training" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py function">
@@ -1160,19 +1264,11 @@ Defaults to 4.</p></li>
 
   <div role="contentinfo">
     <p>
-        
         &copy; Copyright 2020, RealAI
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1183,6 +1279,7 @@ Defaults to 4.</p></li>
 
   </div>
   
+
 
   <script type="text/javascript">
       jQuery(function () {

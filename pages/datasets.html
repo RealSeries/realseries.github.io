@@ -1,7 +1,8 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -11,18 +12,12 @@
   
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-
-  
   
   
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -35,6 +30,10 @@
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Anomaly Detection" href="anomaly_detection.html" />
@@ -52,7 +51,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> RealSeries
+            <a href="../index.html" class="icon icon-home"> RealSeries
           
 
           
@@ -75,7 +74,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -140,6 +138,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Time Series Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#forecast-datasets">Forecast Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#anomaly-detection-datasets">Anomaly Detection Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#granger-causality-datasets">Granger causality Datasets</a></li>
 </ul>
@@ -157,7 +156,11 @@
 <li class="toctree-l2"><a class="reference internal" href="Granger_causality.html#models-of-granger-causality">Models of Granger causality</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="forecast_and_imputation.html">Forecast and Imputation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forecast_with_uncertainty.html">Forecast with Uncertainty</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="forecast_with_uncertainty.html#problem-description">Problem Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forecast_with_uncertainty.html#models">Models</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Contribution</span></p>
 <ul>
@@ -168,7 +171,6 @@
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -207,7 +209,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
         
       <li>Time Series Datasets</li>
     
@@ -230,7 +232,93 @@
             
   <div class="section" id="time-series-datasets">
 <h1>Time Series Datasets<a class="headerlink" href="#time-series-datasets" title="Permalink to this headline">¶</a></h1>
-<p>RealSeries provides several example datasets that can be used for <span class="raw-html"><S></span> <a class="reference internal" href="forecast_and_imputation.html#forecast-and-imputation"><span class="std std-ref">Forecast and Imputation</span></a> <span class="raw-html"></S></span>, and <a class="reference internal" href="anomaly_detection.html#anomaly-detection"><span class="std std-ref">Anomaly Detection</span></a>, <a class="reference internal" href="Granger_causality.html#granger-causality"><span class="std std-ref">Granger causality</span></a>.</p>
+<p>RealSeries provides several example datasets that can be used for <a class="reference internal" href="forecast_with_uncertainty.html#forecast-with-uncertainty"><span class="std std-ref">Forecast with Uncertainty</span></a>, and <a class="reference internal" href="anomaly_detection.html#anomaly-detection"><span class="std std-ref">Anomaly Detection</span></a>, <a class="reference internal" href="Granger_causality.html#granger-causality"><span class="std std-ref">Granger causality</span></a>.</p>
+<div class="section" id="forecast-datasets">
+<h2>Forecast Datasets<a class="headerlink" href="#forecast-datasets" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+<col style="width: 3%" />
+<col style="width: 2%" />
+<col style="width: 2%" />
+<col style="width: 2%" />
+<col style="width: 2%" />
+<col style="width: 2%" />
+<col style="width: 2%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Dir</p></td>
+<td><p>Name</p></td>
+<td><p>External</p></td>
+<td><p>Internal</p></td>
+<td><p>channel</p></td>
+<td colspan="2"><p>HNN</p></td>
+<td colspan="2"><p>MC_dropout</p></td>
+<td colspan="2"><p>CRMMD</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>RMSE</p></td>
+<td><p>EPIW</p></td>
+<td><p>RMSE</p></td>
+<td><p>EPIW</p></td>
+<td><p>RMSE</p></td>
+<td><p>EPIW</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><p>Forecast_data</p></td>
+<td><p>air_quality</p></td>
+<td><p><a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Air+Quality">https://archive.ics.uci.edu/ml/datasets/Air+Quality</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/file/boxcnPyjTJdoSn6zNIkpB6iy6lc">https://realai.feishu.cn/file/boxcnPyjTJdoSn6zNIkpB6iy6lc</a></p></td>
+<td><p>muti</p></td>
+<td><p>79.60</p></td>
+<td><p>0.058</p></td>
+<td><p>81.16</p></td>
+<td><p>0.339</p></td>
+<td><p>80.69</p></td>
+<td><p>0.010</p></td>
+</tr>
+<tr class="row-even"><td><p>bike_sharing</p></td>
+<td><p><a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset">https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/file/boxcnKaLySdAr2Hredj795JNKSf">https://realai.feishu.cn/file/boxcnKaLySdAr2Hredj795JNKSf</a></p></td>
+<td><p>muti</p></td>
+<td><p>40.71</p></td>
+<td><p>0.054</p></td>
+<td><p>38.86</p></td>
+<td><p>0.258</p></td>
+<td><p>37.93</p></td>
+<td><p>0.006</p></td>
+</tr>
+<tr class="row-odd"><td><p>metro_traffic</p></td>
+<td><p><a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Metro+Interstate+Traffic+Volum">https://archive.ics.uci.edu/ml/datasets/Metro+Interstate+Traffic+Volum</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/file/boxcneAyvk3C2ZdHdXz3Qp74z4t">https://realai.feishu.cn/file/boxcneAyvk3C2ZdHdXz3Qp74z4t</a></p></td>
+<td><p>muti</p></td>
+<td><p>556.3</p></td>
+<td><p>0.102</p></td>
+<td><p>523.6</p></td>
+<td><p>0.304</p></td>
+<td><p>545.5</p></td>
+<td><p>0.017</p></td>
+</tr>
+<tr class="row-even"><td><p>pm25</p></td>
+<td><p><a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data">https://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/file/boxcnzBLL50VkezpvRdTw5Lsrgt">https://realai.feishu.cn/file/boxcnzBLL50VkezpvRdTw5Lsrgt</a></p></td>
+<td><p>muti</p></td>
+<td><p>58.81</p></td>
+<td><p>0.022</p></td>
+<td><p>70.95</p></td>
+<td><p>0.331</p></td>
+<td><p>57.43</p></td>
+<td><p>0.010</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="anomaly-detection-datasets">
 <h2>Anomaly Detection Datasets<a class="headerlink" href="#anomaly-detection-datasets" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
@@ -301,8 +389,8 @@
 </tr>
 <tr class="row-odd"><td><p>realKnownCause</p></td>
 <td><p>nyc_taxi</p></td>
-<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realKnownCause">github</a></p></td>
-<td><p><a class="reference external" href="https://realai.feishu.cn/file/boxcnl50bjbZ5VkH6uMKphe4Zpf">lark</a></p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realKnownCause">https://github.com/numenta/NAB/tree/master/data/realKnownCause</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/file/boxcnl50bjbZ5VkH6uMKphe4Zpf">https://realai.feishu.cn/file/boxcnl50bjbZ5VkH6uMKphe4Zpf</a></p></td>
 <td><p><a class="reference internal" href="anomaly_detection.html#rcforest" id="id1"><span>[RCForest]</span></a> <a class="reference internal" href="anomaly_detection.html#nab" id="id2"><span>[NAB]</span></a></p></td>
 <td><p>single</p></td>
 <td><p>0.99</p></td>
@@ -326,9 +414,9 @@
 </tr>
 <tr class="row-even"><td rowspan="10"><p>realTweets</p></td>
 <td><p>UPS</p></td>
-<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
-<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
-<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id5"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id6"><span>[NAB2]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">https://github.com/numenta/NAB/tree/master/data/realTweets</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id3"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id4"><span>[NAB2]</span></a></p></td>
 <td><p>single</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
@@ -350,9 +438,9 @@
 <td><p>0.92</p></td>
 </tr>
 <tr class="row-odd"><td><p>FE</p></td>
-<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
-<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
-<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id9"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id10"><span>[NAB2]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">https://github.com/numenta/NAB/tree/master/data/realTweets</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id7"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id8"><span>[NAB2]</span></a></p></td>
 <td><p>single</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
@@ -374,9 +462,9 @@
 <td><p>0.98</p></td>
 </tr>
 <tr class="row-even"><td><p>KO</p></td>
-<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
-<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
-<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id13"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id14"><span>[NAB2]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">https://github.com/numenta/NAB/tree/master/data/realTweets</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id11"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id12"><span>[NAB2]</span></a></p></td>
 <td><p>single</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
@@ -398,9 +486,9 @@
 <td><p>0</p></td>
 </tr>
 <tr class="row-odd"><td><p>IBM</p></td>
-<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
-<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
-<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id17"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id18"><span>[NAB2]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">https://github.com/numenta/NAB/tree/master/data/realTweets</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id15"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id16"><span>[NAB2]</span></a></p></td>
 <td><p>single</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
@@ -422,9 +510,9 @@
 <td><p>0</p></td>
 </tr>
 <tr class="row-even"><td><p>GOOG</p></td>
-<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
-<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
-<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id21"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id22"><span>[NAB2]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">https://github.com/numenta/NAB/tree/master/data/realTweets</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id19"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id20"><span>[NAB2]</span></a></p></td>
 <td><p>single</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
@@ -446,9 +534,9 @@
 <td><p>0.99</p></td>
 </tr>
 <tr class="row-odd"><td><p>FB</p></td>
-<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
-<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
-<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id25"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id26"><span>[NAB2]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">https://github.com/numenta/NAB/tree/master/data/realTweets</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id23"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id24"><span>[NAB2]</span></a></p></td>
 <td><p>single</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
@@ -470,9 +558,9 @@
 <td><p>0</p></td>
 </tr>
 <tr class="row-even"><td><p>CVS</p></td>
-<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
-<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
-<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id29"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id30"><span>[NAB2]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">https://github.com/numenta/NAB/tree/master/data/realTweets</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id27"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id28"><span>[NAB2]</span></a></p></td>
 <td><p>single</p></td>
 <td><p>0.996</p></td>
 <td><p>0.08</p></td>
@@ -494,9 +582,9 @@
 <td><p>0.86</p></td>
 </tr>
 <tr class="row-odd"><td><p>CRM</p></td>
-<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
-<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
-<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id33"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id34"><span>[NAB2]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">https://github.com/numenta/NAB/tree/master/data/realTweets</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id31"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id32"><span>[NAB2]</span></a></p></td>
 <td><p>single</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
@@ -518,9 +606,9 @@
 <td><p>0.94</p></td>
 </tr>
 <tr class="row-even"><td><p>AMZN</p></td>
-<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
-<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
-<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id37"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id38"><span>[NAB2]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">https://github.com/numenta/NAB/tree/master/data/realTweets</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id35"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id36"><span>[NAB2]</span></a></p></td>
 <td><p>single</p></td>
 <td><p>0.99</p></td>
 <td><p>0.49</p></td>
@@ -542,9 +630,9 @@
 <td><p>0.99</p></td>
 </tr>
 <tr class="row-odd"><td><p>AAPL</p></td>
-<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">github</a></p></td>
-<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">lark</a></p></td>
-<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id41"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id42"><span>[NAB2]</span></a></p></td>
+<td><p><a class="reference external" href="https://github.com/numenta/NAB/tree/master/data/realTweets">https://github.com/numenta/NAB/tree/master/data/realTweets</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc">https://realai.feishu.cn/drive/folder/fldcnCBTqy55QT3Ybf4bYTiP4Jc</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#nab" id="id39"><span>[NAB]</span></a> <a class="reference internal" href="anomaly_detection.html#nab2" id="id40"><span>[NAB2]</span></a></p></td>
 <td><p>single</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
@@ -567,9 +655,9 @@
 </tr>
 <tr class="row-even"><td><p>Yahoo</p></td>
 <td><p>A1</p></td>
-<td><p><a class="reference external" href="https://yahooresearch.tumblr.com/post/114590420346/a-benchmark-dataset-for-time-series-anomaly">download</a></p></td>
-<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnIbGiqD3MzPH1GjFwcaF00f">lark</a></p></td>
-<td><p><a class="reference internal" href="anomaly_detection.html#vae" id="id44"><span>[VAE]</span></a> <a class="reference internal" href="anomaly_detection.html#sr-cnn" id="id45"><span>[SR_CNN]</span></a></p></td>
+<td><p><a class="reference external" href="https://yahooresearch.tumblr.com/post/114590420346/a-benchmark-dataset-for-time-series-anomaly">https://yahooresearch.tumblr.com/post/114590420346/a-benchmark-dataset-for-time-series-anomaly</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnIbGiqD3MzPH1GjFwcaF00f">https://realai.feishu.cn/drive/folder/fldcnIbGiqD3MzPH1GjFwcaF00f</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#vae" id="id41"><span>[VAE]</span></a> <a class="reference internal" href="anomaly_detection.html#sr-cnn" id="id42"><span>[SR_CNN]</span></a></p></td>
 <td><p>single</p></td>
 <td><p>0.86</p></td>
 <td><p>0.57</p></td>
@@ -604,9 +692,9 @@
 <li></li>
 </ul>
 </td>
-<td><p><a class="reference external" href="https://s3-us-west-2.amazonaws.com/telemanom/data.zip">download</a> <a class="reference external" href="https://github.com/khundman/telemanom/blob/master/labeled_anomalies.csv">label</a></p></td>
-<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnLQo89gv4EuzTmmN5uJJsje">lark</a></p></td>
-<td><p><a class="reference internal" href="anomaly_detection.html#lstm-dynamic" id="id48"><span>[LSTM_dynamic]</span></a> <a class="reference internal" href="anomaly_detection.html#robust" id="id49"><span>[Robust]</span></a></p></td>
+<td><p><a class="reference external" href="https://s3-us-west-2.amazonaws.com/telemanom/data.zip">https://s3-us-west-2.amazonaws.com/telemanom/data.zip</a> <a class="reference external" href="https://github.com/khundman/telemanom/blob/master/labeled_anomalies.csv">label</a></p></td>
+<td><p><a class="reference external" href="https://realai.feishu.cn/drive/folder/fldcnLQo89gv4EuzTmmN5uJJsje">https://realai.feishu.cn/drive/folder/fldcnLQo89gv4EuzTmmN5uJJsje</a></p></td>
+<td><p><a class="reference internal" href="anomaly_detection.html#lstm-dynamic" id="id43"><span>[LSTM_dynamic]</span></a> <a class="reference internal" href="anomaly_detection.html#robust" id="id44"><span>[Robust]</span></a></p></td>
 <td><p>multi</p></td>
 <td><ul class="simple">
 <li></li>
@@ -691,7 +779,7 @@
 </tr>
 <tr class="row-odd"><td rowspan="4"><p>NAR simulation</p></td>
 <td><p>window length=10</p></td>
-<td rowspan="6"><p><a class="reference external" href="https://github.com/ZHzhang01/DWGC/tree/master/data">github</a></p></td>
+<td rowspan="6"><p><a class="reference external" href="https://github.com/ZHzhang01/DWGC/tree/master/data">https://github.com/ZHzhang01/DWGC/tree/master/data</a></p></td>
 <td><p>0.42</p></td>
 <td><p>0.58</p></td>
 <td><p>0.44</p></td>
@@ -716,10 +804,10 @@
 <td><p>0.88</p></td>
 </tr>
 <tr class="row-odd"><td colspan="2"><p>ENSO data(DWGC)</p></td>
-<td colspan="4"><p><a class="reference external" href="http://git.real-ai.cn/realseries/realseries/blob/causality_branch/notebooks/DWGC.ipynb">notebook</a></p></td>
+<td colspan="4"><p>Notebook: <a class="reference external" href="http://git.real-ai.cn/realseries/realseries/blob/causality_branch/notebooks/DWGC.ipynb">http://git.real-ai.cn/realseries/realseries/blob/causality_branch/notebooks/DWGC.ipynb</a></p></td>
 </tr>
 <tr class="row-even"><td colspan="2"><p>ENSO data(GC)</p></td>
-<td colspan="4"><p><a class="reference external" href="http://git.real-ai.cn/realseries/realseries/blob/causality_branch/notebooks/GC.ipynb">notebook</a></p></td>
+<td colspan="4"><p>Notebook: <a class="reference external" href="http://git.real-ai.cn/realseries/realseries/blob/causality_branch/notebooks/GC.ipynb">http://git.real-ai.cn/realseries/realseries/blob/causality_branch/notebooks/GC.ipynb</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -746,19 +834,11 @@
 
   <div role="contentinfo">
     <p>
-        
         &copy; Copyright 2020, RealAI
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -769,6 +849,7 @@
 
   </div>
   
+
 
   <script type="text/javascript">
       jQuery(function () {
