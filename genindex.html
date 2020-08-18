@@ -120,6 +120,10 @@
 <li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.srcnn">realseries.models.srcnn module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.stl">realseries.models.stl module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.vae_ad">realseries.models.vae_ad module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.vae_dense">realseries.models.vae_dense module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.crmmd">realseries.models.crmmd module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.hnn">realseries.models.hnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pages/realseries.models.html#module-realseries.models.mc_dropout">realseries.models.mc_dropout module</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="pages/realseries.utils.html">Utility Functions</a><ul>
@@ -299,6 +303,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pages/realseries.models.html#realseries.models.stl.STL.calc_trend">calc_trend() (realseries.models.stl.STL static method)</a>
 </li>
+      <li><a href="pages/realseries.models.html#realseries.models.crmmd.CRMMD">CRMMD (class in realseries.models.crmmd)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -344,6 +350,8 @@
 </li>
         <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD.detect">(realseries.models.vae_ad.VAE_AD method)</a>
 </li>
+        <li><a href="pages/realseries.models.html#realseries.models.vae_dense.VAE_Dense.detect">(realseries.models.vae_dense.VAE_Dense method)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -365,12 +373,20 @@
 </li>
       <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.estimators_samples_">estimators_samples_ (realseries.models.iforest.IForest attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pages/realseries.models.html#id1">estimators_samples_() (realseries.models.iforest.IForest property)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.evaluation.evaluate">evaluate() (in module realseries.utils.evaluation)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.crmmd.CRMMD.evaluation_model">evaluation_model() (realseries.models.crmmd.CRMMD method)</a>
+
+      <ul>
+        <li><a href="pages/realseries.models.html#realseries.models.hnn.HNN.evaluation_model">(realseries.models.hnn.HNN method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.mc_dropout.MC_dropout.evaluation_model">(realseries.models.mc_dropout.MC_dropout method)</a>
+</li>
+      </ul></li>
       <li><a href="pages/realseries.utils.html#realseries.utils.preprocess.exponential_running_demean">exponential_running_demean() (in module realseries.utils.preprocess)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.preprocess.exponential_running_standardize">exponential_running_standardize() (in module realseries.utils.preprocess)</a>
@@ -390,15 +406,21 @@
       <ul>
         <li><a href="pages/realseries.models.html#realseries.models.base.BaseModel.fit">(realseries.models.base.BaseModel method)</a>
 </li>
+        <li><a href="pages/realseries.models.html#realseries.models.crmmd.CRMMD.fit">(realseries.models.crmmd.CRMMD method)</a>
+</li>
         <li><a href="pages/realseries.models.html#realseries.models.DWGC.DWGC.fit">(realseries.models.DWGC.DWGC method)</a>
 </li>
         <li><a href="pages/realseries.models.html#realseries.models.GC.GC.fit">(realseries.models.GC.GC method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.hnn.HNN.fit">(realseries.models.hnn.HNN method)</a>
 </li>
         <li><a href="pages/realseries.models.html#realseries.models.iforest.IForest.fit">(realseries.models.iforest.IForest method)</a>
 </li>
         <li><a href="pages/realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic.fit">(realseries.models.lstm_dynamic.LSTM_dynamic method)</a>
 </li>
         <li><a href="pages/realseries.models.html#realseries.models.lumino.Lumino.fit">(realseries.models.lumino.Lumino method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.mc_dropout.MC_dropout.fit">(realseries.models.mc_dropout.MC_dropout method)</a>
 </li>
         <li><a href="pages/realseries.models.html#realseries.models.NAR.NAR_Network.fit">(realseries.models.NAR.NAR_Network method)</a>
 </li>
@@ -416,15 +438,27 @@
 </li>
         <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD.fit">(realseries.models.vae_ad.VAE_AD method)</a>
 </li>
+        <li><a href="pages/realseries.models.html#realseries.models.vae_dense.VAE_Dense.fit">(realseries.models.vae_dense.VAE_Dense method)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.vae_dense.VAE_Dense.flatten">flatten() (realseries.models.vae_dense.VAE_Dense method)</a>
+</li>
       <li><a href="pages/realseries.models.html#realseries.models.base.BaseModel.forecast">forecast() (realseries.models.base.BaseModel method)</a>
 
       <ul>
+        <li><a href="pages/realseries.models.html#realseries.models.crmmd.CRMMD.forecast">(realseries.models.crmmd.CRMMD method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.hnn.HNN.forecast">(realseries.models.hnn.HNN method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.mc_dropout.MC_dropout.forecast">(realseries.models.mc_dropout.MC_dropout method)</a>
+</li>
         <li><a href="pages/realseries.models.html#realseries.models.stl.STL.forecast">(realseries.models.stl.STL method)</a>
 </li>
         <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD.forecast">(realseries.models.vae_ad.VAE_AD method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.vae_dense.VAE_Dense.forecast">(realseries.models.vae_dense.VAE_Dense method)</a>
 </li>
       </ul></li>
       <li><a href="pages/realseries.utils.html#realseries.utils.utility.aleatoric_loss.forward">forward() (realseries.utils.utility.aleatoric_loss method)</a>
@@ -462,6 +496,10 @@
       <li><a href="pages/realseries.utils.html#realseries.utils.preprocess.highpass_cnt">highpass_cnt() (in module realseries.utils.preprocess)</a>
 </li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.hnn.HNN">HNN (class in realseries.models.hnn)</a>
+</li>
+  </ul></td>
 </tr></table>
 
 <h2 id="I">I</h2>
@@ -486,21 +524,31 @@
       <ul>
         <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD.load">(realseries.models.vae_ad.VAE_AD method)</a>
 </li>
+        <li><a href="pages/realseries.models.html#realseries.models.vae_dense.VAE_Dense.load">(realseries.models.vae_dense.VAE_Dense method)</a>
+</li>
       </ul></li>
       <li><a href="pages/realseries.utils.html#realseries.utils.dataset.Data.load_data">load_data() (realseries.utils.dataset.Data method)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.data.load_exp_data">load_exp_data() (in module realseries.utils.data)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.utility.load_model">load_model() (in module realseries.utils.utility)</a>
+
+      <ul>
+        <li><a href="pages/realseries.models.html#realseries.models.crmmd.CRMMD.load_model">(realseries.models.crmmd.CRMMD method)</a>
 </li>
+        <li><a href="pages/realseries.models.html#realseries.models.hnn.HNN.load_model">(realseries.models.hnn.HNN method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.mc_dropout.MC_dropout.load_model">(realseries.models.mc_dropout.MC_dropout method)</a>
+</li>
+      </ul></li>
       <li><a href="pages/realseries.utils.html#realseries.utils.data.load_NAB">load_NAB() (in module realseries.utils.data)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pages/realseries.utils.html#realseries.utils.data.load_SMD">load_SMD() (in module realseries.utils.data)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.data.load_split_NASA">load_split_NASA() (in module realseries.utils.data)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pages/realseries.utils.html#realseries.utils.data.load_splitted_RNN">load_splitted_RNN() (in module realseries.utils.data)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.data.load_Yahoo">load_Yahoo() (in module realseries.utils.data)</a>
@@ -533,18 +581,28 @@
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.utility.mmd_loss.maximum_mean_discrepancy">maximum_mean_discrepancy() (realseries.utils.utility.mmd_loss method)</a>
 </li>
+      <li><a href="pages/realseries.models.html#realseries.models.mc_dropout.MC_dropout">MC_dropout (class in realseries.models.mc_dropout)</a>
+</li>
       <li><a href="pages/realseries.models.html#realseries.models.stl.STL.mean">mean() (realseries.models.stl.STL static method)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.utility.mmd_loss">mmd_loss (class in realseries.utils.utility)</a>
 </li>
-      <li><a href="pages/realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic.model">model (realseries.models.lstm_dynamic.LSTM_dynamic attribute)</a>
+      <li><a href="pages/realseries.models.html#id3">model (realseries.models.crmmd.CRMMD attribute)</a>, <a href="pages/realseries.models.html#realseries.models.crmmd.CRMMD.model">[1]</a>
 
       <ul>
+        <li><a href="pages/realseries.models.html#id4">(realseries.models.hnn.HNN attribute)</a>, <a href="pages/realseries.models.html#realseries.models.hnn.HNN.model">[1]</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic.model">(realseries.models.lstm_dynamic.LSTM_dynamic attribute)</a>
+</li>
+        <li><a href="pages/realseries.models.html#id5">(realseries.models.mc_dropout.MC_dropout attribute)</a>, <a href="pages/realseries.models.html#realseries.models.mc_dropout.MC_dropout.model">[1]</a>
+</li>
         <li><a href="pages/realseries.models.html#realseries.models.rnn.LSTMED.model">(realseries.models.rnn.LSTMED attribute)</a>
 </li>
         <li><a href="pages/realseries.models.html#realseries.models.srcnn.SR_CNN.model">(realseries.models.srcnn.SR_CNN attribute)</a>
 </li>
         <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD.model">(realseries.models.vae_ad.VAE_AD attribute)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.vae_dense.VAE_Dense.model">(realseries.models.vae_dense.VAE_Dense attribute)</a>
 </li>
       </ul></li>
       <li>
@@ -555,15 +613,21 @@
 </li>
         <li><a href="pages/realseries.models.html#module-realseries.models.base">realseries.models.base</a>
 </li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.crmmd">realseries.models.crmmd</a>
+</li>
         <li><a href="pages/realseries.models.html#module-realseries.models.DWGC">realseries.models.DWGC</a>
 </li>
         <li><a href="pages/realseries.models.html#module-realseries.models.GC">realseries.models.GC</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.hnn">realseries.models.hnn</a>
 </li>
         <li><a href="pages/realseries.models.html#module-realseries.models.iforest">realseries.models.iforest</a>
 </li>
         <li><a href="pages/realseries.models.html#module-realseries.models.lstm_dynamic">realseries.models.lstm_dynamic</a>
 </li>
         <li><a href="pages/realseries.models.html#module-realseries.models.lumino">realseries.models.lumino</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.mc_dropout">realseries.models.mc_dropout</a>
 </li>
         <li><a href="pages/realseries.models.html#module-realseries.models.NAR">realseries.models.NAR</a>
 </li>
@@ -580,6 +644,8 @@
         <li><a href="pages/realseries.models.html#module-realseries.models.stl">realseries.models.stl</a>
 </li>
         <li><a href="pages/realseries.models.html#module-realseries.models.vae_ad">realseries.models.vae_ad</a>
+</li>
+        <li><a href="pages/realseries.models.html#module-realseries.models.vae_dense">realseries.models.vae_dense</a>
 </li>
         <li><a href="pages/realseries.utils.html#module-realseries.utils.data">realseries.utils.data</a>
 </li>
@@ -636,14 +702,16 @@
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.visualize.plot_mne">plot_mne() (in module realseries.utils.visualize)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pages/realseries.utils.html#realseries.utils.evaluation.point_metrics">point_metrics() (in module realseries.utils.evaluation)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pages/realseries.models.html#realseries.models.lstm_dynamic.LSTM_dynamic.predict">predict() (realseries.models.lstm_dynamic.LSTM_dynamic method)</a>
 
       <ul>
         <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD.predict">(realseries.models.vae_ad.VAE_AD method)</a>
+</li>
+        <li><a href="pages/realseries.models.html#realseries.models.vae_dense.VAE_Dense.predict">(realseries.models.vae_dense.VAE_Dense method)</a>
 </li>
       </ul></li>
       <li><a href="pages/realseries.models.html#realseries.models.sr.SpectralResidual.predict_next">predict_next() (realseries.models.sr.SpectralResidual static method)</a>
@@ -673,6 +741,13 @@
 </li>
       </ul></li>
       <li>
+    realseries.models.crmmd
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.crmmd">module</a>
+</li>
+      </ul></li>
+      <li>
     realseries.models.DWGC
 
       <ul>
@@ -684,6 +759,13 @@
 
       <ul>
         <li><a href="pages/realseries.models.html#module-realseries.models.GC">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.models.hnn
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.hnn">module</a>
 </li>
       </ul></li>
       <li>
@@ -705,6 +787,13 @@
 
       <ul>
         <li><a href="pages/realseries.models.html#module-realseries.models.lumino">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.models.mc_dropout
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.mc_dropout">module</a>
 </li>
       </ul></li>
       <li>
@@ -735,6 +824,8 @@
         <li><a href="pages/realseries.models.html#module-realseries.models.seqvl">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     realseries.models.sr
 
@@ -742,8 +833,6 @@
         <li><a href="pages/realseries.models.html#module-realseries.models.sr">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     realseries.models.srcnn
 
@@ -763,6 +852,13 @@
 
       <ul>
         <li><a href="pages/realseries.models.html#module-realseries.models.vae_ad">module</a>
+</li>
+      </ul></li>
+      <li>
+    realseries.models.vae_dense
+
+      <ul>
+        <li><a href="pages/realseries.models.html#module-realseries.models.vae_dense">module</a>
 </li>
       </ul></li>
       <li>
@@ -821,6 +917,8 @@
         <li><a href="pages/realseries.utils.html#module-realseries.utils.visualize">module</a>
 </li>
       </ul></li>
+      <li><a href="pages/realseries.models.html#realseries.models.vae_dense.VAE_Dense.reform">reform() (realseries.models.vae_dense.VAE_Dense method)</a>
+</li>
       <li><a href="pages/realseries.models.html#realseries.models.seqvl.SeqVL.reshape_for_test">reshape_for_test() (realseries.models.seqvl.SeqVL method)</a>
 </li>
       <li><a href="pages/realseries.models.html#realseries.models.seqvl.SeqVL.reshape_for_training">reshape_for_training() (realseries.models.seqvl.SeqVL method)</a>
@@ -836,15 +934,25 @@
       <ul>
         <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD.save">(realseries.models.vae_ad.VAE_AD method)</a>
 </li>
+        <li><a href="pages/realseries.models.html#realseries.models.vae_dense.VAE_Dense.save">(realseries.models.vae_dense.VAE_Dense method)</a>
+</li>
       </ul></li>
       <li><a href="pages/realseries.utils.html#realseries.utils.utility.EarlyStopping.save_checkpoint">save_checkpoint() (realseries.utils.utility.EarlyStopping method)</a>
 </li>
       <li><a href="pages/realseries.utils.html#realseries.utils.utility.save_model">save_model() (in module realseries.utils.utility)</a>
+
+      <ul>
+        <li><a href="pages/realseries.models.html#realseries.models.crmmd.CRMMD.save_model">(realseries.models.crmmd.CRMMD method)</a>
 </li>
-      <li><a href="pages/realseries.models.html#realseries.models.seqvl.SeqVL">SeqVL (class in realseries.models.seqvl)</a>
+        <li><a href="pages/realseries.models.html#realseries.models.hnn.HNN.save_model">(realseries.models.hnn.HNN method)</a>
 </li>
+        <li><a href="pages/realseries.models.html#realseries.models.mc_dropout.MC_dropout.save_model">(realseries.models.mc_dropout.MC_dropout method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.seqvl.SeqVL">SeqVL (class in realseries.models.seqvl)</a>
+</li>
       <li><a href="pages/realseries.utils.html#realseries.utils.segment.slice_generator">slice_generator() (in module realseries.utils.segment)</a>
 </li>
       <li><a href="pages/realseries.models.html#realseries.models.sr.SpectralResidual.spectral_residual_transform">spectral_residual_transform() (realseries.models.sr.SpectralResidual method)</a>
@@ -866,20 +974,16 @@
       <li><a href="pages/realseries.utils.html#realseries.utils.evaluation.thres_search">thres_search() (in module realseries.utils.evaluation)</a>
 </li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="pages/realseries.utils.html#realseries.utils.utility.aleatoric_loss.training">training (realseries.utils.utility.aleatoric_loss attribute)</a>
-
-      <ul>
-        <li><a href="pages/realseries.utils.html#realseries.utils.utility.mmd_loss.training">(realseries.utils.utility.mmd_loss attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
 </tr></table>
 
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pages/realseries.models.html#realseries.models.vae_ad.VAE_AD">VAE_AD (class in realseries.models.vae_ad)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/realseries.models.html#realseries.models.vae_dense.VAE_Dense">VAE_Dense (class in realseries.models.vae_dense)</a>
 </li>
   </ul></td>
 </tr></table>

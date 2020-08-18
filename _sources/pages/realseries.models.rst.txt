@@ -121,3 +121,35 @@ realseries.models.vae\_ad module
    :members:
    :undoc-members:
    :show-inheritance:
+
+realseries.models.vae\_dense module
+-----------------------------------
+
+.. automodule:: realseries.models.vae_dense
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+realseries.models.crmmd module
+------------------------------
+
+.. automodule:: realseries.models.crmmd
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+realseries.models.hnn module
+----------------------------
+
+.. automodule:: realseries.models.hnn
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+realseries.models.mc\_dropout module
+------------------------------------
+
+.. automodule:: realseries.models.mc_dropout
+   :members:
+   :undoc-members:
+   :show-inheritance:
