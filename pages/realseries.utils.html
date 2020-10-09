@@ -122,6 +122,10 @@
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.srcnn">realseries.models.srcnn module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.stl">realseries.models.stl module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.vae_ad">realseries.models.vae_ad module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.vae_dense">realseries.models.vae_dense module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.crmmd">realseries.models.crmmd module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.hnn">realseries.models.hnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="realseries.models.html#module-realseries.models.mc_dropout">realseries.models.mc_dropout module</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Utility Functions</a><ul>
@@ -1034,12 +1038,16 @@ improvement. Default to 0.</p></li>
 <dl class="py method">
 <dt id="realseries.utils.utility.aleatoric_loss.forward">
 <code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">gt</span></em>, <em class="sig-param"><span class="n">pred_mean</span></em>, <em class="sig-param"><span class="n">logvar</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.utils.utility.aleatoric_loss.forward" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="realseries.utils.utility.aleatoric_loss.training">
-<code class="sig-name descname">training</code><a class="headerlink" href="#realseries.utils.utility.aleatoric_loss.training" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
 
 </dd></dl>
 
@@ -1085,7 +1093,16 @@ improvement. Default to 0.</p></li>
 <dl class="py method">
 <dt id="realseries.utils.utility.mmd_loss.forward">
 <code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source_features</span></em>, <em class="sig-param"><span class="n">target_features</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.utils.utility.mmd_loss.forward" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt id="realseries.utils.utility.mmd_loss.gaussian_kernel_matrix">
@@ -1100,11 +1117,6 @@ improvement. Default to 0.</p></li>
 <dl class="py method">
 <dt id="realseries.utils.utility.mmd_loss.pairwise_distance">
 <code class="sig-name descname">pairwise_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.utils.utility.mmd_loss.pairwise_distance" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="realseries.utils.utility.mmd_loss.training">
-<code class="sig-name descname">training</code><a class="headerlink" href="#realseries.utils.utility.mmd_loss.training" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

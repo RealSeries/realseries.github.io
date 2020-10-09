@@ -122,6 +122,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.srcnn">realseries.models.srcnn module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.stl">realseries.models.stl module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.vae_ad">realseries.models.vae_ad module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.vae_dense">realseries.models.vae_dense module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.crmmd">realseries.models.crmmd module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.hnn">realseries.models.hnn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-realseries.models.mc_dropout">realseries.models.mc_dropout module</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="realseries.utils.html">Utility Functions</a><ul>
@@ -1667,6 +1671,565 @@ score: ndarray, Corresponding anomaly score.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>path</strong> (<em>string</em>) – model save path</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-realseries.models.vae_dense">
+<span id="realseries-models-vae-dense-module"></span><h2>realseries.models.vae_dense module<a class="headerlink" href="#module-realseries.models.vae_dense" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="realseries.models.vae_dense.VAE_Dense">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.vae_dense.</code><code class="sig-name descname">VAE_Dense</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">window_size</span></em>, <em class="sig-param"><span class="n">channels</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">'VAE_Dense'</span></em>, <em class="sig-param"><span class="n">num_epochs</span><span class="o">=</span><span class="default_value">256</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">64</span></em>, <em class="sig-param"><span class="n">lr</span><span class="o">=</span><span class="default_value">0.001</span></em>, <em class="sig-param"><span class="n">lr_decay</span><span class="o">=</span><span class="default_value">0.8</span></em>, <em class="sig-param"><span class="n">clip_norm_value</span><span class="o">=</span><span class="default_value">12.0</span></em>, <em class="sig-param"><span class="n">weight_decay</span><span class="o">=</span><span class="default_value">0.001</span></em>, <em class="sig-param"><span class="n">h_dim</span><span class="o">=</span><span class="default_value">200</span></em>, <em class="sig-param"><span class="n">z_dim</span><span class="o">=</span><span class="default_value">20</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.vae_dense.VAE_Dense" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<p>The Donut-VAE version for anomaly detection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window_size</strong> (<em>int</em>) – </p></li>
+<li><p><strong>channels</strong> (<em>int</em>) – Channel count of the input signals.</p></li>
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Model name. Defaults to ‘VAE_Dense’.</p></li>
+<li><p><strong>num_epochs</strong> (<em>int</em><em>, </em><em>optional</em>) – Epochs for model training. Defaults to 256.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Batch size for model training. Defaults to 256.</p></li>
+<li><p><strong>lr</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – Learning rate. Defaults to 1e-3.</p></li>
+<li><p><strong>lr_decay</strong> (<em>float</em><em>, </em><em>optional</em>) – Learning rate decay. Defaults to 0.8.</p></li>
+<li><p><strong>clip_norm_value</strong> (<em>float</em><em>, </em><em>optional</em>) – Gradient clip value. Defaults to 12.0.</p></li>
+<li><p><strong>weight_decay</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – L2 regularization. Defaults to 1e-3.</p></li>
+<li><p><strong>h_dim</strong> (<em>int</em><em>, </em><em>optional</em>) – Hidden dim between x and z for VAE’s encoder and decoder Defaults to 200.</p></li>
+<li><p><strong>z_dim</strong> (<em>int</em><em>, </em><em>optional</em>) – Defaults to 20.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="realseries.models.vae_dense.VAE_Dense.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#realseries.models.vae_dense.VAE_Dense.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>VAE model built by torch.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.vae_dense.VAE_Dense.detect">
+<code class="sig-name descname">detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.vae_dense.VAE_Dense.detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get anomaly score of input sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>array_like</em>) – Input sequence.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>origin_series: ndarray [timesteps, channels], Origin time series
+recon_series: ndarray [timesteps, channels], Reconstruct time series
+score: ndarray [timesteps, channels], Corresponding anomaly score.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>A dict with attributes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.vae_dense.VAE_Dense.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.vae_dense.VAE_Dense.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>array_like</em>) – The input 2-D array.
+The first dimension denotes timesteps.
+The second dimension denotes the signal channels.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.vae_dense.VAE_Dense.flatten">
+<code class="sig-name descname">flatten</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.vae_dense.VAE_Dense.flatten" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.vae_dense.VAE_Dense.forecast">
+<code class="sig-name descname">forecast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.vae_dense.VAE_Dense.forecast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forecast the input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array_like</em>) – The input sequence of shape (n_length, n_features) or (n_length,).</p></li>
+<li><p><strong>t</strong> (<em>int</em>) – time index of to-be-forecast samples.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Forecast samples of shape (n_length, n_features)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>X_1 (ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.vae_dense.VAE_Dense.load">
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.vae_dense.VAE_Dense.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the model from path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>string</em>) – model load path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.vae_dense.VAE_Dense.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.vae_dense.VAE_Dense.predict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.vae_dense.VAE_Dense.reform">
+<code class="sig-name descname">reform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.vae_dense.VAE_Dense.reform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.vae_dense.VAE_Dense.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.vae_dense.VAE_Dense.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the model to path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>string</em>) – model save path</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-realseries.models.crmmd">
+<span id="realseries-models-crmmd-module"></span><h2>realseries.models.crmmd module<a class="headerlink" href="#module-realseries.models.crmmd" title="Permalink to this headline">¶</a></h2>
+<p>The crmmd is the implentation of paper
+‘Calibrated Reliable Regression using Maximum Mean Discrepancy’
+<a class="reference external" href="https://arxiv.org/abs/2006.10255">https://arxiv.org/abs/2006.10255</a></p>
+<dl class="py class">
+<dt id="realseries.models.crmmd.CRMMD">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.crmmd.</code><code class="sig-name descname">CRMMD</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kernel_type</span><span class="o">=</span><span class="default_value">'LSTM'</span></em>, <em class="sig-param"><span class="n">input_size</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">hidden_sizes</span><span class="o">=</span><span class="default_value">[128, 64]</span></em>, <em class="sig-param"><span class="n">prediction_window_size</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">activation</span><span class="o">=</span><span class="default_value">'tanh'</span></em>, <em class="sig-param"><span class="n">dropout_rate</span><span class="o">=</span><span class="default_value">0.2</span></em>, <em class="sig-param"><span class="n">variance</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">lr</span><span class="o">=</span><span class="default_value">0.0002</span></em>, <em class="sig-param"><span class="n">weight_decay</span><span class="o">=</span><span class="default_value">0.001</span></em>, <em class="sig-param"><span class="n">grad_clip</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">epochs_hnn</span><span class="o">=</span><span class="default_value">400</span></em>, <em class="sig-param"><span class="n">epochs_mmd</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">1024</span></em>, <em class="sig-param"><span class="n">window_size</span><span class="o">=</span><span class="default_value">15</span></em>, <em class="sig-param"><span class="n">model_path</span><span class="o">=</span><span class="default_value">'./model'</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">1111</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.crmmd.CRMMD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<p>HNN forecaster for uncertainty prediction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kernel_type</strong> (<em>str</em><em>, </em><em>optional</em>) – Type of recurrent net (RNN,
+LSTM, GRU). Defaults to ‘LSTM’.</p></li>
+<li><p><strong>input_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Size of rnn input features. Defaults to 128.</p></li>
+<li><p><strong>hidden_sizes</strong> (<em>list</em><em>, </em><em>optional</em>) – Number of hidden units per layer. Defaults to [128,64].</p></li>
+<li><p><strong>prediction_window_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Prediction window size. Defaults to 1.</p></li>
+<li><p><strong>activation</strong> (<em>str</em><em>,</em><em>optional</em>) – The activation func to use. Can be either <code class="docutils literal notranslate"><span class="pre">'tanh'</span></code> or <code class="docutils literal notranslate"><span class="pre">'relu'</span></code>. Default: <code class="docutils literal notranslate"><span class="pre">'relu'</span></code></p></li>
+<li><p><strong>dropout_rate</strong> (<em>float</em><em>, </em><em>optional</em>) – Defaults to 0.2.</p></li>
+<li><p><strong>variance</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to add a variance item at the last layer to indicate uncertainty. Default to True</p></li>
+<li><p><strong>lr</strong> (<em>float</em><em>, </em><em>optional</em>) – Learning rate. Defaults to 0.0002.</p></li>
+<li><p><strong>weight_decay</strong> (<em>float</em><em>, </em><em>optional</em>) – Weight decay. Defaults to 1e-4.</p></li>
+<li><p><strong>grad_clip</strong> (<em>int</em><em>, </em><em>optional</em>) – Gradient clipping. Defaults to 10.</p></li>
+<li><p><strong>epochs_hnn</strong> (<em>int</em><em>, </em><em>optional</em>) – Upper epoch limit for the first training phase (HNN). Defaults to 200.</p></li>
+<li><p><strong>epochs_mmd</strong> (<em>int</em><em>, </em><em>optional</em>) – Upper epoch limit for the second training phase (MMD). Defaults to 200.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Batch size. Defaults to 1024.</p></li>
+<li><p><strong>window_size</strong> (<em>int</em><em>, </em><em>optional</em>) – LSTM input sequence length. Defaults to 15.</p></li>
+<li><p><strong>model_path</strong> (<em>str</em><em>, </em><em>optional</em>) – The path to save or load model. Defaults to ‘./model’.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – Seed. Defaults to 1111.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="realseries.models.crmmd.CRMMD.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#realseries.models.crmmd.CRMMD.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>HNN model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.crmmd.CRMMD.evaluation_model">
+<code class="sig-name descname">evaluation_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scaler</span></em>, <em class="sig-param"><span class="n">test_data</span></em>, <em class="sig-param"><span class="n">test_label</span></em>, <em class="sig-param"><span class="n">t</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">confidence</span><span class="o">=</span><span class="default_value">95</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.crmmd.CRMMD.evaluation_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get predictive intervals and evaluation scores.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scaler</strong> – receive the scaler of data loader</p></li>
+<li><p><strong>test_data</strong> (<em>numpy array</em>) – The 3-D input sequence (n_samples,window_size,n_features)</p></li>
+<li><p><strong>test_label</strong> (<em>numpy array</em>) – The 2-D input sequence (n_samples,prediction_window_size)</p></li>
+<li><p><strong>t</strong> (<em>optional</em><em>, </em><em>int</em>) – the forecasting horizon, default to 1</p></li>
+<li><p><strong>confidence</strong> (<em>optional</em><em>, </em><em>int</em>) – the confidence of predictive intervals.
+Default to 95, output 95% predictive intervals.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the lower bound and the upper bound arrays of the predictive intervals for test data.
+rmse (float): the rmse score
+calibration error (float): the uncertainty evaluation score for test data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>PIs (two numpy arrays)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.crmmd.CRMMD.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train_data</span></em>, <em class="sig-param"><span class="n">train_label</span></em>, <em class="sig-param"><span class="n">val_data</span></em>, <em class="sig-param"><span class="n">val_label</span></em>, <em class="sig-param"><span class="n">patience</span><span class="o">=</span><span class="default_value">50</span></em>, <em class="sig-param"><span class="n">delta</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.crmmd.CRMMD.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the LSTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train_data</strong> (<em>numpy array</em>) – The 3-D input sequence (n_samples,window_size,n_features)</p></li>
+<li><p><strong>train_label</strong> (<em>numpy array</em>) – The 2-D input sequence (n_samples,prediction_window_size)</p></li>
+<li><p><strong>val_data</strong> (<em>numpy array</em>) – The 3-D input sequence (n_samples,window_size,n_features)</p></li>
+<li><p><strong>val_label</strong> (<em>numpy array</em>) – The 2-D input sequence (n_samples,prediction_window_size)</p></li>
+<li><p><strong>patience</strong> (<em>int</em><em>, </em><em>optional</em>) – Patience argument represents the number of
+epochs before stopping once your loss starts to increase (stops
+improving). Defaults to 10.</p></li>
+<li><p><strong>delta</strong> (<em>int</em><em>, </em><em>optional</em>) – A threshold to whether quantify a loss at
+some epoch as improvement or not. If the difference of loss is
+below delta, it is quantified as no improvement. Better to leave
+it as 0 since we’re interested in when loss becomes worse.
+Defaults to 0.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Verbose decides what to print. Defaults to
+True.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="id3">
+<code class="sig-name descname">model</code><a class="headerlink" href="#id3" title="Permalink to this definition">¶</a></dt>
+<dd><p>a trained model to save to model_path/checkpoint.pt.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.crmmd.CRMMD.forecast">
+<code class="sig-name descname">forecast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scaler</span></em>, <em class="sig-param"><span class="n">test_data</span></em>, <em class="sig-param"><span class="n">t</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">confidence</span><span class="o">=</span><span class="default_value">95</span></em>, <em class="sig-param"><span class="n">is_uncertainty</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.crmmd.CRMMD.forecast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get predictive intervals and evaluation scores.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scaler</strong> – receive the scaler of data loader</p></li>
+<li><p><strong>test_data</strong> (<em>numpy array</em>) – The 3-D input sequence (n_samples,window_size,n_features)</p></li>
+<li><p><strong>t</strong> (<em>optional</em><em>, </em><em>int</em>) – the forecasting horizon, default to 1</p></li>
+<li><p><strong>confidence</strong> (<em>optional</em><em>, </em><em>int</em>) – the confidence of predictive intervals.
+Default to 95, output 95% predictive intervals.</p></li>
+<li><p><strong>is_uncertainty</strong> (<em>optional</em><em>, </em><em>bool</em>) – whether to get uncertainty,
+if true, outputing PIs, if false, outputing means. Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the lower bound and the upper bound arrays of the predictive intervals for test data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>PIs (two numpy arrays)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.crmmd.CRMMD.load_model">
+<code class="sig-name descname">load_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span><span class="o">=</span><span class="default_value">PosixPath('model/checkpoint.pt')</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.crmmd.CRMMD.load_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load Pytorch model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model_path</strong> (<em>string</em><em> or </em><em>path</em>) – Path for loading model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.crmmd.CRMMD.save_model">
+<code class="sig-name descname">save_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_path</span><span class="o">=</span><span class="default_value">PosixPath('model/checkpoint.pt')</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.crmmd.CRMMD.save_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save pytorch model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model_path</strong> (<em>string</em><em> or </em><em>path</em>) – Path for saving model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-realseries.models.hnn">
+<span id="realseries-models-hnn-module"></span><h2>realseries.models.hnn module<a class="headerlink" href="#module-realseries.models.hnn" title="Permalink to this headline">¶</a></h2>
+<p>The models(HNN, Deep-ensemble, MC-dropout, CRMMD…) for time series forcasting and uncertainty prediction.</p>
+<dl class="py class">
+<dt id="realseries.models.hnn.HNN">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.hnn.</code><code class="sig-name descname">HNN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kernel_type</span><span class="o">=</span><span class="default_value">'LSTM'</span></em>, <em class="sig-param"><span class="n">input_size</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">hidden_sizes</span><span class="o">=</span><span class="default_value">[128, 64]</span></em>, <em class="sig-param"><span class="n">prediction_window_size</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">activation</span><span class="o">=</span><span class="default_value">'tanh'</span></em>, <em class="sig-param"><span class="n">dropout_rate</span><span class="o">=</span><span class="default_value">0.2</span></em>, <em class="sig-param"><span class="n">variance</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">lr</span><span class="o">=</span><span class="default_value">0.0002</span></em>, <em class="sig-param"><span class="n">weight_decay</span><span class="o">=</span><span class="default_value">0.001</span></em>, <em class="sig-param"><span class="n">grad_clip</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">epochs</span><span class="o">=</span><span class="default_value">200</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">1024</span></em>, <em class="sig-param"><span class="n">window_size</span><span class="o">=</span><span class="default_value">15</span></em>, <em class="sig-param"><span class="n">model_path</span><span class="o">=</span><span class="default_value">'./model'</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">1111</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.hnn.HNN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<p>HNN forecaster for uncertainty prediction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kernel_type</strong> (<em>str</em><em>, </em><em>optional</em>) – Type of recurrent net (RNN,
+LSTM, GRU). Defaults to ‘LSTM’.</p></li>
+<li><p><strong>input_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Size of rnn input features. Defaults to 128.</p></li>
+<li><p><strong>hidden_sizes</strong> (<em>list</em><em>, </em><em>optional</em>) – Number of hidden units per layer. Defaults to [128,64].</p></li>
+<li><p><strong>prediction_window_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Prediction window size. Defaults to 1.</p></li>
+<li><p><strong>activation</strong> (<em>str</em><em>,</em><em>optional</em>) – The activation func to use. Can be either <code class="docutils literal notranslate"><span class="pre">'tanh'</span></code> or <code class="docutils literal notranslate"><span class="pre">'relu'</span></code>. Default: <code class="docutils literal notranslate"><span class="pre">'relu'</span></code></p></li>
+<li><p><strong>dropout_rate</strong> (<em>float</em><em>, </em><em>optional</em>) – Defaults to 0.2.</p></li>
+<li><p><strong>variance</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to add a variance item at the last layer to indicate uncertainty. Default to True</p></li>
+<li><p><strong>lr</strong> (<em>float</em><em>, </em><em>optional</em>) – Learning rate. Defaults to 0.0002.</p></li>
+<li><p><strong>weight_decay</strong> (<em>float</em><em>, </em><em>optional</em>) – Weight decay. Defaults to 1e-4.</p></li>
+<li><p><strong>grad_clip</strong> (<em>int</em><em>, </em><em>optional</em>) – Gradient clipping. Defaults to 10.</p></li>
+<li><p><strong>epochs</strong> (<em>int</em><em>, </em><em>optional</em>) – Upper epoch limit. Defaults to 200.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Batch size. Defaults to 1024.</p></li>
+<li><p><strong>window_size</strong> (<em>int</em><em>, </em><em>optional</em>) – LSTM input sequence length. Defaults to 15.</p></li>
+<li><p><strong>model_path</strong> (<em>str</em><em>, </em><em>optional</em>) – The path to save or load model. Defaults to ‘./model’.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – Seed. Defaults to 1111.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="realseries.models.hnn.HNN.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#realseries.models.hnn.HNN.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>HNN model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.hnn.HNN.evaluation_model">
+<code class="sig-name descname">evaluation_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scaler</span></em>, <em class="sig-param"><span class="n">test_data</span></em>, <em class="sig-param"><span class="n">test_label</span></em>, <em class="sig-param"><span class="n">t</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">confidence</span><span class="o">=</span><span class="default_value">95</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.hnn.HNN.evaluation_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get predictive intervals and evaluation scores.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scaler</strong> – receive the scaler of data loader</p></li>
+<li><p><strong>test_data</strong> (<em>numpy array</em>) – The 3-D input sequence (n_samples,window_size,n_features)</p></li>
+<li><p><strong>test_label</strong> (<em>numpy array</em>) – The 2-D input sequence (n_samples,prediction_window_size)</p></li>
+<li><p><strong>t</strong> (<em>optional</em><em>, </em><em>int</em>) – the forecasting horizon, default to 1</p></li>
+<li><p><strong>confidence</strong> (<em>optional</em><em>, </em><em>int</em>) – the confidence of predictive intervals.
+Default to 95, output 95% predictive intervals.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the lower bound and the upper bound arrays of the predictive intervals for test data.
+rmse (float): the rmse score
+calibration error (float): the uncertainty evaluation score for test data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>PIs (two numpy arrays)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.hnn.HNN.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train_data</span></em>, <em class="sig-param"><span class="n">train_label</span></em>, <em class="sig-param"><span class="n">val_data</span></em>, <em class="sig-param"><span class="n">val_label</span></em>, <em class="sig-param"><span class="n">patience</span><span class="o">=</span><span class="default_value">50</span></em>, <em class="sig-param"><span class="n">delta</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.hnn.HNN.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the LSTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train_data</strong> (<em>numpy array</em>) – The 3-D input sequence (n_samples,window_size,n_features)</p></li>
+<li><p><strong>train_label</strong> (<em>numpy array</em>) – The 2-D input sequence (n_samples,prediction_window_size)</p></li>
+<li><p><strong>val_data</strong> (<em>numpy array</em>) – The 3-D input sequence (n_samples,window_size,n_features)</p></li>
+<li><p><strong>val_label</strong> (<em>numpy array</em>) – The 2-D input sequence (n_samples,prediction_window_size)</p></li>
+<li><p><strong>patience</strong> (<em>int</em><em>, </em><em>optional</em>) – Patience argument represents the number of
+epochs before stopping once your loss starts to increase (stops
+improving). Defaults to 10.</p></li>
+<li><p><strong>delta</strong> (<em>int</em><em>, </em><em>optional</em>) – A threshold to whether quantify a loss at
+some epoch as improvement or not. If the difference of loss is
+below delta, it is quantified as no improvement. Better to leave
+it as 0 since we’re interested in when loss becomes worse.
+Defaults to 0.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Verbose decides what to print. Defaults to
+True.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="id4">
+<code class="sig-name descname">model</code><a class="headerlink" href="#id4" title="Permalink to this definition">¶</a></dt>
+<dd><p>a trained model to save to model_path/checkpoint.pt.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.hnn.HNN.forecast">
+<code class="sig-name descname">forecast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scaler</span></em>, <em class="sig-param"><span class="n">test_data</span></em>, <em class="sig-param"><span class="n">t</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">confidence</span><span class="o">=</span><span class="default_value">95</span></em>, <em class="sig-param"><span class="n">is_uncertainty</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.hnn.HNN.forecast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get predictive intervals and evaluation scores.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scaler</strong> – receive the scaler of data loader</p></li>
+<li><p><strong>test_data</strong> (<em>numpy array</em>) – The 3-D input sequence (n_samples,window_size,n_features)</p></li>
+<li><p><strong>t</strong> (<em>optional</em><em>, </em><em>int</em>) – the forecasting horizon, default to 1</p></li>
+<li><p><strong>confidence</strong> (<em>optional</em><em>, </em><em>int</em>) – the confidence of predictive intervals.
+Default to 95, output 95% predictive intervals.</p></li>
+<li><p><strong>is_uncertainty</strong> (<em>optional</em><em>, </em><em>bool</em>) – whether to get uncertainty,
+if true, outputing PIs, if false, outputing means. Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the lower bound and the upper bound arrays of the predictive intervals for test data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>PIs (two numpy arrays)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.hnn.HNN.load_model">
+<code class="sig-name descname">load_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span><span class="o">=</span><span class="default_value">PosixPath('model/checkpoint.pt')</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.hnn.HNN.load_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load Pytorch model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model_path</strong> (<em>string</em><em> or </em><em>path</em>) – Path for loading model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.hnn.HNN.save_model">
+<code class="sig-name descname">save_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_path</span><span class="o">=</span><span class="default_value">PosixPath('model/checkpoint.pt')</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.hnn.HNN.save_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save pytorch model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model_path</strong> (<em>string</em><em> or </em><em>path</em>) – Path for saving model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-realseries.models.mc_dropout">
+<span id="realseries-models-mc-dropout-module"></span><h2>realseries.models.mc_dropout module<a class="headerlink" href="#module-realseries.models.mc_dropout" title="Permalink to this headline">¶</a></h2>
+<p>The models(HNN, Deep-ensemble, MC-dropout, CRMMD…) for time series forcasting and uncertainty prediction.</p>
+<dl class="py class">
+<dt id="realseries.models.mc_dropout.MC_dropout">
+<em class="property">class </em><code class="sig-prename descclassname">realseries.models.mc_dropout.</code><code class="sig-name descname">MC_dropout</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kernel_type</span><span class="o">=</span><span class="default_value">'LSTM'</span></em>, <em class="sig-param"><span class="n">input_size</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">hidden_sizes</span><span class="o">=</span><span class="default_value">[128, 64]</span></em>, <em class="sig-param"><span class="n">prediction_window_size</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">activation</span><span class="o">=</span><span class="default_value">'tanh'</span></em>, <em class="sig-param"><span class="n">dropout_rate</span><span class="o">=</span><span class="default_value">0.2</span></em>, <em class="sig-param"><span class="n">variance</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">lr</span><span class="o">=</span><span class="default_value">0.0002</span></em>, <em class="sig-param"><span class="n">weight_decay</span><span class="o">=</span><span class="default_value">0.001</span></em>, <em class="sig-param"><span class="n">grad_clip</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">epochs</span><span class="o">=</span><span class="default_value">200</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">1024</span></em>, <em class="sig-param"><span class="n">window_size</span><span class="o">=</span><span class="default_value">15</span></em>, <em class="sig-param"><span class="n">model_path</span><span class="o">=</span><span class="default_value">'./model'</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">1111</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.mc_dropout.MC_dropout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#realseries.models.base.BaseModel" title="realseries.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">realseries.models.base.BaseModel</span></code></a></p>
+<p>MC-dropout forecaster for uncertainty prediction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kernel_type</strong> (<em>str</em><em>, </em><em>optional</em>) – Type of recurrent net (RNN,
+LSTM, GRU). Defaults to ‘LSTM’.</p></li>
+<li><p><strong>input_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Size of rnn input features. Defaults to 128.</p></li>
+<li><p><strong>hidden_sizes</strong> (<em>list</em><em>, </em><em>optional</em>) – Number of hidden units per layer. Defaults to [128,64].</p></li>
+<li><p><strong>prediction_window_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Prediction window size. Defaults to 1.</p></li>
+<li><p><strong>activation</strong> (<em>str</em><em>,</em><em>optional</em>) – The activation func to use. Can be either <code class="docutils literal notranslate"><span class="pre">'tanh'</span></code> or <code class="docutils literal notranslate"><span class="pre">'relu'</span></code>. Default: <code class="docutils literal notranslate"><span class="pre">'relu'</span></code></p></li>
+<li><p><strong>dropout_rate</strong> (<em>float</em><em>, </em><em>optional</em>) – Defaults to 0.2.</p></li>
+<li><p><strong>variance</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to add a variance item at the last layer to indicate uncertainty. Default to True</p></li>
+<li><p><strong>lr</strong> (<em>float</em><em>, </em><em>optional</em>) – Learning rate. Defaults to 0.0002.</p></li>
+<li><p><strong>weight_decay</strong> (<em>float</em><em>, </em><em>optional</em>) – Weight decay. Defaults to 1e-4.</p></li>
+<li><p><strong>grad_clip</strong> (<em>int</em><em>, </em><em>optional</em>) – Gradient clipping. Defaults to 10.</p></li>
+<li><p><strong>epochs</strong> (<em>int</em><em>, </em><em>optional</em>) – Upper epoch limit. Defaults to 200.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Batch size. Defaults to 1024.</p></li>
+<li><p><strong>window_size</strong> (<em>int</em><em>, </em><em>optional</em>) – LSTM input sequence length. Defaults to 15.</p></li>
+<li><p><strong>model_path</strong> (<em>str</em><em>, </em><em>optional</em>) – The path to save or load model. Defaults to ‘./model’.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – Seed. Defaults to 1111.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="realseries.models.mc_dropout.MC_dropout.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#realseries.models.mc_dropout.MC_dropout.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>regular MC-dropout model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.mc_dropout.MC_dropout.evaluation_model">
+<code class="sig-name descname">evaluation_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scaler</span></em>, <em class="sig-param"><span class="n">test_data</span></em>, <em class="sig-param"><span class="n">test_label</span></em>, <em class="sig-param"><span class="n">t</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">confidence</span><span class="o">=</span><span class="default_value">95</span></em>, <em class="sig-param"><span class="n">mc_times</span><span class="o">=</span><span class="default_value">400</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.mc_dropout.MC_dropout.evaluation_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get predictive intervals and evaluation scores.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scaler</strong> – receive the scaler of data loader</p></li>
+<li><p><strong>test_data</strong> (<em>numpy array</em>) – The 3-D input sequence (n_samples,window_size,n_features)</p></li>
+<li><p><strong>test_label</strong> (<em>numpy array</em>) – The 2-D input sequence (n_samples,prediction_window_size)</p></li>
+<li><p><strong>t</strong> (<em>optional</em><em>, </em><em>int</em>) – the forecasting horizon, default to 1</p></li>
+<li><p><strong>confidence</strong> (<em>optional</em><em>, </em><em>int</em>) – the confidence of predictive intervals.
+Default to 95, output 95% predictive intervals.</p></li>
+<li><p><strong>mc_times</strong> (<em>optional</em><em>, </em><em>int</em>) – the sampling times of MC dropout, Default to 400</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the lower bound and the upper bound arrays of the predictive intervals for test data.
+rmse (float): the rmse score
+calibration error (float): the uncertainty evaluation score for test data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>PIs (two numpy arrays)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.mc_dropout.MC_dropout.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train_data</span></em>, <em class="sig-param"><span class="n">train_label</span></em>, <em class="sig-param"><span class="n">val_data</span></em>, <em class="sig-param"><span class="n">val_label</span></em>, <em class="sig-param"><span class="n">monitor</span><span class="o">=</span><span class="default_value">'val_loss'</span></em>, <em class="sig-param"><span class="n">patience</span><span class="o">=</span><span class="default_value">50</span></em>, <em class="sig-param"><span class="n">delta</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.mc_dropout.MC_dropout.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the LSTM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train_data</strong> (<em>numpy array</em>) – The 3-D input sequence (n_samples,window_size,n_features)</p></li>
+<li><p><strong>train_label</strong> (<em>numpy array</em>) – The 2-D input sequence (n_samples,prediction_window_size)</p></li>
+<li><p><strong>val_data</strong> (<em>numpy array</em>) – The 3-D input sequence (n_samples,window_size,n_features)</p></li>
+<li><p><strong>val_label</strong> (<em>numpy array</em>) – The 2-D input sequence (n_samples,prediction_window_size)</p></li>
+<li><p><strong>patience</strong> (<em>int</em><em>, </em><em>optional</em>) – Patience argument represents the number of
+epochs before stopping once your loss starts to increase (stops
+improving). Defaults to 10.</p></li>
+<li><p><strong>delta</strong> (<em>int</em><em>, </em><em>optional</em>) – A threshold to whether quantify a loss at
+some epoch as improvement or not. If the difference of loss is
+below delta, it is quantified as no improvement. Better to leave
+it as 0 since we’re interested in when loss becomes worse.
+Defaults to 0.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Verbose decides what to print. Defaults to
+True.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="id5">
+<code class="sig-name descname">model</code><a class="headerlink" href="#id5" title="Permalink to this definition">¶</a></dt>
+<dd><p>a trained model to save to model_path/checkpoint.pt.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.mc_dropout.MC_dropout.forecast">
+<code class="sig-name descname">forecast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scaler</span></em>, <em class="sig-param"><span class="n">test_data</span></em>, <em class="sig-param"><span class="n">t</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">confidence</span><span class="o">=</span><span class="default_value">95</span></em>, <em class="sig-param"><span class="n">mc_times</span><span class="o">=</span><span class="default_value">400</span></em>, <em class="sig-param"><span class="n">is_uncertainty</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.mc_dropout.MC_dropout.forecast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get predictive intervals and evaluation scores.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scaler</strong> – receive the scaler of data loader</p></li>
+<li><p><strong>test_data</strong> (<em>numpy array</em>) – The 3-D input sequence (n_samples,window_size,n_features)</p></li>
+<li><p><strong>t</strong> (<em>optional</em><em>, </em><em>int</em>) – the forecasting horizon, default to 1</p></li>
+<li><p><strong>confidence</strong> (<em>optional</em><em>, </em><em>int</em>) – the confidence of predictive intervals.
+Default to 95, output 95% predictive intervals.</p></li>
+<li><p><strong>mc_times</strong> (<em>optional</em><em>, </em><em>int</em>) – the sampling times of MC dropout, Default to 400</p></li>
+<li><p><strong>is_uncertainty</strong> (<em>optional</em><em>, </em><em>bool</em>) – whether to get uncertainty,
+if true, outputing PIs, if false, outputing means. Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the lower bound and the upper bound arrays of the predictive intervals for test data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>PIs (two numpy arrays)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.mc_dropout.MC_dropout.load_model">
+<code class="sig-name descname">load_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span><span class="o">=</span><span class="default_value">PosixPath('model/checkpoint.pt')</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.mc_dropout.MC_dropout.load_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load Pytorch model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model_path</strong> (<em>string</em><em> or </em><em>path</em>) – Path for loading model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="realseries.models.mc_dropout.MC_dropout.save_model">
+<code class="sig-name descname">save_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_path</span><span class="o">=</span><span class="default_value">PosixPath('model/checkpoint.pt')</span></em><span class="sig-paren">)</span><a class="headerlink" href="#realseries.models.mc_dropout.MC_dropout.save_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save pytorch model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model_path</strong> (<em>string</em><em> or </em><em>path</em>) – Path for saving model.</p>
 </dd>
 </dl>
 </dd></dl>
